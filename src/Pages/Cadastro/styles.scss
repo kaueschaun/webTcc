@@ -1,0 +1,231 @@
+@import "../../assets/helpers/variables";
+@import "../../reset.scss";
+.containerAll {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6ab4b9;
+    h1 {
+      font-size: 40px;
+      font-style: italic;
+      color: $secundary-bg-color;
+      font-family: $open-sans;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .content-input {
+      width: 100%;
+      height: 350px;
+      display: flex;
+      flex-flow: column wrap;
+      @media (max-width: 991px) {
+        height: 100vh;
+      }
+      .content-fields {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        background-color: $secundary-bg-color;
+        margin: 20px;
+        .field-input {
+          border: none;
+          height: 100%;
+          width: 75%;
+          margin-left: 10px;
+          padding-left: 2px;
+          padding: 0;
+          background-color: $secundary-bg-color;
+        }
+        .title-input {
+          max-width: 90px;
+          justify-content: center;
+          color: $primary-color;
+          font-weight: bold;
+          font-family: $open-sans;
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+}
+// #container {
+//   margin-top: -15px;
+//   width: 100%;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   justify-content: space-between;
+//   flex-direction: column;
+//   display: flex;
+//   height: 699px;
+//   background-color: #6ab4b9;
+// }
+
+// #Title {
+//   flex-direction: row;
+//   color: #6ab4b9;
+//   font-weight: bold;
+//   font-size: 18px;
+//   font-family: sans-serif;
+// }
+
+// #cont {
+//   width: 100%;
+//   height: 700px;
+// }
+// #txtCad {
+//   padding-top: 10px;
+//   font-size: 16px;
+//   height: 20px;
+//   width: 200px;
+//   text-align: center;
+//   align-items: center;
+//   background-color: #ffffff;
+//   color: #6ab4b9;
+//   font-family: sans-serif;
+// }
+
+// #input {
+//   border-top: none;
+//   border-left: none;
+//   border-right: none;
+//   border-width: 2px;
+//   width: 250px;
+//   height: 20px;
+//   margin-bottom: 15px;
+//   border-bottom-color: white;
+//   background-color: #6ab4b9;
+// }
+// #inputSenha {
+//   margin-top: -80px;
+//   border-top: none;
+//   border-left: none;
+//   border-right: none;
+//   border-width: 2px;
+//   width: 250px;
+//   height: 20px;
+//   margin-bottom: -10px;
+//   border-bottom-color: white;
+//   background-color: #6ab4b9;
+// }
+// #inputEndereco {
+//   border-top: none;
+//   border-left: none;
+//   border-right: none;
+//   border-width: 2px;
+//   width: 250px;
+//   height: 20px;
+//   margin-bottom: 100px;
+//   border-bottom-color: white;
+//   background-color: #6ab4b9;
+// }
+// #txtNome {
+//   margin-top: 50px;
+//   font-size: 16px;
+//   height: 20px;
+//   width: 200px;
+//   text-align: center;
+//   align-items: center;
+//   background-color: #ffffff;
+//   color: #6ab4b9;
+//   font-family: sans-serif;
+// }
+// #txtNumero {
+//   margin-top: 50px;
+//   font-size: 16px;
+//   height: 20px;
+//   width: 200px;
+//   text-align: center;
+//   align-items: center;
+//   background-color: #ffffff;
+//   color: #6ab4b9;
+//   font-family: sans-serif;
+// }
+// #inputNumero {
+//   margin-top: -80px;
+//   border-top: none;
+//   border-left: none;
+//   border-right: none;
+//   border-width: 2px;
+//   width: 250px;
+
+//   height: 20px;
+//   border-bottom-color: white;
+//   background-color: #6ab4b9;
+// }
+// #inputAd {
+//   margin-top: -80px;
+//   border-top: none;
+//   border-left: none;
+//   border-right: none;
+//   border-width: 2px;
+//   width: 250px;
+//   height: 20px;
+//   border-bottom-color: white;
+//   background-color: #6ab4b9;
+// }
+// #txtAd {
+//   margin-top: -20px;
+//   font-size: 16px;
+//   height: 20px;
+//   width: 200px;
+//   text-align: center;
+//   align-items: center;
+//   background-color: #ffffff;
+//   color: #6ab4b9;
+//   font-family: sans-serif;
+// }
+// #txtTel {
+//   margin-top: -20px;
+//   font-size: 16px;
+//   height: 20px;
+//   width: 200px;
+//   text-align: center;
+//   align-items: center;
+//   background-color: #ffffff;
+//   color: #6ab4b9;
+//   font-family: sans-serif;
+// }
+// #inputTel {
+//   margin-top: -80px;
+//   border-top: none;
+//   border-left: none;
+//   border-right: none;
+//   border-width: 2px;
+//   width: 250px;
+//   height: 20px;
+//   border-bottom-color: white;
+//   background-color: #6ab4b9;
+// }
+// #txtSen {
+//   margin-top: -20px;
+//   font-size: 16px;
+//   height: 20px;
+//   width: 200px;
+//   text-align: center;
+//   align-items: center;
+//   background-color: #ffffff;
+//   color: #6ab4b9;
+//   font-family: sans-serif;
+// }
+
+// #btnCad {
+//   margin-top: -30px;
+//   color: #6ab4b9;
+//   border: none;
+//   border-color: white;
+//   background-color: white;
+//   height: 35px;
+//   border-radius: 30px;
+//   width: 250px;
+//   font-size: 18px;
+//   margin-bottom: 20px;
+// }
