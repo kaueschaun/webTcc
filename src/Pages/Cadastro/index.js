@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import "./styles.scss";
 import "./../../Header.js";
 import MaskedInput from "react-text-mask";
+import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
+// import InputMask from "react-input-mask";
+import "../../../src/masked.js";
 import api from "../../services/api";
 import Header from "./../../Header.js";
 
@@ -19,6 +22,8 @@ export default function Cadastro() {
   const [horas_mensais, setHoras_mensais] = useState("");
   const [setor, setSetor] = useState("");
   const [senha, setSenha] = useState("");
+  //const [cpfCnpj, setCpfCnpj] = useState("");
+  const [mask, setMask] = useState("");
   const history = useHistory();
 
   async function handleRegister(e) {
@@ -102,61 +107,138 @@ export default function Cadastro() {
   return (
     <div class="containerAll">
       <Header />
-
-      <div class="container">
+      <section class="container">
         <h1 class="title">Cadastro</h1>
 
-        <div class="content-input">
+        <div class="content-one">
+          <div class="content-input">
+            <div class="content-fields">
+              <p class="title-input">Nome Completo:</p>
+              <input
+                class="field-input"
+                onChange={(e) => setNome(e.target.value)}
+              ></input>
+            </div>
+
+            <div class="content-fields">
+              <p class="title-input">CPF:</p>
+              <CpfCnpj
+                className="field-input"
+                maxLength="14"
+                value={cpf}
+                onChange={(event, type) => {
+                  setCpf(event.target.value);
+                  setMask(type === "CPF");
+                }}
+              />
+            </div>
+            <div class="content-fields">
+              <p class="title-input">Data de Nascimento:</p>
+
+              <MaskedInput
+                class="field-input"
+                onChange={(e) => setData_nasc(e.target.value)}
+                mask={[
+                  /[0-9]/,
+                  /[0-9]/,
+                  "/",
+                  /[0-9]/,
+                  /[0-9]/,
+                  "/",
+                  /[0-9]/,
+                  /[0-9]/,
+                  /[0-9]/,
+                  /[0-9]/,
+                ]}
+              />
+            </div>
+            <div class="content-fields">
+              <p class="title-input">E-mail:</p>
+              <input
+                class="field-input"
+                onChange={(e) => setEmail(e.target.value)}
+              ></input>
+            </div>
+          </div>
+        </div>
+        <div class="content-two">
           <div class="content-fields">
-            <p class="title-input">Nome Completo:</p>
-            <input class="field-input"></input>
+            <p class="title-input">Endereço:</p>
+            <input
+              class="field-input"
+              onChange={(e) => setEndereco(e.target.value)}
+            ></input>
+          </div>
+          <div class="content-fields-inputs">
+            <div class="content-num content-fields">
+              <p class="title-input">Número:</p>
+
+              <input
+                class="field-input"
+                onChange={(e) => setNumero(e.target.value)}
+              ></input>
+            </div>
+            <div class="content-admissao content-fields">
+              <p class="title-input">Data de Admissão:</p>
+              <MaskedInput
+                class="field-input"
+                onChange={(e) => setAdmissao(e.target.value)}
+                mask={[
+                  /[0-9]/,
+                  /[0-9]/,
+                  "/",
+                  /[0-9]/,
+                  /[0-9]/,
+                  "/",
+                  /[0-9]/,
+                  /[0-9]/,
+                  /[0-9]/,
+                  /[0-9]/,
+                ]}
+              />
+            </div>
+          </div>
+
+          <div class="content-fields-inputs">
+            <div class="content-fields">
+              <p class="title-input">Setor:</p>
+              <input
+                class="field-input"
+                onChange={(e) => setSetor(e.target.value)}
+              ></input>
+            </div>
+
+            <div class="content-fields">
+              <p class="title-input">Horas Mensais:</p>
+              <input
+                class="field-input"
+                onChange={(e) => setHoras_mensais(e.target.value)}
+              ></input>
+            </div>
           </div>
 
           <div class="content-fields">
-            <p class="title-input">CPF:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
-            <p class="title-input">Data de Nascimento:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
-            <p class="title-input">E-mail:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
-            <p class="title-input">Endereço:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
-            <p class="title-input">Número:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
-            <p class="title-input">Data de Admissão:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
-            <p class="title-input">Setor:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
-            <p class="title-input">Horas Mensais:</p>
-            <input class="field-input"></input>
-          </div>
-          <div class="content-fields">
             <p class="title-input">Telefone Celular:</p>
-            <input class="field-input"></input>
+            <input
+              class="field-input"
+              onChange={(e) => setTelefone(e.target.value)}
+              maxLength="11"
+            ></input>
           </div>
           <div class="content-fields">
             <p class="title-input">Senha:</p>
-            <input class="field-input"></input>
+            <input
+              class="field-input"
+              type="password"
+              onChange={(e) => setSenha(e.target.value)}
+            ></input>
           </div>
         </div>
+
         <div class="contentButton">
-          <button>CADASTRAR</button>
+          <button class="btn">Cadastrar</button>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+// import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
 import "./styles.scss";
 
 //import Header from '../../Header';
@@ -11,6 +12,7 @@ import api from "../../services/api";
 export default function Login() {
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
+  const [mask, setMask] = useState("");
   const history = useHistory();
 
   async function handleLogin() {
@@ -21,13 +23,7 @@ export default function Login() {
     api
       .post("/colaboradores/login", payload)
       .then(({ data }) => {
-        console.log("entrou no then");
-
-        if (data.setor === "Administração") {
-          history.push("/cadastro");
-        } else {
-          alert("Acesso apenas para administrador!");
-        }
+        history.push("/cadastro");
       })
       .catch((err) => alert("Senha ou CPF Incorreto"));
   }
@@ -67,12 +63,23 @@ export default function Login() {
               maxLength="11"
               onChange={(e) => setCpf(e.target.value)}
             />
+            {/* <CpfCnpj
+              id="cpf"
+              maxLength="14"
+              placeholder="CPF"
+              value={cpf}
+              onChange={(event, type) => {
+                setCpf(event.target.value);
+                setMask(type === "CPF");
+              }}
+            /> */}
 
             <input
               id="senha"
               type="password"
               placeholder="SENHA"
               value={senha}
+              maxLength="8"
               onChange={(e) => setSenha(e.target.value)}
             />
 

@@ -1,9 +1,33 @@
 @import "../../assets/helpers/variables";
 @import "../../reset.scss";
+
+#hamburgue {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+}
+.class-1 {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  display: flex;
+  position: fixed;
+  top: 50px;
+  transition: all 0.5 ease;
+}
+.class-2 {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  display: flex;
+  position: fixed;
+  top: -250px;
+  transition: all 0.5 ease;
+}
 .containerAll {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  //overflow: hidden;
 
   .container {
     width: 100%;
@@ -13,36 +37,89 @@
     justify-content: center;
     align-items: center;
     background-color: #6ab4b9;
+    @media (max-width: 1180px) {
+      flex-flow: column;
+    }
+    @media (max-width: 420px) {
+      height: auto;
+    }
+
     h1 {
-      font-size: 40px;
+      font-size: 35px;
       font-style: italic;
       color: $secundary-bg-color;
       font-family: $open-sans;
       font-weight: bold;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
+      @media (max-width: 412px) {
+        margin-top: 45px;
+      }
     }
-    .content-input {
-      width: 100%;
-      height: 350px;
-      display: flex;
-      flex-flow: column wrap;
-      @media (max-width: 991px) {
-        height: 100vh;
+    .content-one,
+    .content-two {
+      width: 60%;
+      @media (max-width: 1180px) and (min-width: 541px) {
+        width: 85%;
+        flex-flow: column;
+      }
+      @media (max-width: 1500px) {
+        width: 80%;
+        flex-flow: column;
+      }
+      @media (max-width: 540px) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .content-fields-inputs {
+        @media (max-width: 420px) {
+          width: 100%;
+          display: flex;
+          flex-flow: column;
+        }
+
+        justify-content: space-between;
+        display: flex;
+
+        .content-fields {
+          @media (min-width: 421px) {
+            width: 75%;
+          }
+        }
+      }
+      .content-input {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        flex-flow: column wrap;
+
+        @media (max-width: 991px) and (min-width: 590px) {
+          display: flex;
+        }
       }
       .content-fields {
-        height: 40px;
+        height: 35px;
         display: flex;
         align-items: center;
-        border-radius: 5px;
+        border-radius: 20px;
         background-color: $secundary-bg-color;
         margin: 20px;
+
+        .content-num,
+        .content-admissao {
+          width: 45%;
+        }
+
         .field-input {
           border: none;
           height: 100%;
-          width: 75%;
-          margin-left: 10px;
+          width: 100%;
+          margin-left: 12px;
+          border-radius: 20px;
           padding-left: 2px;
           padding: 0;
+          outline: 0;
+          box-shadow: 0;
           background-color: $secundary-bg-color;
         }
         .title-input {
@@ -51,181 +128,32 @@
           color: $primary-color;
           font-weight: bold;
           font-family: $open-sans;
-          margin-left: 40px;
+          margin-left: 10px;
+          @media (max-width: 1180px) and (min-width: 541px) {
+            font-size: 14px;
+            width: 85%;
+            flex-flow: column;
+          }
+          @media (max-width: 540px) {
+            margin-right: 5px;
+            font-size: 13px;
+          }
         }
+      }
+    }
+    .btn {
+      margin-top: 12px;
+      width: 300px;
+      height: 40px;
+      font-size: 20px;
+      border-radius: 10px;
+      font-family: $open-sans;
+      border: none;
+      color: $primary-color;
+      background-color: $secundary-bg-color;
+      @media (max-width: 412px) {
+        margin-bottom: 45px;
       }
     }
   }
 }
-// #container {
-//   margin-top: -15px;
-//   width: 100%;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   justify-content: space-between;
-//   flex-direction: column;
-//   display: flex;
-//   height: 699px;
-//   background-color: #6ab4b9;
-// }
-
-// #Title {
-//   flex-direction: row;
-//   color: #6ab4b9;
-//   font-weight: bold;
-//   font-size: 18px;
-//   font-family: sans-serif;
-// }
-
-// #cont {
-//   width: 100%;
-//   height: 700px;
-// }
-// #txtCad {
-//   padding-top: 10px;
-//   font-size: 16px;
-//   height: 20px;
-//   width: 200px;
-//   text-align: center;
-//   align-items: center;
-//   background-color: #ffffff;
-//   color: #6ab4b9;
-//   font-family: sans-serif;
-// }
-
-// #input {
-//   border-top: none;
-//   border-left: none;
-//   border-right: none;
-//   border-width: 2px;
-//   width: 250px;
-//   height: 20px;
-//   margin-bottom: 15px;
-//   border-bottom-color: white;
-//   background-color: #6ab4b9;
-// }
-// #inputSenha {
-//   margin-top: -80px;
-//   border-top: none;
-//   border-left: none;
-//   border-right: none;
-//   border-width: 2px;
-//   width: 250px;
-//   height: 20px;
-//   margin-bottom: -10px;
-//   border-bottom-color: white;
-//   background-color: #6ab4b9;
-// }
-// #inputEndereco {
-//   border-top: none;
-//   border-left: none;
-//   border-right: none;
-//   border-width: 2px;
-//   width: 250px;
-//   height: 20px;
-//   margin-bottom: 100px;
-//   border-bottom-color: white;
-//   background-color: #6ab4b9;
-// }
-// #txtNome {
-//   margin-top: 50px;
-//   font-size: 16px;
-//   height: 20px;
-//   width: 200px;
-//   text-align: center;
-//   align-items: center;
-//   background-color: #ffffff;
-//   color: #6ab4b9;
-//   font-family: sans-serif;
-// }
-// #txtNumero {
-//   margin-top: 50px;
-//   font-size: 16px;
-//   height: 20px;
-//   width: 200px;
-//   text-align: center;
-//   align-items: center;
-//   background-color: #ffffff;
-//   color: #6ab4b9;
-//   font-family: sans-serif;
-// }
-// #inputNumero {
-//   margin-top: -80px;
-//   border-top: none;
-//   border-left: none;
-//   border-right: none;
-//   border-width: 2px;
-//   width: 250px;
-
-//   height: 20px;
-//   border-bottom-color: white;
-//   background-color: #6ab4b9;
-// }
-// #inputAd {
-//   margin-top: -80px;
-//   border-top: none;
-//   border-left: none;
-//   border-right: none;
-//   border-width: 2px;
-//   width: 250px;
-//   height: 20px;
-//   border-bottom-color: white;
-//   background-color: #6ab4b9;
-// }
-// #txtAd {
-//   margin-top: -20px;
-//   font-size: 16px;
-//   height: 20px;
-//   width: 200px;
-//   text-align: center;
-//   align-items: center;
-//   background-color: #ffffff;
-//   color: #6ab4b9;
-//   font-family: sans-serif;
-// }
-// #txtTel {
-//   margin-top: -20px;
-//   font-size: 16px;
-//   height: 20px;
-//   width: 200px;
-//   text-align: center;
-//   align-items: center;
-//   background-color: #ffffff;
-//   color: #6ab4b9;
-//   font-family: sans-serif;
-// }
-// #inputTel {
-//   margin-top: -80px;
-//   border-top: none;
-//   border-left: none;
-//   border-right: none;
-//   border-width: 2px;
-//   width: 250px;
-//   height: 20px;
-//   border-bottom-color: white;
-//   background-color: #6ab4b9;
-// }
-// #txtSen {
-//   margin-top: -20px;
-//   font-size: 16px;
-//   height: 20px;
-//   width: 200px;
-//   text-align: center;
-//   align-items: center;
-//   background-color: #ffffff;
-//   color: #6ab4b9;
-//   font-family: sans-serif;
-// }
-
-// #btnCad {
-//   margin-top: -30px;
-//   color: #6ab4b9;
-//   border: none;
-//   border-color: white;
-//   background-color: white;
-//   height: 35px;
-//   border-radius: 30px;
-//   width: 250px;
-//   font-size: 18px;
-//   margin-bottom: 20px;
-// }
