@@ -1,5 +1,3 @@
-@import "../../assets/helpers/variables";
-
 #contAll {
   height: 100vh;
   overflow: hidden;
@@ -61,7 +59,18 @@
   font-family: sans-serif;
   color: #fff;
 }
-
+#cpf {
+  color: white;
+  background-color: #6ab4b9;
+  border: 1px solid #fff;
+  color: white;
+  width: 300px;
+  height: 30px;
+  flex-flow: column;
+  text-align: center;
+  margin-bottom: 15px;
+  border-radius: 30px;
+}
 #h1Adm {
   font-weight: bold;
   margin-left: 7px;
@@ -111,15 +120,4 @@
 #form {
   display: flex;
   flex-direction: column;
-}
-.input-field {
-  background-color: #6ab4b9;
-  border: 1px solid #fff;
-  color: white;
-  width: 300px;
-  margin-bottom: 5px;
-  height: 30px;
-  flex-flow: column;
-  text-align: center;
-  border-radius: 30px;
 }

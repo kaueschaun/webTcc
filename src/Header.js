@@ -2,7 +2,6 @@ import React from "react";
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import logoImg from "./assets/logo.png";
-import profileImg from "./assets/profile.png";
 
 class Header extends Component {
   // constructor(props) {
@@ -21,12 +20,8 @@ class Header extends Component {
         <div className={canChange ? "class-1" : "class-2"}></div>
 
         <ul class="list">
-          <img src={logoImg}></img>
-          <button
-            id="hamburgue"
-            type="button"
-            // onClick={() => handleClick()}
-          ></button>
+          <img src={logoImg} alt="Logo" />
+
           <li class="nav">
             <NavLink
               class="nav-link"
@@ -54,7 +49,7 @@ class Header extends Component {
               exact
               to="/solicitacao"
             >
-              Solcitações
+              Solicitações
             </NavLink>
           </li>
 
@@ -65,11 +60,8 @@ class Header extends Component {
               exact
               to="/conta"
             >
-              Conta
+              Perfil
             </NavLink>
-          </li>
-          <li class="nav">
-            <img src={profileImg}></img>
           </li>
         </ul>
       </div>

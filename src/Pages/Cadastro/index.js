@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import "./styles.scss";
 import "./../../Header.js";
 import MaskedInput from "react-text-mask";
-import CpfCnpj from "@react-br-forms/cpf-cnpj-mask";
-// import InputMask from "react-input-mask";
-import "../../../src/masked.js";
+import InputMask from "../../MaskedInput";
 import api from "../../services/api";
 import Header from "./../../Header.js";
 
@@ -22,8 +20,6 @@ export default function Cadastro() {
   const [horas_mensais, setHoras_mensais] = useState("");
   const [setor, setSetor] = useState("");
   const [senha, setSenha] = useState("");
-  //const [cpfCnpj, setCpfCnpj] = useState("");
-  const [mask, setMask] = useState("");
   const history = useHistory();
 
   async function handleRegister(e) {
@@ -48,7 +44,7 @@ export default function Cadastro() {
       senha,
     };
     console.log(dados);
-
+    console.log(token);
     if (nome_completo.indexOf(" ") === -1) {
       alert("Inserir nome completo");
       setNome("");
@@ -86,6 +82,7 @@ export default function Cadastro() {
       (horas_mensais !== "") &
       (senha !== "")
     ) {
+      console.log(token);
       try {
         await api.post("/colaboradores", dados, {
           headers: {
@@ -97,15 +94,16 @@ export default function Cadastro() {
         history.push("/");
       } catch (err) {
         console.log(err);
+
         alert("Por favor, tente novamente.");
       }
     } else {
       alert("Por favor preencher os campos corretamente.");
     }
   }
-
+  console.log(cpf);
   return (
-    <div class="containerAll">
+    <form class="containerAll" onSubmit={handleRegister}>
       <Header />
       <section class="container">
         <h1 class="title">Cadastro</h1>
@@ -114,21 +112,20 @@ export default function Cadastro() {
           <div class="content-input">
             <div class="content-fields">
               <p class="title-input">Nome Completo:</p>
+
               <input
                 class="field-input"
                 onChange={(e) => setNome(e.target.value)}
-              ></input>
+              />
             </div>
 
             <div class="content-fields">
               <p class="title-input">CPF:</p>
-              <CpfCnpj
-                className="field-input"
-                maxLength="14"
+              <InputMask
+                class="field-input"
                 value={cpf}
-                onChange={(event, type) => {
+                onChange={(event) => {
                   setCpf(event.target.value);
-                  setMask(type === "CPF");
                 }}
               />
             </div>
@@ -157,7 +154,7 @@ export default function Cadastro() {
               <input
                 class="field-input"
                 onChange={(e) => setEmail(e.target.value)}
-              ></input>
+              />
             </div>
           </div>
         </div>
@@ -167,7 +164,7 @@ export default function Cadastro() {
             <input
               class="field-input"
               onChange={(e) => setEndereco(e.target.value)}
-            ></input>
+            />
           </div>
           <div class="content-fields-inputs">
             <div class="content-num content-fields">
@@ -176,7 +173,7 @@ export default function Cadastro() {
               <input
                 class="field-input"
                 onChange={(e) => setNumero(e.target.value)}
-              ></input>
+              />
             </div>
             <div class="content-admissao content-fields">
               <p class="title-input">Data de Admissão:</p>
@@ -205,7 +202,7 @@ export default function Cadastro() {
               <input
                 class="field-input"
                 onChange={(e) => setSetor(e.target.value)}
-              ></input>
+              />
             </div>
 
             <div class="content-fields">
@@ -213,7 +210,7 @@ export default function Cadastro() {
               <input
                 class="field-input"
                 onChange={(e) => setHoras_mensais(e.target.value)}
-              ></input>
+              />
             </div>
           </div>
 
@@ -223,7 +220,7 @@ export default function Cadastro() {
               class="field-input"
               onChange={(e) => setTelefone(e.target.value)}
               maxLength="11"
-            ></input>
+            />
           </div>
           <div class="content-fields">
             <p class="title-input">Senha:</p>
@@ -231,121 +228,13 @@ export default function Cadastro() {
               class="field-input"
               type="password"
               onChange={(e) => setSenha(e.target.value)}
-            ></input>
+            />
           </div>
         </div>
-
         <div class="contentButton">
           <button class="btn">Cadastrar</button>
         </div>
       </section>
-    </div>
+    </form>
   );
 }
-
-//    return (
-//     <div id="cont">
-//       <ul class="nav justify-content-end">
-//         <h1 id="Title">Cadastro de Colaborador</h1>
-//       </ul>
-//       <form id="container" onSubmit={handleRegister}>
-//         <p id="txtNome">Nome completo</p>
-//         <input
-//           id="input"
-//           placeholder="Nome Completo"
-//           onChange={(e) => setNome(e.target.value)}
-//         />
-//         <p id="txtCad">CPF</p>
-//         <input
-//           id="input"
-//           placeholder="CPF"
-//           onChange={(e) => setCpf(e.target.value)}
-//           maxLength="11"
-//         />
-//         <p id="txtCad">Data de Nascimento</p>
-//         <MaskedInput
-//           id="input"
-//           placeholder="Data de Nascimento"
-//           onChange={(e) => setData_nasc(e.target.value)}
-//           mask={[
-//             /[0-9]/,
-//             /[0-9]/,
-//             "/",
-//             /[0-9]/,
-//             /[0-9]/,
-//             "/",
-//             /[0-9]/,
-//             /[0-9]/,
-//             /[0-9]/,
-//             /[0-9]/,
-//           ]}
-//         />
-//         <p id="txtCad">E-mail</p>
-//         <input
-//           id="input"
-//           placeholder="E-mail"
-//           onChange={(e) => setEmail(e.target.value)}
-//         />
-
-//         <p id="txtCad">Endereço</p>
-//         <input
-//           id="inputEndereco"
-//           placeholder="Endereço"
-//           onChange={(e) => setEndereco(e.target.value)}
-//         />
-
-//         <p id="txtNumero">Número</p>
-//         <input
-//           id="inputNumero"
-//           placeholder="Número"
-//           onChange={(e) => setNumero(e.target.value)}
-//         />
-//         <p id="txtAd">Data de Admissão</p>
-//         <MaskedInput
-//           id="inputAd"
-//           placeholder="Data de Admissão"
-//           onChange={(e) => setAdmissao(e.target.value)}
-//           mask={[
-//             /[0-9]/,
-//             /[0-9]/,
-//             "/",
-//             /[0-9]/,
-//             /[0-9]/,
-//             "/",
-//             /[0-9]/,
-//             /[0-9]/,
-//             /[0-9]/,
-//             /[0-9]/,
-//           ]}
-//         />
-//         <p id="txtAd">Setor</p>
-//         <input
-//           id="inputAd"
-//           placeholder="Setor"
-//           onChange={(e) => setSetor(e.target.value)}
-//         />
-//         <p id="txtAd">Horas Mensais</p>
-//         <input
-//           id="inputAd"
-//           placeholder="Horas Mensais"
-//           onChange={(e) => setHoras_mensais(e.target.value)}
-//         />
-//         <p id="txtTel">Telefone Celular</p>
-//         <input
-//           id="inputTel"
-//           placeholder="Telefone"
-//           onChange={(e) => setTelefone(e.target.value)}
-//           maxLength="11"
-//         />
-//         <p id="txtSen">Senha</p>
-//         <input
-//           id="inputSenha"
-//           placeholder="Senha"
-//           type="password"
-//           onChange={(e) => setSenha(e.target.value)}
-//         />
-//         <button id="btnCad">Cadastrar</button>
-//       </form>
-//     </div>
-//   );
-//  }

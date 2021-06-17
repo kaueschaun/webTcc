@@ -1,11 +1,6 @@
 @import "../../assets/helpers/variables";
 @import "../../reset.scss";
 
-#hamburgue {
-  width: 50px;
-  height: 50px;
-  background-color: black;
-}
 .class-1 {
   width: 100px;
   height: 100px;
@@ -39,6 +34,13 @@
     background-color: #6ab4b9;
     @media (max-width: 1180px) {
       flex-flow: column;
+    }
+
+    @media screen and (max-width: 1366px) and (min-width: 422px) {
+      height: auto;
+      .title {
+        margin-top: 100px;
+      }
     }
     @media (max-width: 420px) {
       height: auto;
@@ -109,19 +111,6 @@
         .content-admissao {
           width: 45%;
         }
-
-        .field-input {
-          border: none;
-          height: 100%;
-          width: 100%;
-          margin-left: 12px;
-          border-radius: 20px;
-          padding-left: 2px;
-          padding: 0;
-          outline: 0;
-          box-shadow: 0;
-          background-color: $secundary-bg-color;
-        }
         .title-input {
           max-width: 90px;
           justify-content: center;
@@ -139,6 +128,18 @@
             font-size: 13px;
           }
         }
+        .field-input {
+          border: none;
+          height: 100%;
+          width: 100%;
+          margin-left: 12px;
+          border-radius: 20px;
+          padding-left: 2px;
+          padding: 0;
+          outline: 0;
+          box-shadow: 0;
+          background-color: $secundary-bg-color;
+        }
       }
     }
     .btn {
@@ -151,8 +152,14 @@
       border: none;
       color: $primary-color;
       background-color: $secundary-bg-color;
+      @media screen and (max-width: 1366px) and (min-width: 422px) {
+        margin-bottom: 40px;
+      }
       @media (max-width: 412px) {
         margin-bottom: 45px;
+        .btn {
+          margin-bottom: 40px;
+        }
       }
     }
   }
