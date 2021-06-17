@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./styles.scss";
 
-//import Header from '../../Header';
-import MaskInput from "../../InputMasked";
 import logo2 from "../../assets/logo2.png";
 import logoImg from "../../assets/logo.png";
 import api from "../../services/api";
@@ -19,11 +17,11 @@ export default function Login() {
       senha,
     };
     api
-      .post("/colaboradores/login", payload)
+      .post("/colaboradores/login/colaborador", payload)
       .then(({ data }) => {
         console.log("entrou no then" + data);
-        localStorage.setItem("admin_token", data.token);
-        history.push("/cadastro");
+        localStorage.setItem("token", data.token);
+        history.push("/solicitacoes/colaborador");
       })
       .catch((err) => alert("Senha ou CPF Incorreto"));
   }
@@ -36,7 +34,11 @@ export default function Login() {
           <img alt="Logo Header" id="logo" src={logoImg}></img>
         </ul>
       </div>
-
+      {/*
+        <ul class="header">
+          <img alt="Logo Header" src={logoImg}></img>
+        </ul>
+      */}
       <div id="contTwo">
         <div id="divBem">
           <h1 id="h1Bem">Bem-vindo</h1>
@@ -48,16 +50,27 @@ export default function Login() {
           <div id="divImg">
             <img id="image" alt="Logo Adm" src={logo2}></img>
             <h1 id="h1Two">Login</h1>
-            <h1 id="h1Adm">do Administrador</h1>
+            {/* <h1 id="h1Adm">do Administrador</h1> */}
           </div>
 
           <form id="form">
-            <MaskInput
+            <input
               value={cpf}
-              type="number"
+              id="cpf"
               placeholder="CPF"
+              maxLength="11"
               onChange={(e) => setCpf(e.target.value)}
             />
+            {/* <CpfCnpj
+              id="cpf"
+              maxLength="14"
+              placeholder="CPF"
+              value={cpf}
+              onChange={(event, type) => {
+                setCpf(event.target.value);
+                setMask(type === "CPF");
+              }}
+            /> */}
 
             <input
               id="senha"
