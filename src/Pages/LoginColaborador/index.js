@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./styles.scss";
 
+import MaskInput from "../../InputMasked";
 import logo2 from "../../assets/logo2.png";
 import logoImg from "../../assets/logo.png";
 import api from "../../services/api";
@@ -9,6 +10,7 @@ import api from "../../services/api";
 export default function Login() {
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
+  const [mask, setMask] = useState("");
   const history = useHistory();
 
   async function handleLogin() {
@@ -54,23 +56,11 @@ export default function Login() {
           </div>
 
           <form id="form">
-            <input
+            <MaskInput
               value={cpf}
-              id="cpf"
               placeholder="CPF"
-              maxLength="11"
               onChange={(e) => setCpf(e.target.value)}
             />
-            {/* <CpfCnpj
-              id="cpf"
-              maxLength="14"
-              placeholder="CPF"
-              value={cpf}
-              onChange={(event, type) => {
-                setCpf(event.target.value);
-                setMask(type === "CPF");
-              }}
-            /> */}
 
             <input
               id="senha"
