@@ -23,7 +23,7 @@ export default function Login() {
       .then(({ data }) => {
         console.log("entrou no then" + data);
         localStorage.setItem("token", data.token);
-        history.push("/solicitacoes/colaborador");
+        history.push("/colaborador/solicitacoes");
       })
       .catch((err) => alert("Senha ou CPF Incorreto"));
   }
@@ -48,7 +48,7 @@ export default function Login() {
           <div id="divImg">
             <img id="image" alt="Logo Adm" src={logo2}></img>
             <h1 id="h1Two">Login</h1>
-            {/* <h1 id="h1Adm">do Administrador</h1> */}
+            <h1 id="h1Adm">do Colaborador</h1>
           </div>
 
           <form id="form">

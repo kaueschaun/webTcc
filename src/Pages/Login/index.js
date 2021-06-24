@@ -23,7 +23,7 @@ export default function Login() {
       .then(({ data }) => {
         console.log("entrou no then" + data);
         localStorage.setItem("admin_token", data.token);
-        history.push("/cadastro");
+        history.push("/colaboradores");
       })
       .catch((err) => alert("Senha ou CPF Incorreto"));
   }

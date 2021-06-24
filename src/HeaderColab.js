@@ -3,11 +3,7 @@ import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import logoImg from "./assets/logo.png";
 
-class Header extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.handleClick = this.handleClick.bind(this);
-  // }
+class HeaderColab extends Component {
   handleClick() {
     alert("clique aqui");
   }
@@ -17,9 +13,13 @@ class Header extends Component {
 
     return (
       <div class="containerHeader">
-        <div className={canChange ? "class-1" : "class-2"}></div>
         <div class="content">
-          <a class="d-flex justify-content-space-between" href="/colaboradores">
+          <div className={canChange ? "class-1" : "class-2"}></div>
+
+          <a
+            class="d-flex justify-content-space-between"
+            href="/colaborador/pontos"
+          >
             <img src={logoImg} alt="Logo" />
           </a>
         </div>
@@ -29,27 +29,7 @@ class Header extends Component {
               class="nav-link"
               activeClassName="active"
               exact
-              to="/cadastro"
-            >
-              Cadastro
-            </NavLink>
-          </li>
-          <li class="nav">
-            <NavLink
-              class="nav-link"
-              activeClassName="active"
-              exact
-              to="/colaboradores"
-            >
-              Colaboradores
-            </NavLink>
-          </li>
-          <li class="nav">
-            <NavLink
-              class="nav-link"
-              activeClassName="active"
-              exact
-              to="/pontos"
+              to="/colaborador/pontos"
             >
               Pontos
             </NavLink>
@@ -59,7 +39,7 @@ class Header extends Component {
               class="nav-link"
               activeClassName="active"
               exact
-              to="/solicitacoes"
+              to="/colaborador/solicitacoes"
             >
               Solicitações
             </NavLink>
@@ -80,4 +60,4 @@ class Header extends Component {
     );
   }
 }
-export default Header;
+export default HeaderColab;
