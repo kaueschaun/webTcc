@@ -35,12 +35,16 @@
       background-color: red;
       border: none;
       width: 35px;
+      cursor: pointer;
       height: 30px;
     }
     .button-edit {
       background-color: #007bff;
       border-radius: 2px;
+      height: 30px;
       border: none;
+      cursor: pointer;
+      width: 35px;
       margin-left: 5px;
     }
   }
