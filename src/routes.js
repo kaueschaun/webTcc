@@ -55,11 +55,11 @@ export default function Routes() {
         <PrivateRoute path="/conta" component={Conta} />
         <Route path="/login/colaborador" component={LoginColaborador} />
         <PrivateRouteColaborador
-          path="/colaborador/solicitacoes"
+          path="/solicitacoes/colaborador"
           component={SolicitacoesColaborador}
         />
         <PrivateRouteColaborador
-          path="/colaborador/pontos"
+          path="/pontos/colaborador"
           component={ColaboradorPontos}
         />
       </Switch>
