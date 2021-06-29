@@ -91,7 +91,7 @@ export default function Cadastro() {
         });
 
         alert("Cadastro Realizado com Sucesso.");
-        history.push("/");
+        history.push("/colaboradores");
       } catch (err) {
         console.log(err);
 
@@ -101,7 +101,7 @@ export default function Cadastro() {
       alert("Por favor preencher os campos corretamente.");
     }
   }
-  console.log(cpf);
+
   return (
     <form class="containerAll" onSubmit={handleRegister}>
       <Header />
