@@ -2,7 +2,7 @@
 .content-all {
   background-color: $primary-color;
   padding-top: 15px;
-  height: 900px;
+  height: 91.6vh;
   .content-people {
     padding: 5px;
     margin: 5px;
@@ -21,7 +21,6 @@
       color: $primary-color;
       font-family: sans-serif;
       font-weight: bold;
-      font-size: 16px;
     }
     span {
       width: 18%;
@@ -37,24 +36,12 @@
       border: none;
       width: 35px;
       height: 30px;
-      margin-right: 5px;
-      cursor: pointer;
-      border-radius: 2px;
-      font-size: 12px;
-      font-family: sans-serif;
-      color: white;
     }
     .button-edit {
-      background-color: #1976d2;
+      background-color: #007bff;
+      border-radius: 2px;
       border: none;
-      width: 35px;
-      height: 30px;
-      margin-right: 5px;
-      border-radius: 3px;
-      font-size: 12px;
-      font-family: sans-serif;
-      cursor: pointer;
-      color: white;
+      margin-left: 5px;
     }
   }
 }

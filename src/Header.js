@@ -20,7 +20,7 @@ class Header extends Component {
         <div className={canChange ? "class-1" : "class-2"}></div>
         <div class="content">
           <a class="d-flex justify-content-space-between" href="/colaboradores">
-            <img src={logoImg} alt="Logo" />
+            <img class="logo" src={logoImg} alt="Logo" />
           </a>
         </div>
         <ul class="list">
