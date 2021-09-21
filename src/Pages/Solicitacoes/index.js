@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "../../Header";
+import Header from "../../components/header/Header";
 
-export default function Solicitacoes() {
+const Solicitacoes = () => {
   return (
     <div>
       <Header />
       <h1>Welcome Solicitações</h1>
     </div>
   );
-}
+};
+export default Solicitacoes;

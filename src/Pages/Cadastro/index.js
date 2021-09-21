@@ -1,13 +1,13 @@
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import "./styles.scss";
-import "./../../Header.js";
+import "../../components/header/Header.js";
 import MaskedInput from "react-text-mask";
-import InputMask from "../../MaskedInput";
+import MaskedCpfInput from "../../components/masked/MaskedInput";
 import api from "../../services/api";
-import Header from "./../../Header.js";
+import Header from "../../components/header/Header";
 
-export default function Cadastro() {
+const Cadastro = () => {
   const token = localStorage.getItem("admin_token");
   const [nome_completo, setNome] = useState("");
   const [cpf, setCpf] = useState("");
@@ -43,8 +43,7 @@ export default function Cadastro() {
       horas_mensais,
       senha,
     };
-    console.log(dados);
-    console.log(token);
+
     if (nome_completo.indexOf(" ") === -1) {
       alert("Inserir nome completo");
       setNome("");
@@ -66,7 +65,7 @@ export default function Cadastro() {
       return;
     }
     if (telefone_celular.substr(14, 1) === "_") {
-      alert("Inserir o whatsapp corretamente");
+      alert("Inserir o Telefone corretamente");
       setTelefone("");
       return;
     }
@@ -103,138 +102,141 @@ export default function Cadastro() {
   }
 
   return (
-    <form class="containerAll" onSubmit={handleRegister}>
+    <div>
       <Header />
-      <section class="container">
-        <h1 class="title">Cadastro</h1>
+      <form className="containerAll" onSubmit={handleRegister}>
+        <section className="container">
+          <h1 className="title">Cadastro</h1>
 
-        <div class="content-one">
-          <div class="content-input">
-            <div class="content-fields">
-              <p class="title-input">Nome Completo:</p>
+          <div className="content-one">
+            <div className="content-input">
+              <div className="content-fields">
+                <p className="title-input">Nome Completo:</p>
 
+                <input
+                  className="field-input"
+                  onChange={(e) => setNome(e.target.value)}
+                />
+              </div>
+
+              <div className="content-fields">
+                <p className="title-input">CPF:</p>
+                <MaskedCpfInput
+                  className="field-input"
+                  value={cpf}
+                  onChange={(event) => {
+                    setCpf(event.target.value);
+                  }}
+                />
+              </div>
+              <div className="content-fields">
+                <p className="title-input">Data de Nascimento:</p>
+
+                <MaskedInput
+                  className="field-input"
+                  onChange={(e) => setData_nasc(e.target.value)}
+                  mask={[
+                    /[0-9]/,
+                    /[0-9]/,
+                    "/",
+                    /[0-9]/,
+                    /[0-9]/,
+                    "/",
+                    /[0-9]/,
+                    /[0-9]/,
+                    /[0-9]/,
+                    /[0-9]/,
+                  ]}
+                />
+              </div>
+              <div className="content-fields">
+                <p className="title-input">E-mail:</p>
+                <input
+                  className="field-input"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="content-two">
+            <div className="content-fields">
+              <p className="title-input">Endereço:</p>
               <input
-                class="field-input"
-                onChange={(e) => setNome(e.target.value)}
+                className="field-input"
+                onChange={(e) => setEndereco(e.target.value)}
               />
+            </div>
+            <div className="content-fields-inputs">
+              <div className="content-num content-fields">
+                <p className="title-input">Número:</p>
+
+                <input
+                  className="field-input"
+                  onChange={(e) => setNumero(e.target.value)}
+                />
+              </div>
+              <div className="content-admissao content-fields">
+                <p className="title-input">Data de Admissão:</p>
+                <MaskedInput
+                  className="field-input"
+                  onChange={(e) => setAdmissao(e.target.value)}
+                  mask={[
+                    /[0-9]/,
+                    /[0-9]/,
+                    "/",
+                    /[0-9]/,
+                    /[0-9]/,
+                    "/",
+                    /[0-9]/,
+                    /[0-9]/,
+                    /[0-9]/,
+                    /[0-9]/,
+                  ]}
+                />
+              </div>
             </div>
 
-            <div class="content-fields">
-              <p class="title-input">CPF:</p>
-              <InputMask
-                class="field-input"
-                value={cpf}
-                onChange={(event) => {
-                  setCpf(event.target.value);
-                }}
-              />
-            </div>
-            <div class="content-fields">
-              <p class="title-input">Data de Nascimento:</p>
+            <div className="content-fields-inputs">
+              <div className="content-fields">
+                <p className="title-input">Setor:</p>
+                <input
+                  className="field-input"
+                  onChange={(e) => setSetor(e.target.value)}
+                />
+              </div>
 
-              <MaskedInput
-                class="field-input"
-                onChange={(e) => setData_nasc(e.target.value)}
-                mask={[
-                  /[0-9]/,
-                  /[0-9]/,
-                  "/",
-                  /[0-9]/,
-                  /[0-9]/,
-                  "/",
-                  /[0-9]/,
-                  /[0-9]/,
-                  /[0-9]/,
-                  /[0-9]/,
-                ]}
-              />
+              <div className="content-fields">
+                <p className="title-input">Horas Mensais:</p>
+                <input
+                  className="field-input"
+                  onChange={(e) => setHoras_mensais(e.target.value)}
+                />
+              </div>
             </div>
-            <div class="content-fields">
-              <p class="title-input">E-mail:</p>
+
+            <div className="content-fields">
+              <p className="title-input">Telefone Celular:</p>
               <input
-                class="field-input"
-                onChange={(e) => setEmail(e.target.value)}
+                className="field-input"
+                onChange={(e) => setTelefone(e.target.value)}
+                maxLength="11"
               />
             </div>
-          </div>
-        </div>
-        <div class="content-two">
-          <div class="content-fields">
-            <p class="title-input">Endereço:</p>
-            <input
-              class="field-input"
-              onChange={(e) => setEndereco(e.target.value)}
-            />
-          </div>
-          <div class="content-fields-inputs">
-            <div class="content-num content-fields">
-              <p class="title-input">Número:</p>
-
+            <div className="content-fields">
+              <p className="title-input">Senha:</p>
               <input
-                class="field-input"
-                onChange={(e) => setNumero(e.target.value)}
-              />
-            </div>
-            <div class="content-admissao content-fields">
-              <p class="title-input">Data de Admissão:</p>
-              <MaskedInput
-                class="field-input"
-                onChange={(e) => setAdmissao(e.target.value)}
-                mask={[
-                  /[0-9]/,
-                  /[0-9]/,
-                  "/",
-                  /[0-9]/,
-                  /[0-9]/,
-                  "/",
-                  /[0-9]/,
-                  /[0-9]/,
-                  /[0-9]/,
-                  /[0-9]/,
-                ]}
+                className="field-input"
+                type="password"
+                onChange={(e) => setSenha(e.target.value)}
               />
             </div>
           </div>
-
-          <div class="content-fields-inputs">
-            <div class="content-fields">
-              <p class="title-input">Setor:</p>
-              <input
-                class="field-input"
-                onChange={(e) => setSetor(e.target.value)}
-              />
-            </div>
-
-            <div class="content-fields">
-              <p class="title-input">Horas Mensais:</p>
-              <input
-                class="field-input"
-                onChange={(e) => setHoras_mensais(e.target.value)}
-              />
-            </div>
+          <div className="contentButton">
+            <button className="btn">Cadastrar</button>
           </div>
-
-          <div class="content-fields">
-            <p class="title-input">Telefone Celular:</p>
-            <input
-              class="field-input"
-              onChange={(e) => setTelefone(e.target.value)}
-              maxLength="11"
-            />
-          </div>
-          <div class="content-fields">
-            <p class="title-input">Senha:</p>
-            <input
-              class="field-input"
-              type="password"
-              onChange={(e) => setSenha(e.target.value)}
-            />
-          </div>
-        </div>
-        <div class="contentButton">
-          <button class="btn">Cadastrar</button>
-        </div>
-      </section>
-    </form>
+        </section>
+      </form>
+    </div>
   );
-}
+};
+export default Cadastro;
