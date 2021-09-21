@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./styles.scss";
 
-//import Header from '../../Header';
-import MaskInput from "../../InputMasked";
-import logo2 from "../../assets/logo2.png";
-import logoImg from "../../assets/logo.png";
+import MaskedCpfInput from "../../components/masked/MaskedInput";
+import logo2 from "../../assets/img/logo2.png";
+import logoImg from "../../assets/img/logo.png";
 import api from "../../services/api";
 
-export default function Login() {
+const Login = () => {
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
   const history = useHistory();
@@ -29,30 +28,30 @@ export default function Login() {
   }
 
   return (
-    <div id="contAll">
-      <div id="header">
+    <div className="container-all">
+      <div className="header">
         {" "}
-        <ul class="header">
-          <img alt="Logo Header" id="logo" src={logoImg}></img>
+        <ul>
+          <img alt="Logo Header" className="logo" src={logoImg}></img>
         </ul>
       </div>
 
-      <div id="contTwo">
-        <div id="divBem">
-          <h1 id="h1Bem">Bem-vindo</h1>
-          <h1 id="horacerta"> ao Hora Certa</h1>
+      <div className="container-titles">
+        <div className="content-txt-title">
+          <h1 className="txt-welcome">Bem-vindo</h1>
+          <h1 className="txt-hora-certa"> ao Hora Certa</h1>
         </div>
       </div>
-      <div id="contThree">
-        <div id="divInput">
-          <div id="divImg">
-            <img id="image" alt="Logo Adm" src={logo2}></img>
-            <h1 id="h1Two">Login</h1>
-            <h1 id="h1Adm">do Administrador</h1>
+      <div className="container-form">
+        <div className="content-input">
+          <div className="content-logo">
+            <img className="image" alt="Logo Adm" src={logo2}></img>
+            <h1 className="title-logo">Login</h1>
+            <h1 className="title-logo-two">do Administrador</h1>
           </div>
 
-          <form id="form">
-            <MaskInput
+          <form className="form">
+            <MaskedCpfInput
               value={cpf}
               type="number"
               placeholder="CPF"
@@ -60,7 +59,7 @@ export default function Login() {
             />
 
             <input
-              id="senha"
+              className="senha"
               type="password"
               placeholder="SENHA"
               value={senha}
@@ -68,7 +67,11 @@ export default function Login() {
               onChange={(e) => setSenha(e.target.value)}
             />
 
-            <button id="btn" type="button" onClick={() => handleLogin()}>
+            <button
+              className="btn-login"
+              type="button"
+              onClick={() => handleLogin()}
+            >
               Entrar
             </button>
           </form>
@@ -76,4 +79,5 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+export default Login;

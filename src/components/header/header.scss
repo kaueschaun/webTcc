@@ -1,13 +1,9 @@
-@import "../src/assets/helpers/variables";
+@import "../../assets/helpers/variables";
 
 .containerHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid $secundary-bg-color;
-  -webkit-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-  -moz-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-  box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
 }
 .logo {
   margin-left: 15px;
@@ -35,15 +31,28 @@
       display: flex;
       font-size: 16px;
       justify-content: center;
-
       text-align: left;
-
       height: 20px;
     }
     .nav-link {
       color: $primary-color;
       font-family: $open-sans;
       text-decoration: none;
+      .active {
+        border-bottom: 3px solid $primary-color;
+      }
+    }
+    .btn-logout {
+      color: $secundary-bg-color;
+      font-family: $open-sans;
+      background-color: $primary-color;
+      border-radius: 5px;
+      width: 50px;
+      height: 35px;
+      border: none;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
     }
     img {
       width: 40px;
@@ -57,13 +66,6 @@
       padding: 5px;
       font-family: sans-serif;
       text-decoration: none;
-      // -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.41);
-      // -moz-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.41);
-      // box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
-      // color: gray;
-    }
-    .active {
-      border-bottom: 3px solid black;
     }
   }
 }

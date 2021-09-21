@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "../../Header";
+import Header from "../../components/header/Header";
+import api from "../../services/api";
 
-export default function Pontos() {
+const Pontos = () => {
   return (
     <div>
-      <Header />
-      <h1>EAIIII</h1>
+      <h2>2ea</h2>
     </div>
   );
-}
+};
+export default Pontos;

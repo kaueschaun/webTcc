@@ -1,14 +1,15 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Login from "./Pages/Login";
-import Cadastro from "./Pages/Cadastro";
-import Colaboradores from "./Pages/Colaboradores";
-import LoginColaborador from "./Pages/LoginColaborador";
-import Pontos from "./Pages/Pontos";
-import Solicitacoes from "./Pages/Solicitacoes/solicitacoes";
-import Conta from "./Pages/Conta";
-import SolicitacoesColaborador from "./Pages/SolicitacoesColaborador";
-import ColaboradorPontos from "./Pages/PontosColaborador/pontosColaborador";
+import Login from "./pages/Login";
+import Cadastro from "./pages/Cadastro";
+import Colaboradores from "./pages/Colaboradores";
+import Colaborador from "./pages/Colaborador";
+import LoginColaborador from "./pages/LoginColaborador";
+import Pontos from "./pages/Pontos";
+import Solicitacoes from "./pages/Solicitacoes";
+import Conta from "./pages/Conta";
+import SolicitacoesColaborador from "./pages/SolicitacoesColaborador";
+import ColaboradorPontos from "./pages/PontosColaborador";
 import { adminIsAuthenticated } from "./authAdmin";
 import { isAuthenticated } from "./auth";
 
@@ -50,6 +51,7 @@ export default function Routes() {
         <Route exact path="/" component={Login} />
         <PrivateRoute path="/cadastro" component={Cadastro} />
         <PrivateRoute path="/colaboradores" component={Colaboradores} />
+        <PrivateRoute path="/colaborador" component={Colaborador} />
         <PrivateRoute path="/pontos" component={Pontos} />
         <PrivateRoute path="/solicitacoes" component={Solicitacoes} />
         <PrivateRoute path="/conta" component={Conta} />
@@ -59,7 +61,7 @@ export default function Routes() {
           component={SolicitacoesColaborador}
         />
         <PrivateRouteColaborador
-          path="/pontos/colaborador"
+          path="/PontosColaborador"
           component={ColaboradorPontos}
         />
       </Switch>

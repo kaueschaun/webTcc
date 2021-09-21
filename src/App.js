@@ -1,7 +1,6 @@
 import React from "react";
-
 import Routes from "./routes";
-import "./header.scss";
+import "./components/header/Header";
 
 function App() {
   return <Routes />;

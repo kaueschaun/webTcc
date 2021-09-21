@@ -1,127 +1,118 @@
-#contAll {
+@import "../../assets/helpers/variables";
+
+.container-all {
   height: 100vh;
   overflow: hidden;
+  .header {
+    height: 73px;
+    align-items: center;
+    display: flex;
+    border: 1px solid rgb(241, 241, 241);
+    background-color: #fff;
+    .logo {
+      margin-left: 15px;
+    }
+  }
+  .container-titles {
+    justify-content: center;
+    height: 100%;
+    width: 30%;
+    float: left;
+    background-color: #fff;
+    display: flex;
+    .content-txt-title {
+      justify-content: center;
+      align-items: center;
+      .txt-welcome {
+        margin-top: 100px;
+        float: left;
+        flex-direction: row;
+        color: #6ab4b9;
+        font-weight: bold;
+        font-size: 18px;
+        font-family: sans-serif;
+      }
+      .txt-hora-certa {
+        margin-top: 100px;
+        float: left;
+        font-size: 18px;
+        margin-left: 5px;
+        color: #6ab4b9;
+        font-family: sans-serif;
+      }
+    }
+  }
+  .container-form {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 70%;
+    background-color: #6ab4b9;
+    display: flex;
+    .content-input {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      .content-logo {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        .image {
+          display: block;
+          width: 60px;
+          height: 60px;
+        }
+        .title-logo {
+          justify-content: center;
+          font-size: 18px;
+          font-family: sans-serif;
+          color: #fff;
+        }
+        .title-logo-two {
+          font-weight: bold;
+          margin-left: 7px;
+          font-size: 18px;
+          font-family: sans-serif;
+          color: #fff;
+        }
+      }
+    }
+    .btn-login {
+      color: #6ab4b9;
+      border: none;
+      border-color: white;
+      background-color: white;
+      height: 30px;
+      margin-top: 10px;
+      border-radius: 30px;
+      margin-left: 50px;
+      width: 200px;
+    }
+  }
 }
 
-#header {
-  height: 73px;
-  align-items: center;
-  display: flex;
-  border: 1px solid rgb(241, 241, 241);
-  -webkit-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-  -moz-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-  box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-}
-
-#logo {
-  margin-left: 15px;
-}
-#contTwo {
-  justify-content: center;
-  height: 100%;
-  width: 30%;
-  float: left;
-  background-color: #fff;
-  display: flex;
-}
-#contThree {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 70%;
-  background-color: #6ab4b9;
-  display: flex;
-}
-#h1Bem {
-  margin-top: 100px;
-  float: left;
-  flex-direction: row;
-  color: #6ab4b9;
-  font-weight: bold;
-  font-size: 18px;
-  font-family: sans-serif;
-}
-#horacerta {
-  margin-top: 100px;
-  float: left;
-  font-size: 18px;
-  margin-left: 5px;
-  color: #6ab4b9;
-  font-family: sans-serif;
-}
-#divBem {
-  justify-content: center;
-  align-items: center;
-}
-#h1Two {
-  justify-content: center;
-  font-size: 18px;
-  font-family: sans-serif;
-  color: #fff;
-}
-#cpf {
-  color: white;
-  background-color: #6ab4b9;
-  border: 1px solid #fff;
-  color: white;
-  width: 300px;
-  height: 30px;
-  flex-flow: column;
-  text-align: center;
-  margin-bottom: 15px;
-  border-radius: 30px;
-}
-#h1Adm {
-  font-weight: bold;
-  margin-left: 7px;
-  font-size: 18px;
-  font-family: sans-serif;
-  color: #fff;
-}
-#divImg {
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#image {
-  display: block;
-  width: 60px;
-  height: 60px;
-}
-#senha {
-  color: white;
-  background-color: #6ab4b9;
-  border: 1px solid #fff;
-  color: white;
-  width: 300px;
-  height: 30px;
-  flex-flow: column;
-  text-align: center;
-  border-radius: 30px;
-}
 ::-webkit-input-placeholder {
   color: white;
 }
-#divInput {
-  display: grid;
-}
-#btn {
-  color: #6ab4b9;
-  border: none;
-  border-color: white;
-  background-color: white;
-  height: 30px;
-  margin-top: 10px;
-  border-radius: 30px;
-  margin-left: 50px;
-  width: 200px;
-}
-#form {
+
+.form {
   display: flex;
   flex-direction: column;
+  .senha,
+  .field-input {
+    color: white;
+    background-color: #6ab4b9;
+    border: 1px solid #fff;
+    color: white;
+    width: 300px;
+    height: 30px;
+    margin-top: 5px;
+    flex-flow: column;
+    text-align: center;
+    border-radius: 30px;
+  }
 }
-
 .input-field {
   background-color: #6ab4b9;
   border: 1px solid #fff;
