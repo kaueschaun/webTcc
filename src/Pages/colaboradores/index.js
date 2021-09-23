@@ -19,7 +19,7 @@ const Colaboradores = () => {
         setPessoas(response.data.response);
       });
   }, []);
-  console.log(pessoas[0]);
+
   function handleEdit(idcolaboradores) {
     window.location.href = `/colaborador?id=${idcolaboradores}`;
   }

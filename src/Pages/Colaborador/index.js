@@ -1,19 +1,37 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import api from "../../services/api";
 import Header from "../../components/header/Header";
 import MaskedInput from "react-text-mask";
-
+import dayjs from "dayjs";
 const Colaborador = () => {
+
+  
   const [pessoa, setPessoa] = useState("");
+ 
   function handlePerson(e) {
+    
     console.log(e.target.name);
     setPessoa({
       ...pessoa,
+      
       [e.target.name]: e.target.value,
     });
   }
-  function handleSubmit(pessoa) {
+ 
+  function editDate(date) {
+    const partes = date.split("-");
+    const nascimento = partes[2] + "-" + partes[1] + "-" + partes[0];
+    return nascimento
+  }
+
+ function formatDate(date) {
+    return dayjs(date).format('DD-MM-YYYY')
+ }
+
+  function handleSubmit(pessoa) {    
+    pessoa.data_admissao = editDate(pessoa.data_admissao)
+    pessoa.data_nasc = editDate(pessoa.data_nasc)
     const url_string = window.location.href;
     const url = new URL(url_string);
     const id = url.searchParams.get("id");
@@ -28,6 +46,7 @@ const Colaborador = () => {
   }
   useEffect(() => {
     async function getPersonData() {
+      
       const url_string = window.location.href;
       const url = new URL(url_string);
       const id = url.searchParams.get("id");
@@ -38,9 +57,11 @@ const Colaborador = () => {
           Authorization: `Bearer ` + token,
         },
       });
+      
       let res = [];
       res.push(response.data.response[0]);
-      console.log(res);
+      response.data.response[0].data_nasc= formatDate(response.data.response[0].data_nasc)
+      response.data.response[0].data_admissao= formatDate(response.data.response[0].data_admissao)
       setPessoa(response.data.response[0]);
     }
 
@@ -72,7 +93,7 @@ const Colaborador = () => {
               type="text"
               name="cpf"
               onChange={(event) => handlePerson(event)}
-              defaultValue={pessoa.cpf}
+              value={pessoa.cpf}
               disabled
             />
           </div>
@@ -86,7 +107,7 @@ const Colaborador = () => {
               type="text"
               name="email"
               onChange={(event) => handlePerson(event)}
-              defaultValue={pessoa.email}
+              value={pessoa.email}
             />
           </div>
         </div>
@@ -102,6 +123,7 @@ const Colaborador = () => {
               name="telefone_celular"
               onChange={(event) => handlePerson(event)}
               defaultValue={pessoa.telefone_celular}
+              
             />
           </div>
 
@@ -109,22 +131,25 @@ const Colaborador = () => {
             <label className="txt-person">Data de Nascimento</label>
             <MaskedInput
               className="person-input"
-              onChange={(event) => handlePerson(event)}
               name="data_nasc"
+              disabled
               defaultValue={pessoa.data_nasc}
               mask={[
                 /[0-9]/,
                 /[0-9]/,
-                /[0-9]/,
-                /[0-9]/,
                 "-",
                 /[0-9]/,
                 /[0-9]/,
                 "-",
+                /[0-9]/,
+                /[0-9]/,
                 /[0-9]/,
                 /[0-9]/,
               ]}
             />
+                          
+
+            
           </div>
           <div className="data-people">
             <label className="txt-person" htmlFor="">
@@ -158,18 +183,18 @@ const Colaborador = () => {
             <label className="txt-person">Data de Admissão:</label>
             <MaskedInput
               className="person-input"
-              onChange={(event) => handlePerson(event)}
               name="data_admissao"
+              disabled
               defaultValue={pessoa.data_admissao}
               mask={[
                 /[0-9]/,
                 /[0-9]/,
-                /[0-9]/,
-                /[0-9]/,
                 "-",
                 /[0-9]/,
                 /[0-9]/,
                 "-",
+                /[0-9]/,
+                /[0-9]/,
                 /[0-9]/,
                 /[0-9]/,
               ]}

@@ -26,6 +26,7 @@ const Cadastro = () => {
     e.preventDefault();
 
     const partes = data_nasc.split("/");
+    
     const nascimento = partes[2] + "-" + partes[1] + "-" + partes[0];
     const parts = data_admissao.split("/");
     const admissao = parts[2] + "-" + parts[1] + "-" + parts[0];
@@ -43,6 +44,7 @@ const Cadastro = () => {
       horas_mensais,
       senha,
     };
+
 
     if (nome_completo.indexOf(" ") === -1) {
       alert("Inserir nome completo");
@@ -81,7 +83,7 @@ const Cadastro = () => {
       (horas_mensais !== "") &
       (senha !== "")
     ) {
-      console.log(token);
+
       try {
         await api.post("/colaboradores", dados, {
           headers: {

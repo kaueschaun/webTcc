@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { useParams } from "react-router";
+import React from "react";
 import ReactDOM from "react-dom";
-import HeaderColab from "../../components/header/HeaderColab";
 import api from "../../services/api";
 import "./styles.scss";
 
 const PontosColaborador = () => {
-  const [colaboradores_idcolaboradores, setId] = useState("");
+
 
   const url_string = window.location.href;
   const url = new URL(url_string);

@@ -10,7 +10,7 @@ import api from "../../services/api";
 const Login = () => {
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
-  const [mask, setMask] = useState("");
+  
   const history = useHistory();
 
   async function handleLogin() {
