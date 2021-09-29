@@ -1,7 +1,7 @@
 # Web
 
 ### O QUE É
-Sistema exclusivo para o colaborador do setor de RH ou Administração para fazer login e cadastrar colaboradores.
+Sistema Web para o colaborador do setor de RH ou Administração para controle das horas feitas dos colaboradores dos outros setores. Também o sistema web para o colaborador de outros setores.
 
 ### OBJETIVO
 O objetivo deste documento é facilitar a compreenção do escopo do projeto e de como funciona.

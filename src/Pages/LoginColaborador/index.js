@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./styles.scss";
-
 import MaskedCpfInput from "../../components/masked/MaskedInput";
 import logo2 from "../../assets/img/logo2.png";
 import logoImg from "../../assets/img/logo.png";
@@ -23,8 +22,8 @@ const Login = () => {
       .then(({ data }) => {
         console.log("entrou no then" + data.id);
         localStorage.setItem("token", data.token);
-
-        history.push(`/pontosColaborador?id=${data.id}`);
+        localStorage.setItem('id', data.id)
+        history.push(`/pontos-colaborador?id=${data.id}`);
       })
       .catch((err) => alert("Senha ou CPF Incorreto"));
   }

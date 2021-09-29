@@ -4,14 +4,12 @@ import api from "../../services/api";
 import Header from "../../components/header/Header";
 import MaskedInput from "react-text-mask";
 import dayjs from "dayjs";
-const Colaborador = () => {
 
+const Colaborador = () => {
   
   const [pessoa, setPessoa] = useState("");
  
   function handlePerson(e) {
-    
-    console.log(e.target.name);
     setPessoa({
       ...pessoa,
       
@@ -46,7 +44,6 @@ const Colaborador = () => {
   }
   useEffect(() => {
     async function getPersonData() {
-      
       const url_string = window.location.href;
       const url = new URL(url_string);
       const id = url.searchParams.get("id");
@@ -147,9 +144,7 @@ const Colaborador = () => {
                 /[0-9]/,
               ]}
             />
-                          
-
-            
+ 
           </div>
           <div className="data-people">
             <label className="txt-person" htmlFor="">
