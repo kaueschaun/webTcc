@@ -6,6 +6,7 @@ const SolicitacoesColaborador = () => {
     <div>
       <HeaderColab />
       <h1>Bem-vindo!</h1>
+      <p>{console.log('SolicitacoesColaborador')}</p>
     </div>
   );
 };

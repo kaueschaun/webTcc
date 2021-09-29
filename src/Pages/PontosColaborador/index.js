@@ -5,7 +5,6 @@ import "./styles.scss";
 
 const PontosColaborador = () => {
 
-
   const url_string = window.location.href;
   const url = new URL(url_string);
   const id = url.searchParams.get("id");
@@ -19,7 +18,7 @@ const PontosColaborador = () => {
       .post("/pontos", payload)
       .then(({ data }) => {
         alert("Ponto Registrado!");
-        window.location.href = "/login/colaborador";
+        window.location.href = "/solicitacoes-colaborador";
       })
       .catch((err) => alert("erro"));
   }
@@ -30,7 +29,7 @@ const PontosColaborador = () => {
         <div className="container">
           <div className="content-childrens">
             <div className="child-container">
-              <a href="/login/colaborador" className="btn-back">
+              <a href="/solicitacoes-colaborador" className="btn-back">
                 Voltar a Página Inicial
               </a>
             </div>

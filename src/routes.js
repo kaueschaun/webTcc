@@ -12,6 +12,7 @@ import SolicitacoesColaborador from "./pages/SolicitacoesColaborador";
 import ColaboradorPontos from "./pages/PontosColaborador";
 import { adminIsAuthenticated } from "./authAdmin";
 import { isAuthenticated } from "./auth";
+import PontoColaborador from "./pages/PontoColaborador";
 
 const PrivateRouteColaborador = ({ component: Component, ...rest }) => (
   <Route
@@ -57,12 +58,16 @@ export default function Routes() {
         <PrivateRoute path="/conta" component={Conta} />
         <Route path="/login/colaborador" component={LoginColaborador} />
         <PrivateRouteColaborador
-          path="/solicitacoes/colaborador"
+          path="/solicitacoes-colaborador"
           component={SolicitacoesColaborador}
         />
         <PrivateRouteColaborador
-          path="/PontosColaborador"
+          path="/pontos-colaborador"
           component={ColaboradorPontos}
+        />
+        <PrivateRouteColaborador
+          path="/ponto-colaborador"
+          component={PontoColaborador}
         />
       </Switch>
     </BrowserRouter>

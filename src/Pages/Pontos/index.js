@@ -1,9 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import api from "../../services/api";
+import dayjs from "dayjs";
+import "./styles.scss";
 
 const Pontos = () => {
+  function formatDate(date) {
+    return dayjs(date).format("DD-MM-YYYY");
+  }
   const [pontos, setPontos] = useState([]);
+
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
     api
@@ -12,23 +18,30 @@ const Pontos = () => {
           Authorization: `Bearer ` + token,
         },
       })
-      .then((response) => {
-        setPontos(response.data.response);
-        console.log(response.data)
+      .then((res) => {
+        res.data.response.map(
+          (pontos) => (pontos.data = formatDate(pontos.data))
+        );
+        setPontos(res.data.response);
       });
   }, []);
   return (
     <div>
       <Header />
-      <h2>2ea</h2>
-      {pontos.map((ponto) => (
-          <li class="content-people" key={ponto.colaboradores_idcolaboradores}>
-            <p>Data:</p>
-            <span>{ponto.colaboradores_idcolaboradores}</span>
-            <span>{ponto.hora}</span>
-            <span>{ponto.nome_completo}</span>
-          </li>
+      <div className="content-all">
+        {pontos.map((res) => (
+          <div>
+            <li className="spots-list" key={res.num_registro}>
+              <p>Nome:</p>
+              <span className="txt-spots">{res.nome_completo}</span>
+              <p>Data:</p>
+              <span className="txt-spots">{res.data}</span>
+              <p>Hora:</p>
+              <span className="txt-spots">{res.hora}</span>
+            </li>
+          </div>
         ))}
+      </div>
     </div>
   );
 };

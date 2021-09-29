@@ -3,10 +3,18 @@ import { NavLink } from "react-router-dom";
 import logoImg from "../../assets/img/logo.png";
 import "./headerColab.scss";
 const HeaderColab = () => {
+  
+  const id = localStorage.getItem('id')
+
+  function pushRegistre() {
+    window.location.href= `/pontos-colaborador?id=${id}`
+  }
+  
   function logout() {
     localStorage.clear();
     window.location.href = "/login/colaborador";
   }
+
   let canChange = false;
 
   return (
@@ -16,7 +24,7 @@ const HeaderColab = () => {
 
         <a
           className="d-flex justify-content-space-between"
-          href="/pontosColaborador"
+          href="/pontos-colaborador"
         >
           <img src={logoImg} alt="Logo" />
         </a>
@@ -27,9 +35,9 @@ const HeaderColab = () => {
             className="nav-link"
             activeclassName="active"
             exact
-            to="/pontosColaborador"
+            to="/ponto-colaborador"
           >
-            Pontos
+            Meus pontos
           </NavLink>
         </li>
         <li className="nav">
@@ -37,13 +45,13 @@ const HeaderColab = () => {
             className="nav-link"
             activeclassName="active"
             exact
-            to="/colaborador/solicitacoes"
+            to="/solicitacoes-colaborador"
           >
             Solicitações
           </NavLink>
         </li>
         <li className="nav">
-          <button href="/pontosColaborador" className="btn-register">
+          <button onClick={() => pushRegistre()} className="btn-register">
             Registre
           </button>
         </li>
