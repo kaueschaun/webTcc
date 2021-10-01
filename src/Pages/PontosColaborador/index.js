@@ -4,7 +4,6 @@ import api from "../../services/api";
 import "./styles.scss";
 
 const PontosColaborador = () => {
-
   const url_string = window.location.href;
   const url = new URL(url_string);
   const id = url.searchParams.get("id");
