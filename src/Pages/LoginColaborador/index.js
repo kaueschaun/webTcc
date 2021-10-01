@@ -20,7 +20,6 @@ const Login = () => {
     api
       .post("/colaboradores/login/colaborador", payload)
       .then(({ data }) => {
-        console.log("entrou no then" + data.id);
         localStorage.setItem("token", data.token);
         localStorage.setItem('id', data.id)
         history.push(`/pontos-colaborador?id=${data.id}`);

@@ -33,7 +33,6 @@ const HeaderColab = () => {
         <li className="nav">
           <NavLink
             className="nav-link"
-            activeclassName="active"
             exact
             to="/ponto-colaborador"
           >
@@ -43,7 +42,6 @@ const HeaderColab = () => {
         <li className="nav">
           <NavLink
             className="nav-link"
-            activeclassName="active"
             exact
             to="/solicitacoes-colaborador"
           >
