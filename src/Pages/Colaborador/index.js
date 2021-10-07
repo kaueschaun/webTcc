@@ -75,7 +75,7 @@ const Colaborador = () => {
             <input
               className="person-input"
               type="text"
-              onChange={(event) => handlePerson(event)}
+              
               defaultValue={pessoa.nome_completo}
               name="nome_completo"
             />
@@ -89,7 +89,7 @@ const Colaborador = () => {
               className="person-input"
               type="text"
               name="cpf"
-              onChange={(event) => handlePerson(event)}
+              
               value={pessoa.cpf}
               disabled
             />

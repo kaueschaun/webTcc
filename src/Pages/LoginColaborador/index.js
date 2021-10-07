@@ -22,7 +22,7 @@ const Login = () => {
       .then(({ data }) => {
         localStorage.setItem("token", data.token);
         localStorage.setItem('id', data.id)
-        history.push(`/pontos-colaborador?id=${data.id}`);
+        history.push(`/ponto-colaborador?id=${data.id}`);
       })
       .catch((err) => alert("Senha ou CPF Incorreto"));
   }

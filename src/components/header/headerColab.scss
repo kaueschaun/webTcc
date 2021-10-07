@@ -2,6 +2,13 @@
 
 .containerHeader {
   width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+.content {
+  img {
+    margin-left: 15px;
+  }
 }
 
 .list {
@@ -12,9 +19,18 @@
     display: block;
     height: auto;
   }
+ .nav-my-spots {
+  width: 110px;
+   .my-spots {
+     
+     color: $primary-color;
+      font-family: $open-sans;
+      text-decoration: none;
+   }
+ }
   img {
     margin-right: auto;
-    margin-left: 10px;
+    margin-left: 15px;
     @media (max-width: 587px) {
       display: none;
     }
@@ -31,7 +47,15 @@
       text-align: left;
       height: 20px;
     }
-
+    
+    .nav-link {
+      color: $primary-color;
+      font-family: $open-sans;
+      text-decoration: none;
+      .active {
+        border-bottom: 3px solid $primary-color;
+      }
+    }
     .btn-register,
     .btn-logout {
       color: $secundary-bg-color;
