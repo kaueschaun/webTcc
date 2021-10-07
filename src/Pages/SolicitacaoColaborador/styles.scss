@@ -1,0 +1,111 @@
+@import "../../assets/helpers/variables";
+
+.container-spot {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  .info-spot {
+    margin-top: 25px;
+    display: flex;
+    height: 100px;
+    width: 90%;
+    border-radius: 5px;
+    background-color: white;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    box-shadow: 0px 5px 9px 1px rgb(0, 0, 0 / 41%);
+    .spot {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .text-info-spot {
+        font-size: 16px;
+        margin-left: 10px;
+        color: $primary-color;
+        margin-right: 10px;
+        font-family: $open-sans;
+        font-weight: bold;
+      }
+      .text-span-spot {
+        font-family: $open-sans;
+        font-weight: bold;
+        font-size: 14px;
+      }
+     
+    }
+    .container-inputs {
+      height: 100px;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      width: 60%;
+      .form-spot {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .content-requests {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow: column;
+          .text-info-spot {
+            font-size: 16px;
+            margin-left: 10px;
+            color: $primary-color;
+            margin-right: 10px;
+            font-family: $open-sans;
+            font-weight: bold;
+          }
+          .input-time {
+            width: 100px;
+            border-radius: 5px;
+            border: white;
+            margin-top: 5px;
+            height: 20px;
+            text-align: center;
+            color: $secundary-bg-color;
+            background-color: $primary-color;
+          }
+          .input-date {
+            width: 100px;
+            border-radius: 5px;
+            border: white;
+            margin-top: 5px;
+            height: 20px;
+            text-align: center;
+            color: $secundary-bg-color;
+            background-color: $primary-color;
+          }
+          .input-observation {
+            width: 250px;
+            border-radius: 5px;
+            border: white;
+            margin-top: 5px;
+            height: 20px;
+            text-align: center;
+            color: $secundary-bg-color;
+            background-color: $primary-color;
+          }
+        }
+        .btn-request {
+          background-color: $primary-color;
+          width: 120px;
+          height: 40px;
+          border-radius: 5px;
+          color: $secundary-bg-color;
+          cursor: pointer;
+          font-weight: bold;
+          border: none;
+        }
+      }
+    }
+    .content-arrow {
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+  }
+}

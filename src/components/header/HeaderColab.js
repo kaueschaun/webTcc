@@ -24,15 +24,15 @@ const HeaderColab = () => {
 
         <a
           className="d-flex justify-content-space-between"
-          href="/pontos-colaborador"
+          href="/ponto-colaborador"
         >
           <img src={logoImg} alt="Logo" />
         </a>
       </div>
       <ul className="list">
-        <li className="nav">
+        <li className="nav-my-spots">
           <NavLink
-            className="nav-link"
+            className="my-spots"
             exact
             to="/ponto-colaborador"
           >

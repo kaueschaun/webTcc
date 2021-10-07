@@ -17,7 +17,7 @@ const PontosColaborador = () => {
       .post("/pontos", payload)
       .then(({ data }) => {
         alert("Ponto Registrado!");
-        window.location.href = "/solicitacoes-colaborador";
+        window.location.href = "/ponto-colaborador";
       })
       .catch((err) => alert("erro"));
   }
@@ -28,7 +28,7 @@ const PontosColaborador = () => {
         <div className="container">
           <div className="content-childrens">
             <div className="child-container">
-              <a href="/solicitacoes-colaborador" className="btn-back">
+              <a href="/ponto-colaborador" className="btn-back">
                 Voltar a Página Inicial
               </a>
             </div>
