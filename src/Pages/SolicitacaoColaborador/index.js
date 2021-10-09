@@ -16,14 +16,14 @@ const SolicitacaoColaborador = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const dados = {
-      data,
       hora,
+      data,
       observacao,
       pontos_num_registro,
       colaboradores_idcolaboradores,
     };
     
-    if (hora, data, observacao === "") {
+    if(hora, data, observacao === "") {
       alert("Preecha todos os campos!")
       return
     }
@@ -51,13 +51,7 @@ const SolicitacaoColaborador = () => {
     window.location.href = "/ponto-colaborador";
   }
 
-  function handleSpot(e) {
-    setPonto({
-      ...ponto,
-      [e.target.data]: e.target.value,
-      [e.target.hora]: e.target.value,
-    });
-  }
+  
   function editDate(date) {
     const partes = date.split("-");
     const dataPonto = partes[2] + "-" + partes[1] + "-" + partes[0];
@@ -74,8 +68,7 @@ const SolicitacaoColaborador = () => {
       const id = url.searchParams.get("id");
       const token = localStorage.getItem("token");
 
-      const response = await api.get(
-        `/colaborador/pontos/numeroRegistro/${id}`,
+      const response = await api.get(`/colaborador/pontos/numeroRegistro/${id}`,
         {
           headers: {
             Authorization: `Bearer ` + token,

@@ -71,7 +71,7 @@ const Cadastro = () => {
       setTelefone("");
       return;
     }
-
+    
     if (
       (nome_completo !== "") &
       (cpf !== "") &

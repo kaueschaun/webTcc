@@ -43,9 +43,9 @@ const Colaboradores = () => {
   return (
     <div>
       <Header />
-      <div class="content-all">
+      <div className="content-all">
         {pessoas.map((pessoa) => (
-          <li class="content-people" key={pessoa.idcolaboradores}>
+          <li className="content-people" key={pessoa.idcolaboradores}>
             <p>Nome:</p>
             <span>{pessoa.nome_completo}</span>
             <p>E-mail:</p>
@@ -53,7 +53,7 @@ const Colaboradores = () => {
             <p>Setor:</p> <span>{pessoa.setor}</span>
             <p>Telefone:</p> <span>{pessoa.telefone_celular}</span>
             <button
-              class="button-delete"
+              className="button-delete"
               onClick={() => handleDelete(pessoa.idcolaboradores)}
             >
               <img src={Delete} alt="" />

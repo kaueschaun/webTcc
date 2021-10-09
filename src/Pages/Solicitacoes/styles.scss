@@ -1,0 +1,79 @@
+@import "../../assets/helpers/variables";
+
+.container-request {
+    background-color: $primary-color;
+    padding-top: 15px;
+    height: 91.6vh;
+    justify-content: center;
+    .contents-request {
+        justify-content: center;
+        display: flex;
+        .list-request {
+            padding: 5px;
+            margin: 5px;
+            display: flex;
+            height: 50px;
+            width: 75%;
+            border-radius: 5px;
+            background-color: $secundary-bg-color;
+            list-style-type: none;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $secundary-bg-color;
+            -webkit-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
+            -moz-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
+            box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
+            .info-request {
+                display: flex;
+                width: 20%;
+                .txt-request {
+                    margin-left: 20px;
+                    color: $primary-color;
+                    font-family: $open-sans;
+                    font-weight: bold;
+                }
+                .txt-request-span {
+                    margin-left: 15px;
+                    font-weight: bold;
+                    font-size: 14px;
+                    font-family: $open-sans;
+
+                }
+
+            }
+            .info-request-btn {
+                width:20%;
+                margin-left: 25px;
+                display: flex;
+                
+                .btn-accept {
+                    width:100px;
+                    border: none;
+                    height: 25px;
+                    color: $secundary-bg-color;
+                    background-color:green;
+                    border-radius:10px;
+                    font-family: $open-sans;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                .btn-decline {
+                    width:100px;
+                    border: none;
+                    height: 25px;
+                    margin-left: 8px;
+                    font-weight: bold;
+                    font-family: $open-sans;
+                    color: $secundary-bg-color;
+                    background-color:red;
+                    border-radius:10px;
+                    cursor: pointer;
+                }
+            }
+           
+        }
+       
+    }
+   
+  
+}

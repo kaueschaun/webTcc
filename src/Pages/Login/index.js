@@ -20,7 +20,6 @@ const Login = () => {
     api
       .post("/colaboradores/login", payload)
       .then(({ data }) => {
-        console.log("entrou no then" + data);
         localStorage.setItem("admin_token", data.token);
         history.push("/colaboradores");
       })
