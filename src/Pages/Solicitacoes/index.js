@@ -15,6 +15,7 @@ const Solicitacoes = () => {
   function formatDate(date) {
     return dayjs(date).format("DD-MM-YYYY");
   }
+
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
     api
@@ -25,16 +26,38 @@ const Solicitacoes = () => {
       })
       .then((response) => {
           if(response.data.response.length === 0) {
-            alert("Não há nenhuma solicitação!")
+            alert("Não há solicitação")
+            return
           }
         
         response.data.response.map(
           (solicitacao) => (solicitacao.data = formatDate(solicitacao.data))
         );
-        setSolicitacao(response.data.response);
-        console.log(response.data.response)
+        {response.data.response.map((solicitacao) => (
+          solicitacao.pontos_num_registro=solicitacao.pontos_num_registro,
+          solicitacao.data=solicitacao.data,
+          solicitacao.hora=solicitacao.hora
+          ))}
+          setSolicitacao(response.data.response);
       });
   }, []);
+
+  async function acceptResquest({pontos_num_registro, data, hora}) {
+    const dados = {
+      data,
+      hora,
+    }
+    dados.data = editDate(dados.data);
+    const token = localStorage.getItem("admin_token");
+    const response = await api.put(`/pontos/` + pontos_num_registro, dados, {
+      headers: {
+        Authorization: `Bearer ` + token,
+      }
+    })
+    if(response.status === 202) {
+      alert("Solicitação aceita com sucesso!")
+    }
+  }
 
   async function deleteRequest(id) {
     const token = localStorage.getItem("admin_token");
@@ -82,7 +105,7 @@ const Solicitacoes = () => {
                 </span>
               </div>
               <div className="info-request-btn">
-                <button className="btn-accept">Aceitar</button>
+                <button className="btn-accept" onClick={() => acceptResquest(solicitacao)}>Aceitar</button>
                 <button className="btn-decline" onClick={() => deleteRequest(solicitacao.id)}>Negar</button>
               </div>
             </li>
