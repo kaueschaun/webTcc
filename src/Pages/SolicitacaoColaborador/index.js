@@ -32,7 +32,7 @@ const SolicitacaoColaborador = () => {
         dados.data = editDate(dados.data);
         const token = localStorage.getItem("token");
 
-        api.post(`/solicitacoes`, dados, {
+        api.post(`/colaborador/solicitacoes`, dados, {
           headers: {
             Authorization: `Bearer ` + token,
           },
@@ -75,8 +75,7 @@ const SolicitacaoColaborador = () => {
           },
         }
       );
-      console.log(response.data.response[0].num_registro);
-
+     
       let res = [];
       res.push(response.data.response[0]);
       response.data.response[0].colaboradores_idcolaboradores =
@@ -90,7 +89,6 @@ const SolicitacaoColaborador = () => {
         response.data.response[0].data
       );
       setPonto(response.data.response[0]);
-      console.log(response.data.response[0].data);
     }
     getSpot();
   }, []);
