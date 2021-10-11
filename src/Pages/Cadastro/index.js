@@ -6,6 +6,7 @@ import MaskedInput from "react-text-mask";
 import MaskedCpfInput from "../../components/masked/MaskedInput";
 import api from "../../services/api";
 import Header from "../../components/header/Header";
+import MaskedPhone from "../../components/masked/MaskedPhone";
 
 const Cadastro = () => {
   const token = localStorage.getItem("admin_token");
@@ -66,7 +67,7 @@ const Cadastro = () => {
       setEmail("");
       return;
     }
-    if (telefone_celular.substr(14, 1) === "_") {
+    if (telefone_celular.length < 11) {
       alert("Inserir o Telefone corretamente");
       setTelefone("");
       return;
@@ -126,6 +127,7 @@ const Cadastro = () => {
                 <MaskedCpfInput
                   className="field-input"
                   value={cpf}
+                  regex
                   onChange={(event) => {
                     setCpf(event.target.value);
                   }}
@@ -218,11 +220,8 @@ const Cadastro = () => {
 
             <div className="content-fields">
               <p className="title-input">Telefone Celular:</p>
-              <input
-                className="field-input"
-                onChange={(e) => setTelefone(e.target.value)}
-                maxLength="11"
-              />
+              
+              <MaskedPhone  onChange={(e) => setTelefone(e.target.value)} />
             </div>
             <div className="content-fields">
               <p className="title-input">Senha:</p>
