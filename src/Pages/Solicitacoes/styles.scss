@@ -5,6 +5,18 @@
     padding-top: 15px;
     height: 91.6vh;
     justify-content: center;
+    .no-request {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .txt-no-request {
+            margin-top: 40px;
+            color: $secundary-bg-color;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: $open-sans;
+        }
+    }
     .contents-request {
         justify-content: center;
         display: flex;

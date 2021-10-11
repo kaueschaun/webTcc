@@ -27,7 +27,16 @@ const Colaborador = () => {
     return dayjs(date).format('DD-MM-YYYY')
  }
 
-  function handleSubmit(pessoa) {    
+  function handleSubmit(pessoa) { 
+    
+    if(pessoa.telefone_celular.length < 11) {
+      alert("Telefone precisa de no minimo 11 digitos!")
+      return
+    } 
+    if (pessoa.email.indexOf("@") === -1) {
+      alert("Inserir um email válido");
+      return;
+    }
     pessoa.data_admissao = editDate(pessoa.data_admissao)
     pessoa.data_nasc = editDate(pessoa.data_nasc)
     const url_string = window.location.href;
