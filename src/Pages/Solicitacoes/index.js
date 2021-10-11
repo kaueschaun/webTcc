@@ -4,8 +4,10 @@ import api from "../../services/api";
 import dayjs from "dayjs";
 import "./styles.scss";
 
+
 const Solicitacoes = () => {
   const [solicitacao, setSolicitacao] = useState([]);
+  const [noRequest, setNoRequest] = useState(false);
   
   function editDate(date) {
     const partes = date.split("-");
@@ -15,7 +17,6 @@ const Solicitacoes = () => {
   function formatDate(date) {
     return dayjs(date).format("DD-MM-YYYY");
   }
-
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
     api
@@ -25,8 +26,8 @@ const Solicitacoes = () => {
         },
       })
       .then((response) => {
-          if(response.data.response.length === 0) {
-            alert("Não há solicitação")
+          if(response.data.response.length === 0 ) {
+           setNoRequest(true)
             return
           }
         
@@ -80,6 +81,7 @@ const Solicitacoes = () => {
     <div>
       <Header />
       <div className="container-request">
+        { noRequest && <div className="no-request"><h1 className="txt-no-request" >Não há solicitações</h1></div>}
         {solicitacao.map((solicitacao) => (
           <div className="contents-request">
             <li className="list-request" key={solicitacao.id}>
