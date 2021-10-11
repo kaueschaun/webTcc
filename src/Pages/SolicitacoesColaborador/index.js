@@ -1,12 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeaderColab from "../../components/header/HeaderColab";
+import api from "../../services/api";
+import dayjs from "dayjs";
+import "./styles.scss";
 
 const SolicitacoesColaborador = () => {
+  const [solicitacao, setSolicitacao] = useState([]);
+  const [noRequest, setNorequest] = useState(false);
+
+  function formatDate(date) {
+    return dayjs(date).format("DD/MM/YYYY");
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const id = localStorage.getItem("id");
+    console.log(id);
+    api
+      .get(`/colaborador/solicitacoes/${id}`, {
+        headers: {
+          Authorization: `Bearer ` + token,
+        },
+      })
+      .then((response) => {
+        if (response.data.response.length === 0) {
+          setNorequest(true);
+          return;
+        }
+        response.data.response.map(
+          (solicitacao) => (solicitacao.data = formatDate(solicitacao.data))
+        );
+        setSolicitacao(response.data.response);
+      });
+  }, []);
+
   return (
     <div>
       <HeaderColab />
-      <h1>Bem-vindo!</h1>
-      
+      <div className="container-request-colab">
+        {noRequest && (
+          <div className="no-request">
+            <h1 className="txt-no-request">Você não possui solicitações</h1>
+          </div>
+        )}
+        <div>
+          {solicitacao.map((solicitacao) => (
+            <li
+              class="container-my-request"
+              key={solicitacao.pontos_num_registro}
+            >
+              <div class="content-my-request">
+                <p>Hora:</p>
+                <span>{solicitacao.hora}</span>
+                <p>Data:</p>
+                <span>{solicitacao.data}</span>
+                <p>Observação:</p>
+                <span>{solicitacao.observacao}</span>
+              </div>
+            </li>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

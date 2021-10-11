@@ -45,7 +45,7 @@ const HeaderColab = () => {
             exact
             to="/solicitacoes-colaborador"
           >
-            Solicitações
+           Minhas Solicitações
           </NavLink>
         </li>
         <li className="nav">
