@@ -37,7 +37,7 @@ const Pontos = () => {
               <p>Data:</p>
               <span className="txt-spots">{res.data}</span>
               <p>Hora:</p>
-              <span className="txt-spots">{res.hora}</span>
+              <span className="txt-spots">{res.hora_entrada}</span>
             </li>
           </div>
         ))}
