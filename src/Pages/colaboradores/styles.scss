@@ -3,6 +3,18 @@
   background-color: $primary-color;
   padding-top: 15px;
   height: 91.6vh;
+  .no-request {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .txt-no-request {
+        margin-top: 40px;
+        color: $secundary-bg-color;
+        font-size: 32px;
+        font-weight: bold;
+        font-family: $open-sans;
+    }
+}
   .content-people {
     padding: 5px;
     margin: 5px;
@@ -55,31 +67,24 @@
       margin-left: 5px;
     }
   }
-  .accordions {
-    width: 600px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-  }
-  .accordion-item input {
-    display: none;
-  }
-  .accordion-item label {
-    display: block;
-    border: 1px solid #ccc;
-    background-color: #e5e5e5;
-    cursor: pointer;
-    padding: 5px 3px;
-  }
-  .accordion-content {
-    height: 0px;
-    overflow: hidden;
-    -webkit-transition: height 0.3s ease-in-out;
-    -moz-transition: height 0.3s ease-in-out;
-    -o-transition: height 0.3s ease-in-out;
-    -ms-transition: height 0.3s ease-in-out;
-    transition: height 0.3s ease-in-out;
-  }
-  [id^="accordion"]:checked ~ .accordion-content {
-    height: 100px;
+  .content-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .txt-search {
+      font-family: $open-sans;
+      color: $secundary-bg-color;
+      font-weight: bold;
+    }
+    .input-search {
+      height: 25px;
+      margin-left: 10px;
+      margin-right: 20px;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+      font-family: $open-sans;
+      width: 200px;
+    }
   }
 }
