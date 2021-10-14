@@ -100,7 +100,7 @@ const SolicitacaoColaborador = () => {
         <div className="info-spot">
           <div className="spot">
             <p className="text-info-spot">Hora:</p>
-            <span className="text-span-spot">{ponto.hora}</span>
+            <span className="text-span-spot">{ponto.hora_entrada}</span>
             <p className="text-info-spot">Data:</p>
             <span className="text-span-spot">{ponto.data}</span>
           </div>

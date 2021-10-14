@@ -38,7 +38,7 @@ const PontoColaborador = () => {
           <li className="spots-list" key={res.num_registro}>
             <div className="container-spots">
               <p>Hora:</p>
-              <span className="txt-spots">{res.hora}</span>
+              <span className="txt-spots">{res.hora_entrada}</span>
               <p>Data:</p>
               <span className="txt-data">{res.data}</span>
               <button
