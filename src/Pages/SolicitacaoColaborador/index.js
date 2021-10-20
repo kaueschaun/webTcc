@@ -7,7 +7,7 @@ import "./styles.scss";
 
 const SolicitacaoColaborador = () => {
   const [data, setData] = useState("");
-  const [hora, setHora] = useState("");
+  const [hora_entrada, setHora] = useState("");
   const [observacao, setObs] = useState("");
   const [colaboradores_idcolaboradores, setIdcolaboradores] = useState([]);
   const [pontos_num_registro, setNumRegistro] = useState([]);
@@ -16,18 +16,18 @@ const SolicitacaoColaborador = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const dados = {
-      hora,
+      hora_entrada,
       data,
       observacao,
       pontos_num_registro,
       colaboradores_idcolaboradores,
     };
     
-    if(hora, data, observacao === "") {
+    if(hora_entrada, data, observacao === "") {
       alert("Preecha todos os campos!")
       return
     }
-    if ((data !== "") & (hora !== "") & (observacao !== "")) {
+    if ((data !== "") & (hora_entrada !== "") & (observacao !== "")) {
       try {
         dados.data = editDate(dados.data);
         const token = localStorage.getItem("token");

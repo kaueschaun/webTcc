@@ -49,6 +49,15 @@ const HeaderColab = () => {
           </NavLink>
         </li>
         <li className="nav">
+          <NavLink
+            className="nav-link"
+            exact
+            to="/tarefas-colaborador"
+          >
+           Tarefas
+          </NavLink>
+        </li>
+        <li className="nav">
           <button onClick={() => pushRegistre()} className="btn-register">
             Registre
           </button>
