@@ -20,7 +20,8 @@ const Pontos = () => {
       })
       .then((res) => {
         res.data.response.map(
-          (pontos) => (pontos.data = formatDate(pontos.data))
+          (pontos) => 
+          (pontos.data = formatDate(pontos.data))
         );
         setPontos(res.data.response);
       });
