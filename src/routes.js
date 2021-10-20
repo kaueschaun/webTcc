@@ -14,6 +14,7 @@ import { adminIsAuthenticated } from "./authAdmin";
 import { isAuthenticated } from "./auth";
 import PontoColaborador from "./pages/PontoColaborador";
 import SolicitacaoColaborador from "./pages/SolicitacaoColaborador";
+import Tarefas from "./pages/Tarefas";
 
 const PrivateRouteColaborador = ({ component: Component, ...rest }) => (
   <Route
@@ -73,6 +74,10 @@ export default function Routes() {
         <PrivateRouteColaborador
           path="/ponto-colaborador"
           component={PontoColaborador}
+        />
+        <PrivateRouteColaborador
+          path="/tarefas-colaborador"
+          component={Tarefas}
         />
       </Switch>
     </BrowserRouter>

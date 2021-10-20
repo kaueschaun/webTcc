@@ -7,7 +7,7 @@ import "./styles.scss";
 const Solicitacoes = () => {
   const [solicitacao, setSolicitacao] = useState([]);
   const [noRequest, setNoRequest] = useState(false);
-  const [edit, setEdit] = useState("");
+  
   function editDate(date) {
     const partes = date.split("-");
     const dataPonto = partes[2] + "-" + partes[1] + "-" + partes[0];
@@ -30,17 +30,26 @@ const Solicitacoes = () => {
           return;
         }
 
-        response.data.response.map(
-          (solicitacao) => (solicitacao.data = formatDate(solicitacao.data))
-        );
+        let count = 0;
         {
-          
+          response.data.response.map((solicitacao) => {
+            solicitacao.data = formatDate(solicitacao.data);
+            if (solicitacao.edit !== null) {
+              count++;
+            }
+            if (response.data.response.length === count) {
+              setNoRequest(true);
+            }
+          });
+        }
+
+        {
           response.data.response.map(
             (solicitacao) => (
               (solicitacao.pontos_num_registro =
                 solicitacao.pontos_num_registro),
               (solicitacao.data = solicitacao.data),
-              (solicitacao.hora = solicitacao.hora),
+              (solicitacao.hora_entrada = solicitacao.hora_entrada),
               (solicitacao.id = solicitacao.id),
               (solicitacao.edit = solicitacao.edit)
             )
@@ -51,10 +60,15 @@ const Solicitacoes = () => {
       });
   }, []);
 
-  async function acceptResquest({ pontos_num_registro, data, hora, id }) {
+  async function acceptResquest({
+    pontos_num_registro,
+    data,
+    hora_entrada,
+    id,
+  }) {
     const dados = {
       data,
-      hora,
+      hora_entrada,
     };
     dados.data = editDate(dados.data);
     const token = localStorage.getItem("admin_token");
@@ -65,7 +79,6 @@ const Solicitacoes = () => {
     });
     if (response.status === 202) {
       alert("Solicitação aceita com sucesso!");
-      console.log(edit);
       await api.put(
         `/solicitacoes/` + id,
         { edit: "Aceita" },
@@ -75,6 +88,7 @@ const Solicitacoes = () => {
           },
         }
       );
+      window.location.reload();
     }
   }
 
@@ -104,50 +118,52 @@ const Solicitacoes = () => {
             <h1 className="txt-no-request">Não há solicitações</h1>
           </div>
         )}
-        
-        {solicitacao.map((solicitacao) => (
-        <div className="contents-request">
-            <li className="list-request" key={solicitacao.id}>
-              <div className="info-request">
-                <p className="txt-request">Nome:</p>
-                <span className="txt-request-span">
-                  {solicitacao.nome_completo}
-                </span>
-              </div>
 
-              <div className="info-request">
-                <p className="txt-request">Hora:</p>
-                <span className="txt-request-span">{solicitacao.hora}</span>
-              </div>
-              <div className="info-request">
-                <p className="txt-request">Data:</p>
-                <span className="txt-request-span">{solicitacao.data}</span>
-              </div>
-              <div className="info-request">
-                <p className="txt-request">Observação:</p>
-                <span className="txt-request-span">
-                  {solicitacao.observacao}
-                </span>
-              </div>
-              <div className="info-request-btn">
-                <button
-                  className="btn-accept"
-                  onClick={() => acceptResquest(solicitacao)}
-                >
-                  Aceitar
-                </button>
-                <button
-                  className="btn-decline"
-                  onClick={() => deleteRequest(solicitacao.id)}
-                >
-                  Negar
-                </button>
-              </div>
-            </li>
-          </div>
-        ))}
-      
-       
+        {solicitacao
+          .filter((solicitacao) => solicitacao.edit === null)
+          .map((solicitacao) => (
+            <div className="contents-request">
+              <li className="list-request" key={solicitacao.id}>
+                <div className="info-request">
+                  <p className="txt-request">Nome:</p>
+                  <span className="txt-request-span">
+                    {solicitacao.nome_completo}
+                  </span>
+                </div>
+
+                <div className="info-request">
+                  <p className="txt-request">Hora:</p>
+                  <span className="txt-request-span">
+                    {solicitacao.hora_entrada}
+                  </span>
+                </div>
+                <div className="info-request">
+                  <p className="txt-request">Data:</p>
+                  <span className="txt-request-span">{solicitacao.data}</span>
+                </div>
+                <div className="info-request">
+                  <p className="txt-request">Observação:</p>
+                  <span className="txt-request-span">
+                    {solicitacao.observacao}
+                  </span>
+                </div>
+                <div className="info-request-btn">
+                  <button
+                    className="btn-accept"
+                    onClick={() => acceptResquest(solicitacao)}
+                  >
+                    Aceitar
+                  </button>
+                  <button
+                    className="btn-decline"
+                    onClick={() => deleteRequest(solicitacao.id)}
+                  >
+                    Negar
+                  </button>
+                </div>
+              </li>
+            </div>
+          ))}
       </div>
     </div>
   );
