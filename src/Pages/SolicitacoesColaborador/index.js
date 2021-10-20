@@ -7,6 +7,7 @@ import "./styles.scss";
 const SolicitacoesColaborador = () => {
   const [solicitacao, setSolicitacao] = useState([]);
   const [noRequest, setNorequest] = useState(false);
+  const [accept, setAccept] = useState(true)
 
   function formatDate(date) {
     return dayjs(date).format("DD/MM/YYYY");
@@ -27,6 +28,9 @@ const SolicitacoesColaborador = () => {
           setNorequest(true);
           return;
         }
+        if(response.data.response.edit === "Aceita") {
+          setAccept(false)
+        } 
         response.data.response.map(
           (solicitacao) => (solicitacao.data = formatDate(solicitacao.data))
         );
@@ -51,11 +55,13 @@ const SolicitacoesColaborador = () => {
             >
               <div class="content-my-request">
                 <p>Hora:</p>
-                <span>{solicitacao.hora}</span>
+                <span>{solicitacao.hora_entrada}</span>
                 <p>Data:</p>
                 <span>{solicitacao.data}</span>
                 <p>Observação:</p>
                 <span>{solicitacao.observacao}</span>
+                {accept && <span className="accept">{solicitacao.edit}</span>}
+                
               </div>
             </li>
           ))}
