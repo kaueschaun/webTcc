@@ -31,6 +31,7 @@ const SolicitacoesColaborador = () => {
         if(response.data.response.edit === "Aceita") {
           setAccept(false)
         } 
+        console.log(response.data.response)
         response.data.response.map(
           (solicitacao) => (solicitacao.data = formatDate(solicitacao.data))
         );
@@ -55,7 +56,7 @@ const SolicitacoesColaborador = () => {
             >
               <div class="content-my-request">
                 <p>Hora:</p>
-                <span>{solicitacao.hora_entrada}</span>
+                <span>{solicitacao.hora}</span>
                 <p>Data:</p>
                 <span>{solicitacao.data}</span>
                 <p>Observação:</p>

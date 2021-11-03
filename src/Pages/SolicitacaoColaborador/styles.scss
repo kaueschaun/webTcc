@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   height: 100vh;
+ 
   .info-spot {
     margin-top: 25px;
     display: flex;
@@ -17,11 +18,25 @@
     justify-content: center;
     border: 1px solid white;
     box-shadow: 0px 5px 9px 1px rgb(0, 0, 0 / 41%);
-    .spot {
-      width: 30%;
+    .content-title-spot {
       display: flex;
       justify-content: center;
+      margin-bottom: 10px;
+      .txt-title-spot {
+        font-size: 16px;
+        font-family: $open-sans;
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+    
+    .spot {
+      justify-content: center;
       align-items: center;
+      .spot-date {
+        display: flex;
+        justify-content: center;
+      }
       .text-info-spot {
         font-size: 16px;
         margin-left: 10px;
@@ -68,6 +83,7 @@
             height: 20px;
             text-align: center;
             color: $secundary-bg-color;
+            font-family: $open-sans;
             background-color: $primary-color;
           }
           .input-date {
@@ -77,11 +93,13 @@
             margin-top: 5px;
             height: 20px;
             text-align: center;
+            font-family: $open-sans;
             color: $secundary-bg-color;
             background-color: $primary-color;
           }
           .input-observation {
             width: 250px;
+            font-family: $open-sans;
             border-radius: 5px;
             border: white;
             margin-top: 5px;
@@ -92,14 +110,18 @@
           }
         }
         .btn-request {
-          background-color: $primary-color;
+          background-color: #198754;
           width: 120px;
+          font-family: $open-sans;
           height: 40px;
           border-radius: 5px;
           color: $secundary-bg-color;
           cursor: pointer;
           font-weight: bold;
           border: none;
+          &:hover {
+            background-color: $primary-color;
+          }
         }
       }
     }

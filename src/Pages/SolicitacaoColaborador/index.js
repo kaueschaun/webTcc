@@ -7,7 +7,7 @@ import "./styles.scss";
 
 const SolicitacaoColaborador = () => {
   const [data, setData] = useState("");
-  const [hora_entrada, setHora] = useState("");
+  const [hora, setHora] = useState("");
   const [observacao, setObs] = useState("");
   const [colaboradores_idcolaboradores, setIdcolaboradores] = useState([]);
   const [pontos_num_registro, setNumRegistro] = useState([]);
@@ -16,18 +16,18 @@ const SolicitacaoColaborador = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const dados = {
-      hora_entrada,
+      hora,
       data,
       observacao,
       pontos_num_registro,
       colaboradores_idcolaboradores,
     };
     
-    if(hora_entrada, data, observacao === "") {
+    if(hora, data, observacao === "") {
       alert("Preecha todos os campos!")
       return
     }
-    if ((data !== "") & (hora_entrada !== "") & (observacao !== "")) {
+    if ((data !== "") & (hora !== "") & (observacao !== "")) {
       try {
         dados.data = editDate(dados.data);
         const token = localStorage.getItem("token");
@@ -58,7 +58,7 @@ const SolicitacaoColaborador = () => {
     return dataPonto;
   }
   function formatDate(date) {
-    return dayjs(date).format("DD-MM-YYYY");
+    return dayjs(date).format("DD/MM/YYYY");
   }
 
   useEffect(() => {
@@ -98,11 +98,18 @@ const SolicitacaoColaborador = () => {
       <HeaderColab />
       <div className="container-spot">
         <div className="info-spot">
+         
           <div className="spot">
-            <p className="text-info-spot">Hora:</p>
-            <span className="text-span-spot">{ponto.hora_entrada}</span>
+          <div className="content-title-spot">
+            <p className="txt-title-spot">Ponto para ajustar</p>
+          </div>
+          <div className="spot-date">
+          <p className="text-info-spot">Hora:</p>
+            <span className="text-span-spot">{ponto.hora}</span>
             <p className="text-info-spot">Data:</p>
             <span className="text-span-spot">{ponto.data}</span>
+          </div>
+           
           </div>
           <div className="content-arrow">
             <img className="arrow" src={Arrow} alt="" />
@@ -115,7 +122,6 @@ const SolicitacaoColaborador = () => {
                   type="text"
                   name="hora"
                   className="input-time"
-                  // defaultValue={ponto.hora}
                   onChange={(e) => setHora(e.target.value)}
                 />
               </div>
@@ -125,7 +131,6 @@ const SolicitacaoColaborador = () => {
                   type="text"
                   name="data"
                   className="input-date"
-                  // defaultValue={ponto.data}
                   onChange={(e) => setData(e.target.value)}
                 />
               </div>

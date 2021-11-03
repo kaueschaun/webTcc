@@ -66,6 +66,8 @@
         border-radius: 5px;
         border: none;
         width: 270px;
+        font-family: $open-sans;
+        font-size: 14px;
         background-color: $primary-color;
         margin-left: 10px;
         margin-right: 10px;
@@ -79,9 +81,12 @@
         color: $secundary-bg-color;
         font-weight: bold;
         font-size: 16px;
-        background-color: $primary-color;
+        background-color: green;
         cursor: pointer;
         margin-right: 20px;
+        &:hover {
+          background-color: $primary-color;
+        }
       }
     }
   }
@@ -160,7 +165,8 @@
       flex-flow: column;
       justify-content: center;
       .txt-finish {
-        margin-bottom: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
         font-size: 16px;
         font-family: $open-sans;
         color: $primary-color;

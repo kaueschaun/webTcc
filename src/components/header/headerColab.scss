@@ -1,8 +1,9 @@
 @import "../../assets/helpers/variables";
 
 .containerHeader {
-  width: 100%;
+  max-width: 100%;
   z-index: 999;
+  padding: 0px;
   background-color: white;
 }
 .content {
@@ -20,7 +21,6 @@
     height: auto;
   }
  .nav-my-spots {
-  width: 110px;
    .my-spots {
      
      color: $primary-color;
@@ -60,7 +60,7 @@
     .btn-logout {
       color: $secundary-bg-color;
       font-family: $open-sans;
-      background-color: $primary-color;
+      background-color: #198754;
       border-radius: 5px;
       width: 80px;
       height: 35px;
@@ -68,6 +68,9 @@
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
+      &:hover {
+        background-color: $primary-color;
+      }
     }
     img {
       width: 40px;
