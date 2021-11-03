@@ -25,6 +25,7 @@ const PontoColaborador = () => {
         },
       })
       .then((res) => {
+        // console.log(res.data.response)
         res.data.response.map((ponto) => (ponto.data = formatDate(ponto.data)));
         setPonto(res.data.response);
       });
@@ -38,7 +39,7 @@ const PontoColaborador = () => {
           <li className="spots-list" key={res.num_registro}>
             <div className="container-spots">
               <p>Hora:</p>
-              <span className="txt-spots">{res.hora_entrada}</span>
+              <span className="txt-spots">{res.hora}</span>
               <p>Data:</p>
               <span className="txt-data">{res.data}</span>
               <button
