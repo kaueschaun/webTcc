@@ -3,7 +3,7 @@
   .container-people {
     background-color: $primary-color;
     padding-top: 15px;
-    height: 91.6vh;
+    height: 100vh;
     .content-people {
       display: flex;
       justify-content: space-around;
@@ -12,10 +12,8 @@
       display: flex;
       height: 50px;
       border-radius: 5px;
-
       list-style-type: none;
       align-items: center;
-
       .data-people {
         display: flex;
         flex-flow: column;
@@ -32,6 +30,43 @@
           border-radius: 5px;
           background-color: $primary-color;
           text-align: center;
+          font-size: 14px;
+          font-family: $open-sans;
+          color: $secundary-bg-color;
+          width: 275px;
+          border: 1px solid $secundary-bg-color;
+          height: 20px;
+        }
+      }
+    }
+    .content-people-two {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px;
+      margin: 5px;
+      display: flex;
+      border-radius: 5px;
+      list-style-type: none;
+      align-items: center;
+      .data-people {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        .txt-person {
+          margin-bottom: 5px;
+          font-family: $open-sans;
+          font-weight: bold;
+          color: $secundary-bg-color;
+          font-size: 14px;
+        }
+        .person-input {
+          border-radius: 5px;
+          background-color: $primary-color;
+          text-align: center;
+          font-size: 14px;
+          margin-bottom: 5px;
+          font-family: $open-sans;
           color: $secundary-bg-color;
           width: 275px;
           border: 1px solid $secundary-bg-color;
@@ -40,21 +75,25 @@
       }
     }
     .content-btn {
-      margin-top: 40px;
       justify-content: center;
       display: flex;
       height: 100px;
       .btn-submit-edit {
-        background-color: $secundary-bg-color;
-        color: $primary-color;
+        background-color: #198754;
+        color: $secundary-bg-color;
         width: 120px;
+        font-family: $open-sans;
         font-size: 18px;
         align-items: center;
         border-radius: 5px;
         border: none;
         font-weight: bold;
         cursor: pointer;
-        height: 40px;
+        height: 35px;
+        &:hover {
+          background-color: $secundary-bg-color;
+          color: $primary-color;
+        }
       }
     }
   }

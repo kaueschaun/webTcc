@@ -1,6 +1,8 @@
 @import "../../assets/helpers/variables";
 
 .containerHeader {
+  max-width: 100%;
+  padding: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;

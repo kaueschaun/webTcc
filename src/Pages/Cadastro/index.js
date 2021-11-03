@@ -8,6 +8,7 @@ import api from "../../services/api";
 import Header from "../../components/header/Header";
 import MaskedPhone from "../../components/masked/MaskedPhone";
 
+
 const Cadastro = () => {
   const token = localStorage.getItem("admin_token");
   const [nome_completo, setNome] = useState("");
@@ -23,7 +24,44 @@ const Cadastro = () => {
   const [senha, setSenha] = useState("");
   const history = useHistory();
 
+  function validarCpf(cpf) {
+    var soma;
+    var resto;
+    soma = 0;
+    if(cpf === "00000000000") {
+      return false;
+    }
+    
+    for (let i = 1; i < 9; i++) {
+      soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+    }
+    resto = (soma * 10) % 11;
+    if ((resto === 10) || (resto === 11)) {
+      resto = 0;
+    }
+    if (resto !== parseInt(cpf.substring(9, 10))) {
+      return false
+    }
+    soma = 0;
+    for  (let i = 1; i <= 10; i++) {
+      soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+    }
+    resto = (soma * 10) % 11;
+    if ((resto === 10) || (resto === 11)) {
+      resto = 0;
+    }
+    if (resto !== parseInt(cpf.substring(10, 11))) {
+        return false;
+    }
+    return true;
+  }
+  
+
   async function handleRegister(e) {
+
+    
+    const isvalid = validarCpf(cpf)
+    
     e.preventDefault();
 
     const partes = data_nasc.split("/");
@@ -46,14 +84,14 @@ const Cadastro = () => {
       senha,
     };
 
-
+    
     if (nome_completo.indexOf(" ") === -1) {
       alert("Inserir nome completo");
       setNome("");
       return;
     }
-    if (cpf.substr(13, 1) === "_") {
-      alert("Inserir o CPF corretamente");
+    if (cpf === "" || !isvalid) {
+      alert("Inserira um CPF válido!");
       setCpf("");
       return;
     }
