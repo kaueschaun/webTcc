@@ -13,6 +13,7 @@ import ColaboradorPontos from "./pages/PontosColaborador";
 import { adminIsAuthenticated } from "./authAdmin";
 import { isAuthenticated } from "./auth";
 import PontoColaborador from "./pages/PontoColaborador";
+import PontoDoColaborador from "./pages/PontoDoColaborador";
 import SolicitacaoColaborador from "./pages/SolicitacaoColaborador";
 import Tarefas from "./pages/Tarefas";
 
@@ -56,6 +57,7 @@ export default function Routes() {
         <PrivateRoute path="/colaboradores" component={Colaboradores} />
         <PrivateRoute path="/colaborador" component={Colaborador} />
         <PrivateRoute path="/pontos" component={Pontos} />
+        <PrivateRoute path="/ponto-do-colaborador" component={PontoDoColaborador} />
         <PrivateRoute path="/solicitacoes" component={Solicitacoes} />
         <PrivateRoute path="/conta" component={Conta} />
         <Route path="/login/colaborador" component={LoginColaborador} />

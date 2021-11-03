@@ -31,7 +31,8 @@ const Solicitacoes = () => {
         }
 
         let count = 0;
-        {
+       
+        { 
           response.data.response.map((solicitacao) => {
             solicitacao.data = formatDate(solicitacao.data);
             if (solicitacao.edit !== null) {
@@ -41,7 +42,7 @@ const Solicitacoes = () => {
               setNoRequest(true);
             }
           });
-        }
+        } 
 
         {
           response.data.response.map(
@@ -49,7 +50,7 @@ const Solicitacoes = () => {
               (solicitacao.pontos_num_registro =
                 solicitacao.pontos_num_registro),
               (solicitacao.data = solicitacao.data),
-              (solicitacao.hora_entrada = solicitacao.hora_entrada),
+              (solicitacao.hora = solicitacao.hora),
               (solicitacao.id = solicitacao.id),
               (solicitacao.edit = solicitacao.edit)
             )
@@ -63,12 +64,12 @@ const Solicitacoes = () => {
   async function acceptResquest({
     pontos_num_registro,
     data,
-    hora_entrada,
+    hora,
     id,
   }) {
     const dados = {
       data,
-      hora_entrada,
+      hora,
     };
     dados.data = editDate(dados.data);
     const token = localStorage.getItem("admin_token");
@@ -118,7 +119,6 @@ const Solicitacoes = () => {
             <h1 className="txt-no-request">Não há solicitações</h1>
           </div>
         )}
-
         {solicitacao
           .filter((solicitacao) => solicitacao.edit === null)
           .map((solicitacao) => (
@@ -134,7 +134,7 @@ const Solicitacoes = () => {
                 <div className="info-request">
                   <p className="txt-request">Hora:</p>
                   <span className="txt-request-span">
-                    {solicitacao.hora_entrada}
+                    {solicitacao.hora}
                   </span>
                 </div>
                 <div className="info-request">

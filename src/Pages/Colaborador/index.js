@@ -6,39 +6,37 @@ import MaskedInput from "react-text-mask";
 import dayjs from "dayjs";
 
 const Colaborador = () => {
-  
   const [pessoa, setPessoa] = useState("");
- 
+
   function handlePerson(e) {
     setPessoa({
       ...pessoa,
-      
+
       [e.target.name]: e.target.value,
     });
   }
- 
+
   function editDate(date) {
     const partes = date.split("-");
     const nascimento = partes[2] + "-" + partes[1] + "-" + partes[0];
-    return nascimento
+    return nascimento;
   }
 
- function formatDate(date) {
-    return dayjs(date).format('DD-MM-YYYY')
- }
+  function formatDate(date) {
+    return dayjs(date).format("DD-MM-YYYY");
+  }
 
-  function handleSubmit(pessoa) { 
-    
-    if(pessoa.telefone_celular.length < 11) {
-      alert("Telefone precisa de no minimo 11 digitos!")
-      return
-    } 
+  function handleSubmit(pessoa) {
+    if (pessoa.telefone_celular.length < 11) {
+      alert("Telefone precisa de no minimo 11 digitos!");
+      return;
+    }
     if (pessoa.email.indexOf("@") === -1) {
       alert("Inserir um email válido");
       return;
     }
-    pessoa.data_admissao = editDate(pessoa.data_admissao)
-    pessoa.data_nasc = editDate(pessoa.data_nasc)
+    pessoa.data_admissao = editDate(pessoa.data_admissao);
+    pessoa.data_nasc = editDate(pessoa.data_nasc);
     const url_string = window.location.href;
     const url = new URL(url_string);
     const id = url.searchParams.get("id");
@@ -63,11 +61,15 @@ const Colaborador = () => {
           Authorization: `Bearer ` + token,
         },
       });
-      
+
       let res = [];
       res.push(response.data.response[0]);
-      response.data.response[0].data_nasc= formatDate(response.data.response[0].data_nasc)
-      response.data.response[0].data_admissao= formatDate(response.data.response[0].data_admissao)
+      response.data.response[0].data_nasc = formatDate(
+        response.data.response[0].data_nasc
+      );
+      response.data.response[0].data_admissao = formatDate(
+        response.data.response[0].data_admissao
+      );
       setPessoa(response.data.response[0]);
     }
 
@@ -84,7 +86,6 @@ const Colaborador = () => {
             <input
               className="person-input"
               type="text"
-              
               defaultValue={pessoa.nome_completo}
               name="nome_completo"
             />
@@ -98,7 +99,6 @@ const Colaborador = () => {
               className="person-input"
               type="text"
               name="cpf"
-              
               value={pessoa.cpf}
               disabled
             />
@@ -116,9 +116,6 @@ const Colaborador = () => {
               value={pessoa.email}
             />
           </div>
-        </div>
-
-        <div className="content-people">
           <div className="data-people">
             <label className="txt-person" htmlFor="">
               Telefone Celular
@@ -129,7 +126,6 @@ const Colaborador = () => {
               name="telefone_celular"
               onChange={(event) => handlePerson(event)}
               defaultValue={pessoa.telefone_celular}
-              
             />
           </div>
 
@@ -153,36 +149,10 @@ const Colaborador = () => {
                 /[0-9]/,
               ]}
             />
- 
-          </div>
-          <div className="data-people">
-            <label className="txt-person" htmlFor="">
-              Endereco
-            </label>
-            <input
-              className="person-input"
-              type="text"
-              name="endereco"
-              onChange={(event) => handlePerson(event)}
-              defaultValue={pessoa.endereco}
-            />
           </div>
         </div>
 
-        <div className="content-people">
-          <div className="data-people">
-            <label className="txt-person" htmlFor="">
-              Setor
-            </label>
-            <input
-              className="person-input"
-              type="text"
-              name="setor"
-              onChange={(event) => handlePerson(event)}
-              defaultValue={pessoa.setor}
-            />
-          </div>
-
+        <div className="content-people-two">
           <div className="data-people">
             <label className="txt-person">Data de Admissão:</label>
             <MaskedInput
@@ -202,6 +172,42 @@ const Colaborador = () => {
                 /[0-9]/,
                 /[0-9]/,
               ]}
+            />
+          </div>
+          <div className="data-people">
+            <label className="txt-person" htmlFor="">
+              Endereco
+            </label>
+            <input
+              className="person-input"
+              type="text"
+              name="endereco"
+              onChange={(event) => handlePerson(event)}
+              defaultValue={pessoa.endereco}
+            />
+          </div>
+          <div className="data-people">
+            <label className="txt-person" htmlFor="">
+              Número
+            </label>
+            <input
+              className="person-input"
+              type="text"
+              name="numero"
+              onChange={(event) => handlePerson(event)}
+              defaultValue={pessoa.numero}
+            />
+          </div>
+          <div className="data-people">
+            <label className="txt-person" htmlFor="">
+              Setor
+            </label>
+            <input
+              className="person-input"
+              type="text"
+              name="setor"
+              onChange={(event) => handlePerson(event)}
+              defaultValue={pessoa.setor}
             />
           </div>
 

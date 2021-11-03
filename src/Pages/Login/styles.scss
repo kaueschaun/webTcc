@@ -81,6 +81,7 @@
     .btn-login {
       color: #6ab4b9;
       border: none;
+      font-family: $open-sans;
       border-color: white;
       background-color: white;
       height: 30px;
@@ -102,7 +103,9 @@
   flex-direction: column;
   .senha,
   .field-input {
+    font-family: $open-sans;
     color: white;
+    font-size: 14px;
     background-color: #6ab4b9;
     border: 1px solid #fff;
     color: white;
@@ -115,6 +118,8 @@
   }
 }
 .input-field {
+  font-family: $open-sans;
+  font-size: 14px;
   background-color: #6ab4b9;
   border: 1px solid #fff;
   color: white;

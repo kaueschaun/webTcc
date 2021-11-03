@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 import api from "../../services/api";
@@ -9,12 +10,17 @@ const PontosColaborador = () => {
   const id = url.searchParams.get("id");
 
   function doPonto() {
+    const token = localStorage.getItem("token");
     console.log(id);
     const payload = {
       colaboradores_idcolaboradores: id,
     };
     api
-      .post("/pontos", payload)
+      .post("/colaborador/pontos", payload, {
+        headers: {
+          Authorization: `Bearer `  + token,
+        }
+      })
       .then(({ data }) => {
         alert("Ponto Registrado!");
         window.location.href = "/ponto-colaborador";
