@@ -1,9 +1,22 @@
 @import "../../assets/helpers/variables";
+@import "../../assets/helpers/mixins.scss";
 
 .content-all {
-    background-color: $primary-color;
-    padding-top: 15px;
-    height: 91.6vh;
+  background-color: $primary-color;
+  padding-top: 15px;
+  height: 91.6vh;
+  .no-request {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .txt-no-request {
+      margin-top: 40px;
+      color: $secundary-bg-color;
+      font-size: 32px;
+      font-weight: bold;
+      font-family: $open-sans;
+    }
+  }
   .spots-content {
     display: flex;
     justify-content: center;
@@ -11,9 +24,10 @@
       padding: 5px;
       margin: 5px;
       display: flex;
-      height: 50px;
       border-radius: 5px;
+      width: calc(90% - 10px);
       background-color: $secundary-bg-color;
+      max-width: 800px;
       list-style-type: none;
       align-items: center;
       justify-content: center;
@@ -21,41 +35,92 @@
       -webkit-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
       -moz-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
       box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
+      @media screen and(max-width: 610px) {
+        max-width: 350px;
+      }
       p {
-      color: $primary-color;
-      font-family: sans-serif;
-      font-weight: bold;
+        color: $primary-color;
+        font-family: sans-serif;
+        font-weight: bold;
+        @media screen and(max-width: 375px) {
+          font-size: 12px;
+        }
       }
       .txt-spots {
-          font-size: 14px;
-          color: black;
-          font-weight: bold;
-          font-family: sans-serif;
-          margin-left: 15px;
-          margin-right: 15px;
+        font-size: 14px;
+        color: black;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-left: 15px;
+        margin-right: 15px;
+        @media screen and(max-width: 375px) {
+          font-size: 12px;
+        }
       }
       .list-collaborator {
         display: flex;
         width: 100%;
         align-items: center;
         justify-content: space-evenly;
+        @media screen and(max-width: 610px) {
+          display: flex;
+          flex-flow: wrap;
+        }
         .content-collaborator {
           display: flex;
           width: 300px;
           .btn-spots {
-            border-radius: 5px;
-            font-family: $open-sans;
-            background-color: #198754;
-            border:none;
             width: 110px;
             height: 30px;
-            color: $secundary-bg-color;
-            font-weight: bold;
-            cursor: pointer;
-            &:hover {
-              background-color:$primary-color;
+            @include btn-submit-and-save;
+            @media screen and(max-width: 375px) {
+              height: 25px;
+              width: 100px;
+              font-size: 12px;
+              margin-top: 10px;
             }
           }
+        }
+      }
+    }
+  }
+  .container-search {
+    display: flex;
+    justify-content: center;
+    .content-search {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      max-width: 830px;
+      @media screen and(max-width: 610px){
+        justify-content: center;
+      }
+      .txt-search {
+        font-family: $open-sans;
+        color: $secundary-bg-color;
+        font-weight: bold;
+        @media screen and(max-width: 400px) {
+          font-size: 12px;
+        }
+      }
+      .input-search {
+        height: 25px;
+        margin-left: 10px;
+        margin-right: 15px;
+        border-radius: 5px;
+        border: none;
+        font-weight: bold;
+        font-family: $open-sans;
+        width: 200px;
+        @media screen and(max-width: 930px) and (min-width: 645px){
+          margin-right: 30px;
+        }
+        @media screen and(max-width: 644px) and (min-width: 400px){
+          margin-right: 25px;
+        }
+        @media screen and(max-width: 647px)  and(min-width: 399px){
+          margin-right: 35px;
         }
       }
     }

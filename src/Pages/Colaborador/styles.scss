@@ -1,4 +1,5 @@
 @import "../../assets/helpers/variables";
+@import "../../assets/helpers/mixins";
 .content-person {
   .container-people {
     background-color: $primary-color;
@@ -10,14 +11,18 @@
       padding: 5px;
       margin: 5px;
       display: flex;
-      height: 50px;
       border-radius: 5px;
       list-style-type: none;
+      flex-flow: wrap;
       align-items: center;
       .data-people {
+        justify-content: space-around;
+        padding: 5px;
+        margin: 5px;
         display: flex;
         flex-flow: column;
-        justify-content: center;
+        border-radius: 5px;
+        list-style-type: none;
         align-items: center;
         .txt-person {
           margin-bottom: 5px;
@@ -27,15 +32,15 @@
           font-size: 14px;
         }
         .person-input {
-          border-radius: 5px;
-          background-color: $primary-color;
-          text-align: center;
-          font-size: 14px;
-          font-family: $open-sans;
-          color: $secundary-bg-color;
-          width: 275px;
-          border: 1px solid $secundary-bg-color;
-          height: 20px;
+        border: none;
+        border-radius: 5px;
+        font-family: $open-sans;
+        text-align: center;
+        color: $primary-color;
+        width: 300px;
+        @media screen and(max-width: 400px) {
+          width: 300px;
+        }
         }
       }
     }
@@ -46,12 +51,17 @@
       margin: 5px;
       display: flex;
       border-radius: 5px;
+      flex-flow: wrap;
       list-style-type: none;
       align-items: center;
       .data-people {
+        justify-content: space-around;
+        padding: 5px;
+        margin: 5px;
         display: flex;
         flex-flow: column;
-        justify-content: center;
+        border-radius: 5px;
+        list-style-type: none;
         align-items: center;
         .txt-person {
           margin-bottom: 5px;
@@ -61,16 +71,15 @@
           font-size: 14px;
         }
         .person-input {
-          border-radius: 5px;
-          background-color: $primary-color;
-          text-align: center;
-          font-size: 14px;
-          margin-bottom: 5px;
-          font-family: $open-sans;
-          color: $secundary-bg-color;
-          width: 275px;
-          border: 1px solid $secundary-bg-color;
-          height: 20px;
+        border: none;
+        border-radius: 5px;
+        font-family: $open-sans;
+        text-align: center;
+        color: $primary-color;
+        width: 300px;
+        @media screen and(max-width: 400px) {
+          width: 300px;
+        }
         }
       }
     }
@@ -79,17 +88,11 @@
       display: flex;
       height: 100px;
       .btn-submit-edit {
-        background-color: #198754;
-        color: $secundary-bg-color;
         width: 120px;
-        font-family: $open-sans;
         font-size: 18px;
         align-items: center;
-        border-radius: 5px;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
         height: 35px;
+        @include btn-submit-and-save;
         &:hover {
           background-color: $secundary-bg-color;
           color: $primary-color;

@@ -24,12 +24,14 @@ const PontoDoColaborador = () => {
         },
       })
       .then((response) => {
+        console.log(response.data.response)
         if (response.data.response.length === 0) {
           setNoSpots(true);
           return;
         }
         response.data.response.map(
-          (pontos) => (pontos.data = formatDate(pontos.data))
+          (pontos) => (pontos.data = formatDate(pontos.data)),
+          (pontos) => (pontos.entrada = dayjs("HH:mm:ss").format("HH:mm:ss"))
         );
         setPontos(response.data.response);
       });
@@ -47,8 +49,10 @@ const PontoDoColaborador = () => {
         {pontos.map((pontos) => (
           <li className="collaborator-spots" key={pontos.num_registro}>
             <div className="container-collaborator-spots">
-              <p>Hora:</p>
-              <span>{pontos.hora}</span>
+              <p>Hora de Entrada:</p>
+              <span>{pontos.entrada}</span>
+              <p>Hora de Saida:</p>
+              <span>{pontos.saida}</span>
               <p>Data:</p>
               <span>{pontos.data}</span>
             </div>

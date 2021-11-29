@@ -1,4 +1,5 @@
 @import "../../assets/helpers/variables";
+@import "../../assets/helpers/mixins.scss";
 
 .container-request {
     background-color: $primary-color;
@@ -20,13 +21,16 @@
     .contents-request {
         justify-content: center;
         display: flex;
+        flex-flow: wrap;
         .list-request {
             padding: 5px;
             margin: 5px;
             display: flex;
-            height: 50px;
-            width: 75%;
+            width: 100%;
+            max-width: 1300px;
             border-radius: 5px;
+            padding-top: 10px;
+            flex-flow: wrap;
             background-color: $secundary-bg-color;
             list-style-type: none;
             align-items: center;
@@ -35,9 +39,29 @@
             -webkit-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
             -moz-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
             box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
+            @media screen and(max-width: 400px) {
+                padding-top: 20px;
+            }
+            .arrow {
+                margin-left: 20px;
+            }
+            .data-spot-hold {
+                .content-title-spot-hold {
+                    display: flex;
+                    justify-content: center;
+                    .txt-request {
+                    margin-top: -15px;
+                    margin-bottom: 8px;
+                    color: $primary-color;
+                    font-family: $open-sans;
+                    font-weight: bold;
+                    }
+                }
+            }
+
             .info-request {
                 display: flex;
-                width: 20%;
+                align-content: center;
                 .txt-request {
                     margin-left: 20px;
                     color: $primary-color;
@@ -51,23 +75,24 @@
                     font-family: $open-sans;
 
                 }
-
             }
             .info-request-btn {
                 width:20%;
                 margin-left: 25px;
                 display: flex;
+                @media screen and(max-width: 375px) {
+                    display: flex;
+                    flex-flow: wrap;
+                }
                 
                 .btn-accept {
                     width:100px;
                     border: none;
                     height: 25px;
-                    color: $secundary-bg-color;
-                    background-color:green;
-                    border-radius:10px;
-                    font-family: $open-sans;
-                    font-weight: bold;
-                    cursor: pointer;
+                    @include btn-submit-and-save;
+                    @media screen and(max-width: 375px) {
+                        margin-top: 5px;
+                    }
                 }
                 .btn-decline {
                     width:100px;
@@ -75,11 +100,12 @@
                     height: 25px;
                     margin-left: 8px;
                     font-weight: bold;
-                    font-family: $open-sans;
-                    color: $secundary-bg-color;
-                    background-color:red;
+                    @include btn-decline-and-delete;
                     border-radius:10px;
-                    cursor: pointer;
+                    cursor: pointer;   
+                    @media screen and(max-width: 375px) {
+                        margin-top: 5px;
+                    }
                 }
             }
            

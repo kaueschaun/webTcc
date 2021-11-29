@@ -8,7 +8,6 @@ import api from "../../services/api";
 import Header from "../../components/header/Header";
 import MaskedPhone from "../../components/masked/MaskedPhone";
 
-
 const Cadastro = () => {
   const token = localStorage.getItem("admin_token");
   const [nome_completo, setNome] = useState("");

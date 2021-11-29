@@ -16,6 +16,7 @@ import PontoColaborador from "./pages/PontoColaborador";
 import PontoDoColaborador from "./pages/PontoDoColaborador";
 import SolicitacaoColaborador from "./pages/SolicitacaoColaborador";
 import Tarefas from "./pages/Tarefas";
+import Perfil from "./pages/Perfil";
 
 const PrivateRouteColaborador = ({ component: Component, ...rest }) => (
   <Route
@@ -80,6 +81,10 @@ export default function Routes() {
         <PrivateRouteColaborador
           path="/tarefas-colaborador"
           component={Tarefas}
+        />
+        <PrivateRouteColaborador
+          path="/perfil-colaborador"
+          component={Perfil}
         />
       </Switch>
     </BrowserRouter>
