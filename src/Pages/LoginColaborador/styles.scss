@@ -20,6 +20,9 @@
     float: left;
     background-color: #fff;
     display: flex;
+    @media screen and(max-width: 720px) {
+      display: none;
+    }
     .content-txt-title {
       justify-content: center;
       align-items: center;
@@ -49,6 +52,9 @@
     width: 70%;
     background-color: #6ab4b9;
     display: flex;
+    @media screen and(max-width: 720px) {
+      width: 100%;
+    }
     .content-input {
       display: flex;
       flex-flow: column;
@@ -89,7 +95,7 @@
       border-radius: 30px;
       margin-left: 50px;
       width: 200px;
-      cursor:pointer
+      cursor: pointer;
     }
   }
 }
@@ -103,13 +109,13 @@
   flex-direction: column;
   .senha,
   .field-input {
-    color: white;
     font-family: $open-sans;
+    color: white;
+    font-size: 14px;
     background-color: #6ab4b9;
     border: 1px solid #fff;
     color: white;
     width: 300px;
-    font-size: 14px;
     height: 30px;
     margin-top: 5px;
     flex-flow: column;
@@ -119,8 +125,8 @@
 }
 .input-field {
   font-family: $open-sans;
-  background-color: #6ab4b9;
   font-size: 14px;
+  background-color: #6ab4b9;
   border: 1px solid #fff;
   color: white;
   width: 300px;
@@ -129,4 +135,10 @@
   flex-flow: column;
   text-align: center;
   border-radius: 30px;
+}
+
+@media (max-width: 375px) {
+  .container-titles {
+    display: none;
+  }
 }

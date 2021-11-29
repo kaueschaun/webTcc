@@ -7,7 +7,8 @@ import "./styles.scss";
 
 const SolicitacaoColaborador = () => {
   const [data, setData] = useState("");
-  const [hora, setHora] = useState("");
+  const [entrada, setEntrada] = useState("");
+  const [saida, setSaida] = useState("");
   const [observacao, setObs] = useState("");
   const [colaboradores_idcolaboradores, setIdcolaboradores] = useState([]);
   const [pontos_num_registro, setNumRegistro] = useState([]);
@@ -16,18 +17,19 @@ const SolicitacaoColaborador = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     const dados = {
-      hora,
+      entrada,
+      saida,
       data,
       observacao,
       pontos_num_registro,
       colaboradores_idcolaboradores,
     };
     
-    if(hora, data, observacao === "") {
+    if(data, observacao, saida, entrada === "") {
       alert("Preecha todos os campos!")
       return
     }
-    if ((data !== "") & (hora !== "") & (observacao !== "")) {
+    if ((entrada !== "")  &  (saida !== "") & (data !== "") &  (observacao !== "")) {
       try {
         dados.data = editDate(dados.data);
         const token = localStorage.getItem("token");
@@ -104,8 +106,10 @@ const SolicitacaoColaborador = () => {
             <p className="txt-title-spot">Ponto para ajustar</p>
           </div>
           <div className="spot-date">
-          <p className="text-info-spot">Hora:</p>
-            <span className="text-span-spot">{ponto.hora}</span>
+          <p className="text-info-spot">Hora Entrada:</p>
+            <span className="text-span-spot">{ponto.entrada}</span>
+            <p className="text-info-spot">Hora Saida:</p>
+            <span className="text-span-spot">{ponto.saida}</span>
             <p className="text-info-spot">Data:</p>
             <span className="text-span-spot">{ponto.data}</span>
           </div>
@@ -117,12 +121,21 @@ const SolicitacaoColaborador = () => {
           <div className="container-inputs">
             <form className="form-spot" onSubmit={handleSubmit}>
               <div className="content-requests">
-                <p className="text-info-spot">Hora*</p>
+                <p className="text-info-spot">Hora Entrada*</p>
                 <input
                   type="text"
-                  name="hora"
+                  name="entrada"
                   className="input-time"
-                  onChange={(e) => setHora(e.target.value)}
+                  onChange={(e) => setEntrada(e.target.value)}
+                />
+              </div>
+              <div className="content-requests">
+                <p className="text-info-spot">Hora Saida*</p>
+                <input
+                  type="text"
+                  name="saida"
+                  className="input-time"
+                  onChange={(e) => setSaida(e.target.value)}
                 />
               </div>
               <div className="content-requests">

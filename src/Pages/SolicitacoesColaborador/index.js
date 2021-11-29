@@ -24,6 +24,7 @@ const SolicitacoesColaborador = () => {
         },
       })
       .then((response) => {
+        console.log(response.data.response)
         if (response.data.response.length === 0) {
           setNorequest(true);
           return;
@@ -55,8 +56,10 @@ const SolicitacoesColaborador = () => {
               key={solicitacao.pontos_num_registro}
             >
               <div class="content-my-request">
-                <p>Hora:</p>
-                <span>{solicitacao.hora}</span>
+                <p>Hora Entrada:</p>
+                <span>{solicitacao.entrada}</span>
+                <p>Hora Saida:</p>
+                <span>{solicitacao.saida}</span>
                 <p>Data:</p>
                 <span>{solicitacao.data}</span>
                 <p>Observação:</p>

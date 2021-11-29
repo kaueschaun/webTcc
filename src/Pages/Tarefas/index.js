@@ -153,7 +153,7 @@ const Tarefas = () => {
                 </div>
                 <div className="content-btn-finish">
                   <button
-                    className="btn-fish"
+                    className="btn-finish"
                     onClick={() => finishTask(tarefas.id_tarefas_projetos)}
                   >
                     Finalizar Tarefa
@@ -167,7 +167,7 @@ const Tarefas = () => {
                 </div>
               </li>
             ))}
-          <div>
+          
             {tarefas
               .filter((tarefas) => tarefas.data_termino !== null)
               .map((tarefas) => (
@@ -208,7 +208,7 @@ const Tarefas = () => {
                   </button>
                 </li>
               ))}
-          </div>
+          
         </div>
       </div>
     </div>
