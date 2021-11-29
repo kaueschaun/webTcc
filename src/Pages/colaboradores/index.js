@@ -6,8 +6,7 @@ import Edit from "../../assets/img/edit.png";
 import Delete from "../../assets/img/delete.png";
 import dayjs from "dayjs";
 import Accordion from 'react-bootstrap/Accordion'
-import { Fab } from "@material-ui/core";
-import Button from "@restart/ui/esm/Button";
+
 
 
 const Colaboradores = () => {
@@ -126,12 +125,9 @@ const Colaboradores = () => {
                 <Accordion.Body>
                   <p>CPF:</p>
                   <span>{msk.fit(pessoa.cpf, "999.999.999-99")}</span>
-                 
                   <p>Data de Nascimento:</p>
                   <span>{pessoa.data_nasc}</span>
-                  <p>Data de Nascimento:</p>
-                  <span>{pessoa.data_nasc}</span>
-                  <p>Data de Nascimento:</p>
+                  <p>Data de Admissão:</p>
                   <span>{pessoa.data_admissao}</span>
                   <p>Endereço:</p>
                   <span>{pessoa.endereco}</span>

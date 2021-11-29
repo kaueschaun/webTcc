@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/header/Header";
 import api from "../../services/api";
+import Arrow from "../../assets/img/arrow.png";
 import dayjs from "dayjs";
 import "./styles.scss";
 
 const Solicitacoes = () => {
   const [solicitacao, setSolicitacao] = useState([]);
   const [noRequest, setNoRequest] = useState(false);
-  
+
   function editDate(date) {
     const partes = date.split("-");
     const dataPonto = partes[2] + "-" + partes[1] + "-" + partes[0];
@@ -25,16 +26,18 @@ const Solicitacoes = () => {
         },
       })
       .then((response) => {
+        console.log(response.data.response)
         if (response.data.response.length === 0) {
           setNoRequest(true);
           return;
         }
 
         let count = 0;
-       
-        { 
+
+        {
           response.data.response.map((solicitacao) => {
             solicitacao.data = formatDate(solicitacao.data);
+            solicitacao.pontosData = formatDate(solicitacao.pontosData);
             if (solicitacao.edit !== null) {
               count++;
             }
@@ -42,7 +45,7 @@ const Solicitacoes = () => {
               setNoRequest(true);
             }
           });
-        } 
+        }
 
         {
           response.data.response.map(
@@ -50,7 +53,8 @@ const Solicitacoes = () => {
               (solicitacao.pontos_num_registro =
                 solicitacao.pontos_num_registro),
               (solicitacao.data = solicitacao.data),
-              (solicitacao.hora = solicitacao.hora),
+              (solicitacao.entrada = solicitacao.entrada),
+              (solicitacao.saida = solicitacao.saida),
               (solicitacao.id = solicitacao.id),
               (solicitacao.edit = solicitacao.edit)
             )
@@ -61,15 +65,11 @@ const Solicitacoes = () => {
       });
   }, []);
 
-  async function acceptResquest({
-    pontos_num_registro,
-    data,
-    hora,
-    id,
-  }) {
+  async function acceptResquest({ pontos_num_registro, data, entrada, saida, id }) {
     const dados = {
       data,
-      hora,
+      entrada,
+      saida
     };
     dados.data = editDate(dados.data);
     const token = localStorage.getItem("admin_token");
@@ -124,18 +124,37 @@ const Solicitacoes = () => {
           .map((solicitacao) => (
             <div className="contents-request">
               <li className="list-request" key={solicitacao.id}>
+                <div className="data-spot-hold">
+                  <div className="content-title-spot-hold">
+                    <p className="txt-request">Ponto</p>
+                  </div>
+                  <div className="info-request">
+                    <p className="txt-request">Hora Entrada:</p>
+                    <span className="txt-request-span">
+                      {solicitacao.pontosEntrada}
+                    </span>
+                    <p className="txt-request">Hora Saida:</p>
+                    <span className="txt-request-span">
+                      {solicitacao.pontosSaida}
+                    </span>
+                    <p className="txt-request">Data:</p>
+                    <span className="txt-request-span">
+                      {solicitacao.pontosData}
+                    </span>
+                  </div>
+                </div>
+                <img className="arrow" src={Arrow} alt="" />
                 <div className="info-request">
                   <p className="txt-request">Nome:</p>
                   <span className="txt-request-span">
                     {solicitacao.nome_completo}
                   </span>
                 </div>
-
                 <div className="info-request">
-                  <p className="txt-request">Hora:</p>
-                  <span className="txt-request-span">
-                    {solicitacao.hora}
-                  </span>
+                  <p className="txt-request">Hora Entrada:</p>
+                  <span className="txt-request-span">{solicitacao.entrada}</span>
+                  <p className="txt-request">Hora Saida:</p>
+                  <span className="txt-request-span">{solicitacao.saida}</span>
                 </div>
                 <div className="info-request">
                   <p className="txt-request">Data:</p>

@@ -154,7 +154,7 @@ const Colaborador = () => {
 
         <div className="content-people-two">
           <div className="data-people">
-            <label className="txt-person">Data de Admissão:</label>
+            <label className="txt-person">Data de Admissão</label>
             <MaskedInput
               className="person-input"
               name="data_admissao"

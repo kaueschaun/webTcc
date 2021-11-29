@@ -1,0 +1,26 @@
+@import "../helpers/variables";
+
+@mixin btn-submit-and-save {
+  color: $secundary-bg-color;
+  background-color: $color-button-submit;
+  font-family: $open-sans;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+@mixin btn-decline-and-delete {
+  color: $secundary-bg-color;
+  background-color: $color-button-decline;
+  font-family: $open-sans;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: $color-button-decline-hover;
+  }
+}
