@@ -12,7 +12,6 @@
   padding-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  overflow-y: hidden;
   justify-content: center;
   .btn-solicitacao {
     border-radius: 2px;
@@ -22,20 +21,28 @@
     border: none;
     align-items: center;
     cursor: pointer;
-    width: 120px;
+    width: 130px;
     margin-left: 5px;
+    &:hover {
+      background-color: rgb(231, 220, 220);
+    }
   }
   .spots-list {
     display: flex;
     height: auto;
     justify-content: center;
-    width: 700px;
+    width: 100%;
+    max-width: 800px;
+    @media screen and(max-width: 720px) {
+      display: flex;
+      flex-flow: wrap;
+    }
     .container-spots {
       padding: 5px;
       margin: 5px;
       display: flex;
-      height: 50px;
-      width: 700px;
+      width: 100%;
+      max-width: 700px;
       margin: 10px;
       border-radius: 5px;
       background-color: $secundary-bg-color;
@@ -70,4 +77,36 @@
       }
     }
   }
+  .content-noSpots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .txt-noSpots {
+      margin-top: 40px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      font-family: "Open Sans", serif;
+    }
+  }
+}
+
+@media (max-width: 478px) {
+  .container-spots {
+    display: flex;
+    flex-flow: row wrap;
+    .btn-solicitacao {
+      margin-top: 5px;
+      width: 100px;
+      height: 30px;
+    }
+    .img-solicitacao {
+      width: 30px;
+      height: 30px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+ 
 }

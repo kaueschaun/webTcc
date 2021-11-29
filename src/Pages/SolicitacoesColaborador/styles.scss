@@ -1,4 +1,5 @@
 @import "../../assets/helpers/variables";
+@import "../../assets/helpers/mixins.scss";
 
 .container-request-colab {
   background-color: $primary-color;
@@ -23,7 +24,8 @@
     justify-content: center;
     .content-my-request {
       background-color: $secundary-bg-color;
-      width: 60%;
+      width: 100%;
+      max-width: 800px;
       background-color: $secundary-bg-color;
       list-style-type: none;
       align-items: center;
@@ -56,4 +58,27 @@
       }
     }
   }
+}
+
+@media (max-width:675px) {
+  .content-my-request {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+@media (max-width:375px) {
+  .container-my-request {
+    span {
+      font-size: 12px !important;
+     }
+     p {
+       font-size: 12px !important;
+     }
+     .accept {
+       font-size: 12px;
+     }
+  }
+ 
 }

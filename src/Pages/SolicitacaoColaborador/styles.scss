@@ -1,4 +1,5 @@
 @import "../../assets/helpers/variables";
+@import "../../assets/helpers/mixins";
 
 .container-spot {
   background-color: $primary-color;
@@ -9,8 +10,8 @@
   .info-spot {
     margin-top: 25px;
     display: flex;
-    height: 100px;
-    width: 90%;
+    max-height: 150px;
+    width: calc(100% - 10px);
     border-radius: 5px;
     background-color: white;
     list-style-type: none;
@@ -18,6 +19,21 @@
     justify-content: center;
     border: 1px solid white;
     box-shadow: 0px 5px 9px 1px rgb(0, 0, 0 / 41%);
+    flex-flow: wrap; 
+    @media (min-width: 1573px) {
+      max-height: 100px;
+    }
+    @media (max-width: 400px){
+      max-height: 500px;
+      flex-flow: column;
+    justify-content: space-around;    }
+    @media (max-width: 624px) and (min-width: 401px) {
+      max-height: 350px;
+    }
+    @media (max-width: 1092px) and (min-width: 400px) {
+      max-height: 250px;
+      flex-flow: column;
+    }
     .content-title-spot {
       display: flex;
       justify-content: center;
@@ -33,9 +49,15 @@
     .spot {
       justify-content: center;
       align-items: center;
+      @media (max-width: 375px) {
+        margin-bottom: -35px;
+      }
       .spot-date {
         display: flex;
         justify-content: center;
+        @media (max-width: 425px) and (min-width: 320px) {
+          flex-flow: wrap;
+        }
       }
       .text-info-spot {
         font-size: 16px;
@@ -58,15 +80,32 @@
       flex-flow: column;
       justify-content: space-around;
       width: 60%;
+      @media (max-width: 619px) and (min-width: 420px){
+        width: 100%;
+        flex-flow: column;
+      }
+      @media (max-width: 375px){
+        flex-flow: column;
+      }
       .form-spot {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        flex-flow: wrap;
+        @media (max-width: 619px) and (min-width: 320px){
+          flex-flow: wrap;
+        }
+        @media (max-width: 375px) {
+          margin-top: -50px;
+        }
         .content-requests {
           display: flex;
           justify-content: center;
           align-items: center;
           flex-flow: column;
+          @media (max-width: 375px) {
+            margin-top: 10px;
+          }
           .text-info-spot {
             font-size: 16px;
             margin-left: 10px;
@@ -85,6 +124,12 @@
             color: $secundary-bg-color;
             font-family: $open-sans;
             background-color: $primary-color;
+            @media (max-width: 1085px) and (min-width: 620px) {
+              margin-right: 15px;
+            }
+            @media (max-width: 400px) {
+              width: 250px;
+            }
           }
           .input-date {
             width: 100px;
@@ -96,6 +141,13 @@
             font-family: $open-sans;
             color: $secundary-bg-color;
             background-color: $primary-color;
+            @media (max-width: 1085px) and (min-width: 620px) {
+              margin-right: 15px;
+
+            }
+            @media (max-width: 400px) {
+              width: 250px;
+            }
           }
           .input-observation {
             width: 250px;
@@ -107,18 +159,32 @@
             text-align: center;
             color: $secundary-bg-color;
             background-color: $primary-color;
+            @media (max-width: 400px) {
+              width: 250px;
+              margin-bottom: 20px;
+              margin-top: 5px;
+            }
+            @media (max-width: 1085px) and (min-width: 620px) {
+              margin-right: 15px;
+            }
           }
         }
         .btn-request {
-          background-color: #198754;
           width: 120px;
-          font-family: $open-sans;
           height: 40px;
-          border-radius: 5px;
-          color: $secundary-bg-color;
-          cursor: pointer;
-          font-weight: bold;
-          border: none;
+          @media (max-width: 1212px ) {
+            margin-top: 10px;
+          }
+          @media (max-width: 619px) and (min-width: 513px) {
+            margin-top: 15px;
+          }
+          @media (max-width: 512px) and (min-width: 401px) {
+            margin-top: 20px;
+          }
+          @media (max-width: 377px) and (min-width: 320px) {
+            margin-top: 0px;
+          }
+          @include btn-submit-and-save;
           &:hover {
             background-color: $primary-color;
           }
@@ -128,6 +194,9 @@
     .content-arrow {
       margin-left: 50px;
       margin-right: 50px;
+      @media (max-width: 1092px) and (min-width: 400px) {
+      margin-top: 20px;
+      }
     }
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logoImg from "../../assets/img/logo.png";
 import "./headerColab.scss";
+import {Nav, Navbar, NavDropdown } from 'react-bootstrap';
 const HeaderColab = () => {
   
   const id = localStorage.getItem('id')
@@ -18,57 +19,43 @@ const HeaderColab = () => {
   let canChange = false;
 
   return (
-    <div className="containerHeader">
-      <div className="content">
-        <div className={canChange ? "className-1" : "className-2"}></div>
+    <Navbar collapseOnSelect expand="lg">
+      <Navbar.Brand href="/ponto-colaborador">
+        <img src={logoImg} alt="Logo" />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse className="list" id="responsive-navbar-nav">
+        <Nav className="mr-auto ">
+          <NavLink to="/ponto-colaborador">
+            <Nav.Link href="/ponto-colaborador">Meus Pontos</Nav.Link>
+          </NavLink>
+          <NavLink  to="/solicitacoes-colaborador">
+            <Nav.Link href="/solicitacoes-colaborador">Minhas Solicitações</Nav.Link>
+          </NavLink>
+          <NavLink  to="/tarefas-colaborador">
+            <Nav.Link href="/tarefas-colaborador">Tarefas</Nav.Link>
+          </NavLink>
 
-        <a
-          className="d-flex justify-content-space-between"
-          href="/ponto-colaborador"
-        >
-          <img src={logoImg} alt="Logo" />
-        </a>
-      </div>
-      <ul className="list">
-        <li className="nav-my-spots">
-          <NavLink
-            className="my-spots"
-            exact
-            to="/ponto-colaborador"
-          >
-            Meus pontos
-          </NavLink>
-        </li>
-        <li className="nav">
-          <NavLink
-            className="nav-link"
-            exact
-            to="/solicitacoes-colaborador"
-          >
-           Minhas Solicitações
-          </NavLink>
-        </li>
-        <li className="nav">
-          <NavLink
-            className="nav-link"
-            exact
-            to="/tarefas-colaborador"
-          >
-           Tarefas
-          </NavLink>
-        </li>
-        <li className="nav">
-          <button onClick={() => pushRegistre()} className="btn-register">
-            Registre
-          </button>
-        </li>
-        <li className="nav">
-          <button className="btn-logout" onClick={() => logout()}>
-            Sair
-          </button>
-        </li>
-      </ul>
-    </div>
+          <NavDropdown title="Perfil" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="/perfil-colaborador">
+              Editar
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <Nav>
+          <Nav.Link>
+            <button onClick={() => pushRegistre()} className="btn-register">
+              Registre
+            </button>
+          </Nav.Link>
+          <Nav.Link>
+            <button className="btn-logout" onClick={() => logout()}>
+              Sair
+            </button>
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 export default HeaderColab;

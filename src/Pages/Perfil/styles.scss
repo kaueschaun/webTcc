@@ -1,0 +1,102 @@
+@import "../../assets/helpers/variables";
+@import "../../assets/helpers/mixins";
+
+.container-profile {
+  background-color: $primary-color;
+  padding-top: 15px;
+  height: 100vh;
+  .content-profile {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    margin: 5px;
+    flex-flow: wrap;
+    border-radius: 5px;
+    list-style-type: none;
+    align-items: center;
+    .data-profile {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px;
+      margin: 5px;
+      display: flex;
+      flex-flow: column;
+      border-radius: 5px;
+      list-style-type: none;
+      align-items: center;
+      .input-profile {
+        border: none;
+        border-radius: 5px;
+        font-family: $open-sans;
+        text-align: center;
+        color: $primary-color;
+        width: 300px;
+        @media screen and(max-width: 400px) {
+          width: 300px;
+        }
+      }
+      .txt-profile {
+        color: $secundary-bg-color;
+        font-family: $open-sans;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .content-profile-two {
+    justify-content: space-around;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-flow: wrap;
+    border-radius: 5px;
+    list-style-type: none;
+    align-items: center;
+    .data-profile {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px;
+      margin: 5px;
+      display: flex;
+      flex-flow: column;
+      border-radius: 5px;
+      list-style-type: none;
+      align-items: center;
+      .input-profile {
+        border: none;
+        border-radius: 5px;
+        font-family: $open-sans;
+        text-align: center;
+        width: 300px;
+        color: $primary-color;
+        @media screen and(max-width: 400px) {
+          width: 300px;
+        }
+      }
+      .txt-profile {
+        color: $secundary-bg-color;
+        font-family: $open-sans;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .content-btn-save {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      .btn-save {
+        width: 120px;
+        font-size: 18px;
+        align-items: center;
+        height: 35px;
+        @include btn-submit-and-save;
+        &:hover {
+          background-color: $secundary-bg-color;
+          color: $primary-color;
+        }
+      }
+  }
+}
