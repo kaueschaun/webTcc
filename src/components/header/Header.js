@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logoImg from "../../assets/img/logo.png";
-import {Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import {Nav, Navbar } from 'react-bootstrap';
+import Logout from './../../assets/img/logout.png'
 import "./header.scss";
 const Header = () => {
   function logout() {
@@ -35,6 +36,7 @@ const Header = () => {
           <Nav.Link>
           <button className="btn-logout" onClick={() => logout()}>
               Sair
+              <img src={Logout} alt="Logout" />
            </button>
           </Nav.Link>
         </Nav>

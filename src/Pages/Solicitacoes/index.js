@@ -60,7 +60,6 @@ const Solicitacoes = () => {
             )
           );
         }
-
         setSolicitacao(response.data.response);
       });
   }, []);
