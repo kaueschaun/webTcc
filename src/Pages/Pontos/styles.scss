@@ -100,7 +100,7 @@
         font-family: $open-sans;
         color: $secundary-bg-color;
         font-weight: bold;
-        @media screen and(max-width: 400px) {
+        @media screen and(max-width: 375px) {
           font-size: 12px;
         }
       }
@@ -113,6 +113,9 @@
         font-weight: bold;
         font-family: $open-sans;
         width: 200px;
+        @media screen and(max-width:375px) {
+          font-size: 13px
+        }
         @media screen and(max-width: 930px) and (min-width: 645px){
           margin-right: 30px;
         }

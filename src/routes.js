@@ -17,6 +17,7 @@ import PontoDoColaborador from "./pages/PontoDoColaborador";
 import SolicitacaoColaborador from "./pages/SolicitacaoColaborador";
 import Tarefas from "./pages/Tarefas";
 import Perfil from "./pages/Perfil";
+import Relatorio from "./pages/Relatorio";
 
 const PrivateRouteColaborador = ({ component: Component, ...rest }) => (
   <Route
@@ -61,6 +62,7 @@ export default function Routes() {
         <PrivateRoute path="/ponto-do-colaborador" component={PontoDoColaborador} />
         <PrivateRoute path="/solicitacoes" component={Solicitacoes} />
         <PrivateRoute path="/conta" component={Conta} />
+        <PrivateRoute path="/relatorio" component={Relatorio} />
         <Route path="/login/colaborador" component={LoginColaborador} />
         <PrivateRouteColaborador
           path="/solicitacoes-colaborador"
