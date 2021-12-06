@@ -16,7 +16,6 @@ const SolicitacoesColaborador = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const id = localStorage.getItem("id");
-    console.log(id);
     api
       .get(`/colaborador/solicitacoes/${id}`, {
         headers: {
@@ -24,7 +23,6 @@ const SolicitacoesColaborador = () => {
         },
       })
       .then((response) => {
-        console.log(response.data.response)
         if (response.data.response.length === 0) {
           setNorequest(true);
           return;
@@ -32,7 +30,6 @@ const SolicitacoesColaborador = () => {
         if(response.data.response.edit === "Aceita") {
           setAccept(false)
         } 
-        console.log(response.data.response)
         response.data.response.map(
           (solicitacao) => (solicitacao.data = formatDate(solicitacao.data))
         );
@@ -56,9 +53,9 @@ const SolicitacoesColaborador = () => {
               key={solicitacao.pontos_num_registro}
             >
               <div class="content-my-request">
-                <p>Hora Entrada:</p>
+                <p>Entrada:</p>
                 <span>{solicitacao.entrada}</span>
-                <p>Hora Saida:</p>
+                <p>Saida:</p>
                 <span>{solicitacao.saida}</span>
                 <p>Data:</p>
                 <span>{solicitacao.data}</span>

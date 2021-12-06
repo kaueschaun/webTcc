@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import HeaderColab from "../../components/header/HeaderColab";
 import Arrow from "../../assets/img/arrow.png";
+import DonwArrow from "../../assets/img/down-arrow.png";
 import dayjs from "dayjs";
 import "./styles.scss";
+import TimeField from "react-simple-timefield";
 
 const SolicitacaoColaborador = () => {
   const [data, setData] = useState("");
@@ -13,6 +15,14 @@ const SolicitacaoColaborador = () => {
   const [colaboradores_idcolaboradores, setIdcolaboradores] = useState([]);
   const [pontos_num_registro, setNumRegistro] = useState([]);
   const [ponto, setPonto] = useState([]);
+
+  const maskDate = (value) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{2})(\d)/, "$1/$2")
+      .replace(/(\d{2})(\d)/, "$1/$2")
+      .replace(/(\d{4})(\d)/, "$1");
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -24,9 +34,12 @@ const SolicitacaoColaborador = () => {
       pontos_num_registro,
       colaboradores_idcolaboradores,
     };
-    
     if(data, observacao, saida, entrada === "") {
       alert("Preecha todos os campos!")
+      return
+    }
+    if(entrada === saida) {
+      alert("Entrada e saida não podem ser iguais!")
       return
     }
     if ((entrada !== "")  &  (saida !== "") & (data !== "") &  (observacao !== "")) {
@@ -42,12 +55,11 @@ const SolicitacaoColaborador = () => {
         });
         
       } catch (err) {
-        console.log(err);
-
         alert("Por favor, tente novamente.");
       }
     } else {
       alert("Por favor preencher todos os campos!");
+      return
     }
     alert("Solicitação feita com sucesso!");
     window.location.href = "/ponto-colaborador";
@@ -55,7 +67,7 @@ const SolicitacaoColaborador = () => {
 
   
   function editDate(date) {
-    const partes = date.split("-");
+    const partes = date.split("/");
     const dataPonto = partes[2] + "-" + partes[1] + "-" + partes[0];
     return dataPonto;
   }
@@ -106,9 +118,9 @@ const SolicitacaoColaborador = () => {
             <p className="txt-title-spot">Ponto para ajustar</p>
           </div>
           <div className="spot-date">
-          <p className="text-info-spot">Hora Entrada:</p>
+          <p className="text-info-spot">Entrada:</p>
             <span className="text-span-spot">{ponto.entrada}</span>
-            <p className="text-info-spot">Hora Saida:</p>
+            <p className="text-info-spot">Saida:</p>
             <span className="text-span-spot">{ponto.saida}</span>
             <p className="text-info-spot">Data:</p>
             <span className="text-span-spot">{ponto.data}</span>
@@ -117,25 +129,31 @@ const SolicitacaoColaborador = () => {
           </div>
           <div className="content-arrow">
             <img className="arrow" src={Arrow} alt="" />
+            <img className="down-arrow" src={DonwArrow} alt="" />
           </div>
           <div className="container-inputs">
             <form className="form-spot" onSubmit={handleSubmit}>
               <div className="content-requests">
-                <p className="text-info-spot">Hora Entrada*</p>
-                <input
+                <p className="text-info-spot">Entrada*</p>
+                <TimeField
                   type="text"
                   name="entrada"
                   className="input-time"
+                  placeholder = "00:00"
+                  colon=":"
                   onChange={(e) => setEntrada(e.target.value)}
                 />
               </div>
               <div className="content-requests">
-                <p className="text-info-spot">Hora Saida*</p>
-                <input
-                  type="text"
-                  name="saida"
-                  className="input-time"
-                  onChange={(e) => setSaida(e.target.value)}
+                <p className="text-info-spot">Saida*</p>
+              
+                <TimeField 
+                name="saida"
+                className="input-time" 
+                type="text"
+                colon=":"
+                 onChange={(e) => setSaida(e.target.value)}
+                 mask="00:00:00"
                 />
               </div>
               <div className="content-requests">
@@ -144,7 +162,9 @@ const SolicitacaoColaborador = () => {
                   type="text"
                   name="data"
                   className="input-date"
-                  onChange={(e) => setData(e.target.value)}
+                  placeholder="00/00/0000"
+                  value={data}
+                  onChange={(e) => setData(maskDate(e.target.value))}
                 />
               </div>
               <div className="content-requests">
@@ -152,6 +172,7 @@ const SolicitacaoColaborador = () => {
                 <input
                   className="input-observation"
                   type="text"
+                  placeholder="Digite a observação"
                   onChange={(e) => setObs(e.target.value)}
                 />
               </div>

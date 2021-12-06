@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import logoImg from "../../assets/img/logo.png";
 import "./headerColab.scss";
 import {Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import Logout from "../../assets/img/logout.png";
+
 const HeaderColab = () => {
   
   const id = localStorage.getItem('id')
@@ -51,6 +53,7 @@ const HeaderColab = () => {
           <Nav.Link>
             <button className="btn-logout" onClick={() => logout()}>
               Sair
+              <img src={Logout} alt="Logout" />
             </button>
           </Nav.Link>
         </Nav>

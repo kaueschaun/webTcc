@@ -28,7 +28,7 @@
         .child-container {
           width: 100%;
           display: flex;
-          height: 20%;
+          height: 10%;
           margin-left: 30px;
           top: 20px;
           @media (max-width: 320px) {
@@ -54,17 +54,29 @@
             text-decoration: none;
           }
         }
+        .container-warnning {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .title-warnning {
+            font-family: $open-sans;
+            font-weight: bold;
+            color: $secundary-bg-color;
+            margin-bottom: 25px;
+          }
+        }
         .content-two {
           align-items: center;
           border: none;
           background-color: $primary-color;
           border-radius: 5px;
           width: 100%;
-          height: 80%;
+          height: 70%;
           margin-top: -80px;
           flex-flow: column;
           display: flex;
           justify-content: center;
+         
           .txt-welcome {
             color: $secundary-bg-color;
             font-size: 35px;

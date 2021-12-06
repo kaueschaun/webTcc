@@ -107,7 +107,6 @@ const Tarefas = () => {
             
           });
         }
-        console.log(response.data.response)
         setTarefas(response.data.response);
       });
   },[]);

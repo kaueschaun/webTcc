@@ -11,7 +11,6 @@ const PontosColaborador = () => {
 
   function doPonto() {
     const token = localStorage.getItem("token");
-    console.log(id);
     const payload = {
       colaboradores_idcolaboradores: id,
     };
@@ -38,7 +37,9 @@ const PontosColaborador = () => {
                 Voltar a Página Inicial
               </a>
             </div>
-
+            <div className="container-warnning">
+              <h1 className="title-warnning">Aviso: Lembre você deve finalizar sua jornada de trabalho no mesmo dia de início!</h1>
+            </div>
             <div className="content-two">
               <h2 className="txt-welcome">Hora Atual</h2>
               <h1 className="txt-time"> {new Date().toLocaleTimeString()}</h1>
