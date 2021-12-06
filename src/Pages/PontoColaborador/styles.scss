@@ -13,6 +13,36 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  .content-search-data {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    .title-search {
+      font-family: $open-sans;
+      font-weight: bold;
+      color: $secundary-bg-color;
+      margin-left: 15px;
+     
+      @media (max-width: 375px) {
+        font-size: 13px;
+      }
+    }
+    .field-search-data {
+      margin-left: 15px;
+      border:none;
+      text-align: center;
+      border-radius: 5px;
+      font-family: $open-sans;
+      @media (max-width: 375px) {
+        width: 150px;
+        margin-right: 10px;
+      }
+      &::placeholder {
+        color: rgb(216, 215, 215) !important;
+      }
+    }
+  }
   .btn-solicitacao {
     border-radius: 2px;
     display: flex;

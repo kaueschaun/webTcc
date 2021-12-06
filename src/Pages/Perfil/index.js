@@ -18,13 +18,13 @@ const Perfil = () => {
   function handleSubmit(pessoa) {
     const id = localStorage.getItem("id");
     const token = localStorage.getItem("token");
-
+   
   if (pessoa.email.indexOf("@") === -1) {
     alert("Insira um email válido!");
     return;
   }
-  if (pessoa.telefone_celular.length < 11) {
-    alert("Insira um telefone celular válido! ");
+  if (pessoa.telefone_celular.length < 11 ) {
+    alert("Insira um telefone celular válido!");
     return;
   }
     pessoa.data_admissao = editDate(pessoa.data_admissao);
@@ -44,9 +44,9 @@ const Perfil = () => {
   }
 
   function formatDate(date) {
-    return dayjs(date).format("DD-MM-YYYY");
+    return dayjs(date).format("DD/MM/YYYY");
   }
-
+  
   useEffect(() => {
     const id = localStorage.getItem("id");
     const token = localStorage.getItem("token");
@@ -59,7 +59,6 @@ const Perfil = () => {
           Authorization: `Bearer ` + token,
         },
       });
-      console.log(response.data.response);
       let res = [];
       res.push(response.data.response[0]);
       response.data.response[0].data_nasc = formatDate(
@@ -116,7 +115,7 @@ const Perfil = () => {
             <input className="input-profile" defaultValue={pessoa.endereco} name="endereco" onChange={(event) => handlePerson(event)}/>
           </div>
           <div className="data-profile">
-            <p className="txt-profile">Numero</p>
+            <p className="txt-profile">Número</p>
             <input className="input-profile" defaultValue={pessoa.numero} name="numero" onChange={(event) => handlePerson(event)}/>
           </div>
           <div className="data-profile">
