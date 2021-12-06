@@ -18,8 +18,6 @@ const Colaboradores = () => {
     return dayjs(date).format("DD/MM/YYYY");
   }
 
-  
-
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
     api
@@ -97,48 +95,61 @@ const Colaboradores = () => {
           </div>
         )}
         {pessoas.map((pessoa, index) => (
-            <Accordion className="content-people" key={pessoa.idcolaboradores}>
-              <Accordion.Item eventKey={index}>
-                <Accordion.Header>
+          <Accordion className="content-people" key={pessoa.idcolaboradores}>
+            <Accordion.Item eventKey={index}>
+              <Accordion.Header className="header-accordion">
+                {/* <div> */}
                   <p>Nome:</p>
                   <span>{pessoa.nome_completo}</span>
+                {/* </div> */}
+                {/* <div> */}
+                  {" "}
                   <p>E-mail:</p>
                   <span>{pessoa.email}</span>
+                {/* </div> */}
+                {/* <div> */}
+                  {" "}
                   <p>Setor:</p> <span>{pessoa.setor}</span>
+                {/* </div> */}
+                {/* <div> */}
                   <p>Telefone:</p>{" "}
                   <span>
                     {msk.fit(pessoa.telefone_celular, "(99) 99999-9999")}
                   </span>
-                  <button
-                    className="button-delete"
-                    onClick={() => handleDelete(pessoa.idcolaboradores)}
-                  >
-                    <img src={Delete} alt="Delete" />
-                  </button>
-                  <button
-                    onClick={() => handleEdit(pessoa.idcolaboradores)}
-                    className="button-edit"
-                  >
-                    <img src={Edit} alt="Edit" />
-                  </button>
-                </Accordion.Header>
-                <Accordion.Body>
-                  <p>CPF:</p>
-                  <span>{msk.fit(pessoa.cpf, "999.999.999-99")}</span>
-                  <p>Data de Nascimento:</p>
-                  <span>{pessoa.data_nasc}</span>
-                  <p>Data de Admissão:</p>
-                  <span>{pessoa.data_admissao}</span>
-                  <p>Endereço:</p>
-                  <span>{pessoa.endereco}</span>
-                  <p>Número:</p>
-                  <span>{pessoa.numero}</span>
-                  <p>Horas mensais:</p>
-                  <span>{pessoa.horas_mensais}</span>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          
+                {/* </div> */}
+                {/* <div> */}
+                <button
+                  className="button-delete"
+                  onClick={() => handleDelete(pessoa.idcolaboradores)}
+                >
+                  <img src={Delete} alt="Delete" />
+                </button>
+                <button
+                  onClick={() => handleEdit(pessoa.idcolaboradores)}
+                  className="button-edit"
+                >
+                  <img src={Edit} alt="Edit" />
+                </button>
+                {/* </div> */}
+
+                
+              </Accordion.Header>
+              <Accordion.Body>
+                <p>CPF:</p>
+                <span>{msk.fit(pessoa.cpf, "999.999.999-99")}</span>
+                <p>Data de Nascimento:</p>
+                <span>{pessoa.data_nasc}</span>
+                <p>Data de Admissão:</p>
+                <span>{pessoa.data_admissao}</span>
+                <p>Endereço:</p>
+                <span>{pessoa.endereco}</span>
+                <p>Número:</p>
+                <span>{pessoa.numero}</span>
+                <p>Horas mensais:</p>
+                <span>{pessoa.horas_mensais}</span>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
         ))}
       </div>
     </div>

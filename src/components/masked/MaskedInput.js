@@ -1,9 +1,17 @@
 import React from "react";
+import { Placeholder } from "react-bootstrap";
 import InputMask from "react-input-mask";
 
 const onlyNumbers = (str) => str.replace(/[^0-9]/g, "");
 
-const MaskedCpfInput = ({ value, onChange }) => {
+const MaskedCpfInput = ({isLogin, value, onChange }) => {
+  let placeHolderValue = ""
+  if(isLogin) {
+    placeHolderValue = "CPF"
+    
+  }else {
+    placeHolderValue = "000.000.000-00"
+  }
   function handleChange(event) {
     onChange({
       ...event,
@@ -18,7 +26,7 @@ const MaskedCpfInput = ({ value, onChange }) => {
     <InputMask
       className="field-input"
       mask="999.999.999-99"
-      placeholder="CPF"
+      placeholder={placeHolderValue}
       value={value}
       onChange={handleChange}
     />

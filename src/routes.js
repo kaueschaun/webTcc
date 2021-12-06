@@ -64,6 +64,7 @@ export default function Routes() {
         <PrivateRoute path="/conta" component={Conta} />
         <PrivateRoute path="/relatorio" component={Relatorio} />
         <Route path="/login/colaborador" component={LoginColaborador} />
+        
         <PrivateRouteColaborador
           path="/solicitacoes-colaborador"
           component={SolicitacoesColaborador}

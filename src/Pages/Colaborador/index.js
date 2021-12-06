@@ -27,7 +27,7 @@ const Colaborador = () => {
   }
 
   function handleSubmit(pessoa) {
-    if (pessoa.telefone_celular.length < 11) {
+    if (pessoa.telefone_celular.length < 11 || pessoa.telefone_celular === "") {
       alert("Telefone precisa de no minimo 11 digitos!");
       return;
     }
@@ -139,10 +139,10 @@ const Colaborador = () => {
               mask={[
                 /[0-9]/,
                 /[0-9]/,
-                "-",
+                "/",
                 /[0-9]/,
                 /[0-9]/,
-                "-",
+                "/",
                 /[0-9]/,
                 /[0-9]/,
                 /[0-9]/,
@@ -163,10 +163,10 @@ const Colaborador = () => {
               mask={[
                 /[0-9]/,
                 /[0-9]/,
-                "-",
+                "/",
                 /[0-9]/,
                 /[0-9]/,
-                "-",
+                "/",
                 /[0-9]/,
                 /[0-9]/,
                 /[0-9]/,

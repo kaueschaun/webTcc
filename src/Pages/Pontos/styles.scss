@@ -113,6 +113,9 @@
         font-weight: bold;
         font-family: $open-sans;
         width: 200px;
+        &::placeholder {
+          color: rgb(216, 215, 215);
+        }
         @media screen and(max-width:375px) {
           font-size: 13px
         }

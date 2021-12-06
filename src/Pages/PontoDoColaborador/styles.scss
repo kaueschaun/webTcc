@@ -74,6 +74,35 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 455px) {
+        display: flex;
+        flex-flow: column;
+      }
+      .title-search {
+        font-family: $open-sans;
+        font-weight: bold;
+        margin-top: 8px;
+        color: $secundary-bg-color;
+        margin-bottom: 10px;
+        margin-left: 15px;
+        flex-flow: row;
+        display: flex;
+        .two-spot {
+          @media (max-width: 455px) {
+            display: none;
+          }
+        }
+      }
+      .field-search-data {
+        margin-left: 15px;
+        text-align: center;
+        border:none;
+        border-radius: 5px;
+        font-family: $open-sans;
+        &::placeholder {
+          color: rgb(216, 215, 215) !important;
+        }
+      }
       .report-btn {
         @include btn-submit-and-save;
         background-color: #0d6efd;

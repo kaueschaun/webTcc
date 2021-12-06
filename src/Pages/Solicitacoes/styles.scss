@@ -2,116 +2,119 @@
 @import "../../assets/helpers/mixins.scss";
 
 .container-request {
-    background-color: $primary-color;
-    padding-top: 15px;
-    height: 100vh;
+  background-color: $primary-color;
+  padding-top: 15px;
+  min-height: 100vh;
+  flex-flow:column ;
+  display: flex;
+  align-items: center;
+  .no-request {
+    display: flex;
     justify-content: center;
-    .no-request {
+    align-items: center;
+    .txt-no-request {
+      margin-top: 40px;
+      color: $secundary-bg-color;
+      font-size: 32px;
+      font-weight: bold;
+      font-family: $open-sans;
+    }
+  }
+  .contents-request {
+    margin-top: 20px;
+    justify-content: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    list-style-type: none;
+    width: calc(70% - 10px);
+    border-radius: 5px;
+    height: 255px;
+    background-color: $secundary-bg-color;
+    @media (max-width: 573px) {
+      height: 300px;
+    }
+    @media (max-width: 425px) {
+      width: calc(100% - 20px);
+     height: 550px;
+    }
+    .list-request {
+     
+      .content-arrow {
         display: flex;
         justify-content: center;
-        align-items: center;
-        .txt-no-request {
-            margin-top: 40px;
-            color: $secundary-bg-color;
-            font-size: 32px;
-            font-weight: bold;
-            font-family: $open-sans;
+        .down-arrow {
+          width: 30px;
+          height: 30px;
+          margin-top: 15px;
+          margin-bottom: 15px;
         }
+      }
     }
-    .contents-request {
-        justify-content: center;
+    .data-spot {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      @media (max-width: 425px) {
+        flex-flow: column;
+      }
+      legend {
+        color: $primary-color;
+        font-weight: bold;
+        font-family: $open-sans;
         display: flex;
-        flex-flow: wrap;
-        .list-request {
-            padding: 5px;
-            margin: 5px;
-            display: flex;
-            width: 100%;
-            max-width: 1300px;
-            border-radius: 5px;
-            padding-top: 10px;
-            flex-flow: wrap;
-            background-color: $secundary-bg-color;
-            list-style-type: none;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid $secundary-bg-color;
-            -webkit-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-            -moz-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-            box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
-            @media screen and(max-width: 400px) {
-                padding-top: 20px;
-            }
-            .arrow {
-                margin-left: 20px;
-            }
-            .data-spot-hold {
-                .content-title-spot-hold {
-                    display: flex;
-                    justify-content: center;
-                    .txt-request {
-                    margin-top: -15px;
-                    margin-bottom: 8px;
-                    color: $primary-color;
-                    font-family: $open-sans;
-                    font-weight: bold;
-                    }
-                }
-            }
-
-            .info-request {
-                display: flex;
-                align-content: center;
-                .txt-request {
-                    margin-left: 20px;
-                    color: $primary-color;
-                    font-family: $open-sans;
-                    font-weight: bold;
-                }
-                .txt-request-span {
-                    margin-left: 15px;
-                    font-weight: bold;
-                    font-size: 14px;
-                    font-family: $open-sans;
-
-                }
-            }
-            .info-request-btn {
-                width:20%;
-                margin-left: 25px;
-                display: flex;
-                @media screen and(max-width: 375px) {
-                    display: flex;
-                    flex-flow: wrap;
-                }
-                
-                .btn-accept {
-                    width:100px;
-                    border: none;
-                    height: 25px;
-                    @include btn-submit-and-save;
-                    @media screen and(max-width: 375px) {
-                        margin-top: 5px;
-                    }
-                }
-                .btn-decline {
-                    width:100px;
-                    border: none;
-                    height: 25px;
-                    margin-left: 8px;
-                    font-weight: bold;
-                    @include btn-decline-and-delete;
-                    border-radius:10px;
-                    cursor: pointer;   
-                    @media screen and(max-width: 375px) {
-                        margin-top: 5px;
-                    }
-                }
-            }
-           
+        justify-content: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      .txt-fields {
+        font-family: $open-sans;
+        color: $primary-color;
+        @media (max-width: 425px) {
+          margin-top: 5px;
         }
-       
+      }
+      .txt-res {
+        font-family: $open-sans;
+        color: black;
+        margin-left: 5px;
+        margin-right: 5px;
+        @media (max-width: 425px) {
+          width: 13em;
+          word-wrap: break-word;
+          margin-left: unset;
+          margin-top: 5px;
+        }
+      }
+     
     }
-   
-  
+    .content-button-spot {
+      margin-top: 10px;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      .btn-accept {
+        width: 100px;
+        border: none;
+        height: 25px;
+        @include btn-submit-and-save;
+        @media screen and(max-width: 375px) {
+          margin-top: 5px;
+        }
+      }
+      .btn-decline {
+        width: 100px;
+        border: none;
+        height: 25px;
+        margin-left: 8px;
+        font-weight: bold;
+        @include btn-decline-and-delete;
+        border-radius: 10px;
+        cursor: pointer;
+        @media screen and(max-width: 375px) {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }

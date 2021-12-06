@@ -53,7 +53,7 @@ const Login = () => {
             <MaskedCpfInput
               value={cpf}
               type="number"
-              placeholder="CPF"
+              isLogin = {true}
               onChange={(e) => setCpf(e.target.value)}
             />
 

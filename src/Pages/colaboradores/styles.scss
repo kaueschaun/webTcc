@@ -25,6 +25,19 @@
         align-items: center;
         display: flex;
       }
+      // .header-accordion {
+      //   height: 200px !important;
+      //   // button {
+      //   //   display: flex;
+      //   //   flex-flow: row wrap;
+      //   //   div {
+      //   //     display: flex;
+      //   //      width: 20%;
+      //   //      flex-flow: row wrap;
+      //   //   }
+      //   }
+      
+      // }
     }
   }
   .content-people {
@@ -95,6 +108,9 @@
       font-weight: bold;
       font-family: $open-sans;
       width: 200px;
+      &::placeholder {
+        color: rgb(216, 215, 215);
+      }
     }
   }
 }
