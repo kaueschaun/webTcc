@@ -58,7 +58,6 @@ const Relatorio = () => {
             setRequestReport(true)
             return
           }
-          console.log(response.data.response);
           setReport(response.data.response);
           const calculo =
             response.data.response.resultado[0].horas_mensais -
@@ -120,6 +119,8 @@ const Relatorio = () => {
           <div className="results-report">
             <div className="content-results-report">
               <h1 className="title-results">Relatório</h1>
+              <p className="txt-results-report">Horas Estipuladas</p>
+              <p>{horas_mensais} Horas</p>
               <p className="txt-results-report">Horas Feitas</p>
               <p>{horas_feitas} Horas</p>
               <p className="txt-results-report">Horas Faltantes</p>

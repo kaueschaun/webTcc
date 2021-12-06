@@ -18,7 +18,7 @@ const MaskedPhone = ({ value, onChange }) => {
     <InputMask
       className="field-input"
       mask="(99) 99999-9999"
-      placeholder="telefone"
+      placeholder="(99) 99999-9999"
       value={value}
       onChange={handleChange}
     />

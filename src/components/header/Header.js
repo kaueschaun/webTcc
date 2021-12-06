@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg">
-      <Navbar.Brand href="/ponto-colaborador">
+      <Navbar.Brand href="/colaboradores">
         <img src={logoImg} alt="Logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />

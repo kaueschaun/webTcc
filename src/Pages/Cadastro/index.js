@@ -83,29 +83,32 @@ const Cadastro = () => {
       senha,
     };
 
-    
+    if(nome_completo, cpf, data_nasc, data_admissao, horas_mensais, senha, email, endereco, telefone_celular, setor === "" ) {
+      alert("Preencha todos os campos!")
+      return
+    }
     if (nome_completo.indexOf(" ") === -1) {
-      alert("Inserir nome completo");
+      alert("Insira o nome completo");
       setNome("");
       return;
     }
     if (cpf === "" || !isvalid) {
-      alert("Inserira um CPF válido!");
+      alert("Insira um CPF válido!");
       setCpf("");
       return;
     }
     if (data_nasc.substr(9, 1) === "_") {
-      alert("Inserir a data de nascimento corretamente");
+      alert("Insira a data de nascimento corretamente");
       setData_nasc("");
       return;
     }
     if (email.indexOf("@") === -1) {
-      alert("Inserir um email válido");
+      alert("Insira um email válido");
       setEmail("");
       return;
     }
     if (telefone_celular.length < 11) {
-      alert("Inserir o Telefone corretamente");
+      alert("Insira o Telefone corretamente");
       setTelefone("");
       return;
     }
@@ -132,8 +135,6 @@ const Cadastro = () => {
         alert("Cadastro Realizado com Sucesso.");
         history.push("/colaboradores");
       } catch (err) {
-        console.log(err);
-
         alert("Por favor, tente novamente.");
       }
     } else {
@@ -155,6 +156,7 @@ const Cadastro = () => {
 
                 <input
                   className="field-input"
+                  placeholder="Digite o nome completo"
                   onChange={(e) => setNome(e.target.value)}
                 />
               </div>
@@ -163,6 +165,7 @@ const Cadastro = () => {
                 <p className="title-input">CPF:</p>
                 <MaskedCpfInput
                   className="field-input"
+                  isLogin = {false}
                   value={cpf}
                   regex
                   onChange={(event) => {
@@ -175,6 +178,7 @@ const Cadastro = () => {
 
                 <MaskedInput
                   className="field-input"
+                  placeholder="00/00/0000"
                   onChange={(e) => setData_nasc(e.target.value)}
                   mask={[
                     /[0-9]/,
@@ -194,6 +198,7 @@ const Cadastro = () => {
                 <p className="title-input">E-mail:</p>
                 <input
                   className="field-input"
+                  placeholder="fulano@gmail.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -204,6 +209,7 @@ const Cadastro = () => {
               <p className="title-input">Endereço:</p>
               <input
                 className="field-input"
+                placeholder="Digite o endereço"
                 onChange={(e) => setEndereco(e.target.value)}
               />
             </div>
@@ -213,6 +219,7 @@ const Cadastro = () => {
 
                 <input
                   className="field-input"
+                  placeholder="Digite o número do endereço"
                   onChange={(e) => setNumero(e.target.value)}
                 />
               </div>
@@ -221,6 +228,7 @@ const Cadastro = () => {
                 <MaskedInput
                   className="field-input"
                   onChange={(e) => setAdmissao(e.target.value)}
+                  placeholder="00/00/0000"
                   mask={[
                     /[0-9]/,
                     /[0-9]/,
@@ -242,6 +250,7 @@ const Cadastro = () => {
                 <p className="title-input">Setor:</p>
                 <input
                   className="field-input"
+                  placeholder="Digite o setor"
                   onChange={(e) => setSetor(e.target.value)}
                 />
               </div>
@@ -250,6 +259,7 @@ const Cadastro = () => {
                 <p className="title-input">Horas Mensais:</p>
                 <input
                   className="field-input"
+                  placeholder="Digite as horas mensais"
                   onChange={(e) => setHoras_mensais(e.target.value)}
                 />
               </div>
@@ -265,6 +275,7 @@ const Cadastro = () => {
               <input
                 className="field-input"
                 type="password"
+                placeholder="Digite a senha"
                 onChange={(e) => setSenha(e.target.value)}
               />
             </div>

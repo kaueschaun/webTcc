@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/header/Header";
 import api from "../../services/api";
-import Arrow from "../../assets/img/arrow.png";
+import DownArrow from "../../assets/img/down-arrow.png";
 import dayjs from "dayjs";
 import "./styles.scss";
 
@@ -10,12 +10,12 @@ const Solicitacoes = () => {
   const [noRequest, setNoRequest] = useState(false);
 
   function editDate(date) {
-    const partes = date.split("-");
+    const partes = date.split("/");
     const dataPonto = partes[2] + "-" + partes[1] + "-" + partes[0];
     return dataPonto;
   }
   function formatDate(date) {
-    return dayjs(date).format("DD-MM-YYYY");
+    return dayjs(date).format("DD/MM/YYYY");
   }
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
@@ -26,7 +26,6 @@ const Solicitacoes = () => {
         },
       })
       .then((response) => {
-        console.log(response.data.response)
         if (response.data.response.length === 0) {
           setNoRequest(true);
           return;
@@ -64,11 +63,17 @@ const Solicitacoes = () => {
       });
   }, []);
 
-  async function acceptResquest({ pontos_num_registro, data, entrada, saida, id }) {
+  async function acceptResquest({
+    pontos_num_registro,
+    data,
+    entrada,
+    saida,
+    id,
+  }) {
     const dados = {
       data,
       entrada,
-      saida
+      saida,
     };
     dados.data = editDate(dados.data);
     const token = localStorage.getItem("admin_token");
@@ -123,49 +128,32 @@ const Solicitacoes = () => {
           .map((solicitacao) => (
             <div className="contents-request">
               <li className="list-request" key={solicitacao.id}>
-                <div className="data-spot-hold">
-                  <div className="content-title-spot-hold">
-                    <p className="txt-request">Ponto</p>
-                  </div>
-                  <div className="info-request">
-                    <p className="txt-request">Hora Entrada:</p>
-                    <span className="txt-request-span">
-                      {solicitacao.pontosEntrada}
-                    </span>
-                    <p className="txt-request">Hora Saida:</p>
-                    <span className="txt-request-span">
-                      {solicitacao.pontosSaida}
-                    </span>
-                    <p className="txt-request">Data:</p>
-                    <span className="txt-request-span">
-                      {solicitacao.pontosData}
-                    </span>
-                  </div>
-                </div>
-                <img className="arrow" src={Arrow} alt="" />
-                <div className="info-request">
-                  <p className="txt-request">Nome:</p>
-                  <span className="txt-request-span">
-                    {solicitacao.nome_completo}
-                  </span>
-                </div>
-                <div className="info-request">
-                  <p className="txt-request">Hora Entrada:</p>
-                  <span className="txt-request-span">{solicitacao.entrada}</span>
-                  <p className="txt-request">Hora Saida:</p>
-                  <span className="txt-request-span">{solicitacao.saida}</span>
-                </div>
-                <div className="info-request">
-                  <p className="txt-request">Data:</p>
-                  <span className="txt-request-span">{solicitacao.data}</span>
-                </div>
-                <div className="info-request">
-                  <p className="txt-request">Observação:</p>
-                  <span className="txt-request-span">
-                    {solicitacao.observacao}
-                  </span>
-                </div>
-                <div className="info-request-btn">
+                <fieldset className="data-spot">
+                  
+                  <legend>Dados do Ponto</legend>
+                  <p className="txt-fields">Entrada</p>
+                  <span className="txt-res"> {solicitacao.pontosEntrada}</span>
+                  <p className="txt-fields">Saida</p>
+                  <span className="txt-res"> {solicitacao.pontosSaida}</span>
+                  <p className="txt-fields">Data</p>
+                  <span className="txt-res"> {solicitacao.pontosData}</span>
+                </fieldset>
+                <div className="content-arrow">
+                  <img className="down-arrow" src={DownArrow} alt="" /></div>
+                <fieldset className="data-spot">
+                  <legend>Dados da Solicitação</legend>
+                  <p className="txt-fields">Nome</p>
+                  <span className="txt-res">{solicitacao.nome_completo}</span>
+                  <p className="txt-fields">Entrada:</p>
+                  <span className="txt-res"> {solicitacao.entrada}</span>
+                  <p className="txt-fields">Saida</p>
+                  <span className="txt-res"> {solicitacao.saida}</span>
+                  <p className="txt-fields">Data</p>
+                  <span className="txt-res"> {solicitacao.data}</span>
+                  <p className="txt-fields">Observação:</p>
+                  <span className="txt-res">{solicitacao.observacao}</span>
+                </fieldset>
+                <div className="content-button-spot">
                   <button
                     className="btn-accept"
                     onClick={() => acceptResquest(solicitacao)}
@@ -187,3 +175,4 @@ const Solicitacoes = () => {
   );
 };
 export default Solicitacoes;
+
