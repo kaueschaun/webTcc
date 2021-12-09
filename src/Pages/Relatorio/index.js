@@ -8,6 +8,7 @@ const Relatorio = () => {
   const [report, setReport] = useState([]);
   const [horas_mensais, setHoras_mensais] = useState("");
   const [horas_faltantes, setFaltantes] = useState("");
+  const [name, setName] = useState("");
   const [dataInicio, setDataInicio] = useState("");
   const [dataFinal, setDataFinal] = useState("");
   const [noReport, setNoReport] = useState(false);
@@ -53,6 +54,7 @@ const Relatorio = () => {
           }
         )
         .then((response) => {
+         setName(response.data.response.resultado[0].nome_completo)
           
           if(response.data.response.resultado.length === 0) {
             setRequestReport(true)
@@ -119,6 +121,12 @@ const Relatorio = () => {
           <div className="results-report">
             <div className="content-results-report">
               <h1 className="title-results">Relatório</h1>
+              <p className="txt-results-report">Relatório gerado apartir das datas</p>
+              <p >{dataInicio}</p>
+              <p className="txt-results-report">à</p>
+              <p >{dataFinal}</p>
+              <p className="txt-results-report">Nome do Colaborador</p>
+              <p>{name}</p>
               <p className="txt-results-report">Horas Estipuladas</p>
               <p>{horas_mensais} Horas</p>
               <p className="txt-results-report">Horas Feitas</p>
