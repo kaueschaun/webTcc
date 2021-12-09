@@ -4,7 +4,7 @@
 .container-profile {
   background-color: $primary-color;
   padding-top: 15px;
-  height: 100vh;
+  min-height: 100vh;
   .content-profile {
     display: flex;
     justify-content: space-around;
