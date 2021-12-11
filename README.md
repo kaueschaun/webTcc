@@ -1,7 +1,7 @@
 # Web
 
 ### O QUE É
-Sistema Web para o colaborador do setor de RH ou Administração para controle das horas feitas dos colaboradores dos outros setores. Também o sistema web para o colaborador de outros setores.
+Sistema Web o administrador e colaboradorpara controle da jornada de trabalho dos colaboradores.
 
 ### OBJETIVO
 O objetivo deste documento é facilitar a compreenção do escopo do projeto e de como funciona.
