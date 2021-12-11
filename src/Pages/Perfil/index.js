@@ -94,7 +94,7 @@ const Perfil = () => {
           </div>
           <div className="data-profile">
             <p className="txt-profile">Telefone</p>
-            <input className="input-profile" defaultValue={pessoa.telefone_celular}  name="telefone_celular" onChange={(event) => handlePerson(event)}/>
+            <input type="number" className="input-profile" defaultValue={pessoa.telefone_celular}  name="telefone_celular" onChange={(event) => handlePerson(event)}/>
           </div>
           <div className="data-profile">
             <p className="txt-profile">Setor</p>
@@ -116,7 +116,7 @@ const Perfil = () => {
           </div>
           <div className="data-profile">
             <p className="txt-profile">Número</p>
-            <input className="input-profile" defaultValue={pessoa.numero} name="numero" onChange={(event) => handlePerson(event)}/>
+            <input type="number" className="input-profile" defaultValue={pessoa.numero} name="numero" onChange={(event) => handlePerson(event)}/>
           </div>
           <div className="data-profile">
             <p className="txt-profile">Horas Mensais</p>
