@@ -1,23 +1,24 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Login from "/pages/Login";
-import Cadastro from "/pages/Cadastro";
-import Colaboradores from "/pages/Colaboradores";
-import Colaborador from "/pages/Colaborador";
-import LoginColaborador from "/pages/LoginColaborador";
-import Pontos from "/pages/Pontos";
-import Solicitacoes from "/pages/Solicitacoes";
-import Conta from "/pages/Conta";
-import SolicitacoesColaborador from "/pages/SolicitacoesColaborador";
-import ColaboradorPontos from "/pages/PontosColaborador";
-import { adminIsAuthenticated } from "../src/authAdmin";
-import { isAuthenticated } from "../src/auth";
-import PontoColaborador from "/pages/PontoColaborador";
-import PontoDoColaborador from "/pages/PontoDoColaborador";
-import SolicitacaoColaborador from "/pages/SolicitacaoColaborador";
-import Tarefas from "/pages/Tarefas";
-import Perfil from "/pages/Perfil";
-import Relatorio from "/pages/Relatorio";
+
+import Login from "./pages/Login";
+import Cadastro from "./pages/Cadastro";
+import Colaboradores from "./pages/Colaboradores";
+import Colaborador from "./pages/Colaborador";
+import LoginColaborador from "./pages/LoginColaborador";
+import Pontos from "./pages/Pontos";
+import Solicitacoes from "./pages/Solicitacoes";
+import Conta from "./pages/Conta";
+import SolicitacoesColaborador from "./pages/SolicitacoesColaborador";
+import ColaboradorPontos from "./pages/PontosColaborador";
+import { adminIsAuthenticated } from "./authAdmin";
+import { isAuthenticated } from "./auth";
+import PontoColaborador from "./pages/PontoColaborador";
+import PontoDoColaborador from "./pages/PontoDoColaborador";
+import SolicitacaoColaborador from "./pages/SolicitacaoColaborador";
+import Tarefas from "./pages/Tarefas";
+import Perfil from "./pages/Perfil";
+import Relatorio from "./pages/Relatorio";
 
 const PrivateRouteColaborador = ({ component: Component, ...rest }) => (
   <Route

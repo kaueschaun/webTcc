@@ -122,7 +122,7 @@ const Colaborador = () => {
             </label>
             <input
               className="person-input"
-              type="text"
+              type="number"
               name="telefone_celular"
               onChange={(event) => handlePerson(event)}
               defaultValue={pessoa.telefone_celular}
@@ -192,7 +192,7 @@ const Colaborador = () => {
             </label>
             <input
               className="person-input"
-              type="text"
+              type="number"
               name="numero"
               onChange={(event) => handlePerson(event)}
               defaultValue={pessoa.numero}
@@ -217,7 +217,7 @@ const Colaborador = () => {
             </label>
             <input
               className="person-input"
-              type="text"
+              type="number"
               name="horas_mensais"
               onChange={(event) => handlePerson(event)}
               defaultValue={pessoa.horas_mensais}

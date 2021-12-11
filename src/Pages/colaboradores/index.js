@@ -1,17 +1,15 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import api from "../../services/api";
 import Header from "../../components/header/Header";
 import Edit from "../../assets/img/edit.png";
 import Delete from "../../assets/img/delete.png";
 import dayjs from "dayjs";
-import Accordion from 'react-bootstrap/Accordion'
-
-
+import Accordion from "react-bootstrap/Accordion";
 
 const Colaboradores = () => {
   const [pessoas, setPessoas] = useState([]);
-  const [noRequest, setRequest] = useState(false)
+  const [noRequest, setRequest] = useState(false);
   const msk = require("msk");
 
   function formatDate(date) {
@@ -27,39 +25,41 @@ const Colaboradores = () => {
         },
       })
       .then((response) => {
-       
-        response.data.response.map((pessoas) => (pessoas.data_nasc = formatDate(pessoas.data_nasc)))
-        response.data.response.map((pessoas) => (pessoas.data_admissao = formatDate(pessoas.data_admissao)))
+        response.data.response.map(
+          (pessoas) => (pessoas.data_nasc = formatDate(pessoas.data_nasc))
+        );
+        response.data.response.map(
+          (pessoas) =>
+            (pessoas.data_admissao = formatDate(pessoas.data_admissao))
+        );
         setPessoas(response.data.response);
-      
       });
   }, []);
 
   const handleSearch = (nome_completo) => {
-    setPessoas([])
+    setPessoas([]);
     const token = localStorage.getItem("admin_token");
     api
-    .get(`/colaboradores/${nome_completo}`, {
-      headers: {
-        Authorization: `Bearer ` + token,
-      },
-    })
-    .then((response) => {
-      if(response.data.response.length === 0 ) {
-        setRequest(true)
-        return
-      }
-        setRequest(false)
-        setPessoas(response.data.response)
-    });
-  
-  }
+      .get(`/colaboradores/${nome_completo}`, {
+        headers: {
+          Authorization: `Bearer ` + token,
+        },
+      })
+      .then((response) => {
+        if (response.data.response.length === 0) {
+          setRequest(true);
+          return;
+        }
+        setRequest(false);
+        setPessoas(response.data.response);
+      });
+  };
 
   const handleEdit = (idcolaboradores) => {
     window.location.href = `/colaborador?id=${idcolaboradores}`;
-  }
+  };
 
-   async function handleDelete(idcolaboradores)  {
+  async function handleDelete(idcolaboradores) {
     const token = localStorage.getItem("admin_token");
     if (window.confirm("Deseja realmente excluir esse usuario?")) {
       var result = await api.delete("/colaboradores/" + idcolaboradores, {
@@ -78,7 +78,7 @@ const Colaboradores = () => {
   return (
     <div>
       <Header />
-      <div className="content-all">
+      <div className="content-all-collaborator">
         <div className="content-search">
           <p className="txt-search">Pesquisa por nome:</p>
           <input
@@ -98,55 +98,69 @@ const Colaboradores = () => {
           <Accordion className="content-people" key={pessoa.idcolaboradores}>
             <Accordion.Item eventKey={index}>
               <Accordion.Header className="header-accordion">
-                {/* <div> */}
+                <div className="content-name">
                   <p>Nome:</p>
                   <span>{pessoa.nome_completo}</span>
-                {/* </div> */}
-                {/* <div> */}
+                </div>
+                <div className="content-email">
                   {" "}
                   <p>E-mail:</p>
                   <span>{pessoa.email}</span>
-                {/* </div> */}
-                {/* <div> */}
+                </div>
+                <div className="content-sector">
                   {" "}
                   <p>Setor:</p> <span>{pessoa.setor}</span>
-                {/* </div> */}
-                {/* <div> */}
+                </div>
+                <div className="content-fone">
                   <p>Telefone:</p>{" "}
                   <span>
                     {msk.fit(pessoa.telefone_celular, "(99) 99999-9999")}
                   </span>
-                {/* </div> */}
-                {/* <div> */}
-                <button
-                  className="button-delete"
-                  onClick={() => handleDelete(pessoa.idcolaboradores)}
-                >
-                  <img src={Delete} alt="Delete" />
-                </button>
-                <button
-                  onClick={() => handleEdit(pessoa.idcolaboradores)}
-                  className="button-edit"
-                >
-                  <img src={Edit} alt="Edit" />
-                </button>
-                {/* </div> */}
-
-                
+                </div>
+                <div className="content-buttons">
+                  <button
+                    className="button-delete"
+                    onClick={() => handleDelete(pessoa.idcolaboradores)}
+                  >
+                    <img src={Delete} alt="Delete" />
+                  </button>
+                  <button
+                    onClick={() => handleEdit(pessoa.idcolaboradores)}
+                    className="button-edit"
+                  >
+                    <img src={Edit} alt="Edit" />
+                  </button>
+                </div>
               </Accordion.Header>
               <Accordion.Body>
-                <p>CPF:</p>
-                <span>{msk.fit(pessoa.cpf, "999.999.999-99")}</span>
-                <p>Data de Nascimento:</p>
-                <span>{pessoa.data_nasc}</span>
-                <p>Data de Admissão:</p>
-                <span>{pessoa.data_admissao}</span>
-                <p>Endereço:</p>
-                <span>{pessoa.endereco}</span>
-                <p>Número:</p>
-                <span>{pessoa.numero}</span>
-                <p>Horas mensais:</p>
-                <span>{pessoa.horas_mensais}</span>
+                <div className="content-cpf">
+                  <p>CPF:</p>
+                  <span>{msk.fit(pessoa.cpf, "999.999.999-99")}</span>
+                </div>
+                <div className="content-cpf">
+                  <p>Data de Nascimento:</p>
+                  <span>{pessoa.data_nasc}</span>
+                </div>
+                <div
+                  className="content-date-admission"
+                >
+                  <p>Data de Admissão:</p>
+                  <span>{pessoa.data_admissao}</span>
+                </div>
+                <div className="content-address">
+                  <p>Endereço:</p>
+                  <span>{pessoa.endereco}</span>
+                </div>
+                <div className="content-number">
+                  <p>Número:</p>
+                  <span>{pessoa.numero}</span>
+                </div>
+                <div
+                  className="content-hours-monthly"
+                >
+                  <p>Horas mensais:</p>
+                  <span>{pessoa.horas_mensais}</span>
+                </div>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
