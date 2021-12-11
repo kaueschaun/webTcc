@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Colaboradores from "./pages/Colaboradores";
