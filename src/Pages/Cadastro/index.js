@@ -114,14 +114,14 @@ const Cadastro = () => {
     }
     
     if (
-      (nome_completo !== "") &
-      (cpf !== "") &
-      (data_nasc !== "") &
-      (email !== "") &
-      (telefone_celular !== "") &
-      (setor !== "") &
-      (data_admissao !== "") &
-      (horas_mensais !== "") &
+      (nome_completo !== "") ||
+      (cpf !== "") ||
+      (data_nasc !== "") ||
+      (email !== "") ||
+      (telefone_celular !== "") ||
+      (setor !== "") ||
+      (data_admissao !== "")||
+      (horas_mensais !== "") ||
       (senha !== "")
     ) {
 
@@ -157,6 +157,7 @@ const Cadastro = () => {
                 <input
                   className="field-input"
                   placeholder="Digite o nome completo"
+                  type="text"
                   onChange={(e) => setNome(e.target.value)}
                 />
               </div>
@@ -198,6 +199,7 @@ const Cadastro = () => {
                 <p className="title-input">E-mail:</p>
                 <input
                   className="field-input"
+                  type="text"
                   placeholder="fulano@gmail.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -210,6 +212,7 @@ const Cadastro = () => {
               <input
                 className="field-input"
                 placeholder="Digite o endereço"
+                type="text"
                 onChange={(e) => setEndereco(e.target.value)}
               />
             </div>
@@ -219,6 +222,8 @@ const Cadastro = () => {
 
                 <input
                   className="field-input"
+                  type="number"
+                  maxLength="6"
                   placeholder="Digite o número do endereço"
                   onChange={(e) => setNumero(e.target.value)}
                 />
@@ -251,6 +256,9 @@ const Cadastro = () => {
                 <input
                   className="field-input"
                   placeholder="Digite o setor"
+                  type="text"
+                  maxLength="15"
+                  minLength="2"
                   onChange={(e) => setSetor(e.target.value)}
                 />
               </div>
@@ -260,6 +268,8 @@ const Cadastro = () => {
                 <input
                   className="field-input"
                   placeholder="Digite as horas mensais"
+                  type="number"
+                  minLength="2"
                   onChange={(e) => setHoras_mensais(e.target.value)}
                 />
               </div>
@@ -276,6 +286,8 @@ const Cadastro = () => {
                 className="field-input"
                 type="password"
                 placeholder="Digite a senha"
+                minLength="6"
+                maxLength="8"
                 onChange={(e) => setSenha(e.target.value)}
               />
             </div>
