@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
 import Cadastro from "../src/pages/Cadastro/index";
-import Colaboradores from "../src/pages/Colaboradores";
+import Colaboradores from "../src/pages/Colaboradores/index";
 import Colaborador from "../src/pages/Colaborador/index";
 import LoginColaborador from "../src/pages/LoginColaborador/index";
 import Pontos from "../src/pages/Pontos/index";
-import Solicitacoes from "./pages/Solicitacoes";
-import Conta from "./pages/Conta";
+import Solicitacoes from "../src/pages/Solicitacoes/index";
 import SolicitacoesColaborador from "../src/pages/SolicitacoesColaborador/index";
 import ColaboradorPontos from "../src/pages/PontosColaborador/index";
 import { adminIsAuthenticated } from "./authAdmin";
@@ -62,7 +60,6 @@ export default function Routes() {
         <PrivateRoute path="/pontos" component={Pontos} />
         <PrivateRoute path="/ponto-do-colaborador" component={PontoDoColaborador} />
         <PrivateRoute path="/solicitacoes" component={Solicitacoes} />
-        <PrivateRoute path="/conta" component={Conta} />
         <PrivateRoute path="/relatorio" component={Relatorio} />
         <Route path="/login/colaborador" component={LoginColaborador} />
         
