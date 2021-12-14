@@ -9,7 +9,7 @@ import MaskedInput from "react-text-mask";
 const PontoDoColaborador = () => {
   const [pontos, setPontos] = useState([]);
   const [noSpots, setNoSpots] = useState(false);
-  const [SpotsReport, setNoSpotsReport] = useState(true);
+  const [SpotsReport, setNoSpotsReport] = useState(false);
 
   function editDate(date) {
     const partes = date.split("/");
@@ -44,10 +44,10 @@ const PontoDoColaborador = () => {
       })
       .then((response) => {
         if (response.data.response.length === 0) {
-          setNoSpotsReport(false);
           setNoSpots(true);
           return;
         }
+        setNoSpotsReport(true);
         response.data.response.map(
           (pontos) => (pontos.data = formatDate(pontos.data)),
           (pontos) => (pontos.entrada = dayjs("HH:mm:ss").format("HH:mm:ss"))
