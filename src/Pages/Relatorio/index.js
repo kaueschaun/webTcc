@@ -33,13 +33,11 @@ const Relatorio = () => {
       .replace(/(\d{2})(\d)/, "$1/$2")
       .replace(/(\d{4})(\d)/, "$1");
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const dataFilterInicio = editDate(dataInicio);
     const dataFilterFinal = editDate(dataFinal);
-
     const converter = Date.parse(dataFilterInicio);
     const converterTwo = Date.parse(dataFilterFinal);
 
@@ -54,13 +52,15 @@ const Relatorio = () => {
           }
         )
         .then((response) => {
-         setName(response.data.response.resultado[0].nome_completo)
           
           if(response.data.response.resultado.length === 0) {
             setRequestReport(true)
+            setNoReport(false)
             return
           }
+          setName(response.data.response.resultado[0].nome_completo)
           setReport(response.data.response);
+          setRequestReport(false)
           const calculo =
             response.data.response.resultado[0].horas_mensais -
             parseInt(response.data.response.total_horas_mes);
@@ -85,6 +85,7 @@ const Relatorio = () => {
           setHoras_mensais(response.data.response.resultado[0].horas_mensais);
           setFeitas(response.data.response.total_horas_mes);
           setNoReport(true);
+         
         });
     } else {
       alert("Preencha os Campos corretamente!");
@@ -122,9 +123,9 @@ const Relatorio = () => {
             <div className="content-results-report">
               <h1 className="title-results">Relatório</h1>
               <p className="txt-results-report">Relatório gerado apartir das datas</p>
-              <p >{dataInicio}</p>
+              <p>{dataInicio}</p>
               <p className="txt-results-report">à</p>
-              <p >{dataFinal}</p>
+              <p>{dataFinal}</p>
               <p className="txt-results-report">Nome do Colaborador</p>
               <p>{name}</p>
               <p className="txt-results-report">Horas Estipuladas</p>
