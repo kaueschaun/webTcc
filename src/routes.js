@@ -1,22 +1,22 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Cadastro from "../src/pages/Cadastro/index";
-import Colaboradores from "../src/pages/Colaboradores/index";
-import Colaborador from "../src/pages/Colaborador/index";
-import LoginColaborador from "../src/pages/LoginColaborador/index";
-import Pontos from "../src/pages/Pontos/index";
-import Solicitacoes from "../src/pages/Solicitacoes/index";
-import SolicitacoesColaborador from "../src/pages/SolicitacoesColaborador/index";
-import ColaboradorPontos from "../src/pages/PontosColaborador/index";
+import Cadastro from "../src/Pages/Cadastro/index";
+import Colaboradores from "./Pages/colaboradores/index";
+import Colaborador from "../src/Pages/Colaborador/index";
+import LoginColaborador from "../src/Pages/LoginColaborador/index";
+import Pontos from "../src/Pages/Pontos/index";
+import Solicitacoes from "../src/Pages/Solicitacoes/index";
+import SolicitacoesColaborador from "../src/Pages/SolicitacoesColaborador/index";
+import ColaboradorPontos from "../src/Pages/PontosColaborador/index";
 import { adminIsAuthenticated } from "./authAdmin";
 import { isAuthenticated } from "./auth";
-import PontoColaborador from "../src/pages/PontoColaborador/index";
-import PontoDoColaborador from "../src/pages/PontoDoColaborador/index";
-import SolicitacaoColaborador from "../src/pages/SolicitacaoColaborador/index";
-import Tarefas from "../src/pages/Tarefas/index";
-import Perfil from "../src/pages/Perfil/index";
-import Relatorio from "../src/pages/Relatorio/index";
-import Login from "../src/pages/Login/index";
+import PontoColaborador from "../src/Pages/PontoColaborador/index";
+import PontoDoColaborador from "../src/Pages/PontoDoColaborador/index";
+import SolicitacaoColaborador from "../src/Pages/SolicitacaoColaborador/index";
+import Tarefas from "../src/Pages/Tarefas/index";
+import Perfil from "../src/Pages/Perfil/index";
+import Relatorio from "../src/Pages/Relatorio/index";
+import Login from "../src/Pages/Login/index";
 
 const PrivateRouteColaborador = ({ component: Component, ...rest }) => (
   <Route
