@@ -34,6 +34,9 @@ const Relatorio = () => {
       .replace(/(\d{4})(\d)/, "$1");
   };
   
+  const handleZero = (e) =>{
+    setNoReport(false)
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     const dataFilterInicio = editDate(dataInicio);
@@ -104,13 +107,19 @@ const Relatorio = () => {
           <input
             className="inputs-data-filter"
             value={dataInicio}
-            onChange={(e) => setDataInicio(maskDate(e.target.value))}
+            onChange={(e) => {
+              setDataInicio(maskDate(e.target.value));
+              handleZero(e)
+            }}
             ></input>
           <p className="txt-between-inputs">à</p>
           <input
             className="inputs-data-filter"
             value={dataFinal}
-            onChange={(e) => setDataFinal(maskDate(e.target.value))}
+            onChange={(e) => {
+              setDataFinal(maskDate(e.target.value));
+              handleZero(e)
+            }}
             ></input>
           <button className="btn-submit-report">Gerar Relatório</button>
         </form>
