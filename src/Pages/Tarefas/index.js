@@ -188,15 +188,15 @@ const Tarefas = () => {
                   )}
 
                   <div className="content-fish">
-                    <p className="txt-finish">Hora</p>
+                    <p className="txt-finish">Hora Início</p>
                     <span className="txt-data-finish">{tarefas.hora}</span>
-                    <p className="txt-finish">Data Inicio</p>
+                    <p className="txt-finish">Data Início</p>
                     <span className="txt-data-finish">{tarefas.data_inicio}</span>
                   </div>
                   <div className="content-fish">
-                    <p  className="txt-finish">Hora Termino</p>
+                    <p  className="txt-finish">Hora Término</p>
                     <span className="txt-data-finish">{tarefas.hora_termino}</span>
-                    <p className="txt-finish">Data Termino</p>
+                    <p className="txt-finish">Data Término</p>
                     <span className="txt-data-finish">{tarefas.data_termino}</span>
                   </div>
                   <button
