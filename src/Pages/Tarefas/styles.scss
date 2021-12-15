@@ -144,6 +144,7 @@
     margin: 5px;
     display: flex;
     max-width: 800px;
+    min-height: 150px;
     width: calc(100% - 10px);
     border-radius: 5px;
     background-color: $secundary-bg-color;
@@ -155,11 +156,9 @@
     -moz-box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
     box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.41);
     @media screen and(max-width: 425px) {
-      width: 300px;
       flex-flow: wrap;
     }
     @media screen and(max-width: 510px) and (min-width: 425px){
-      height: 200px;
       flex-flow: wrap;
     }
     .content-list-task {
