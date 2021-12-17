@@ -131,6 +131,7 @@ const Tarefas = () => {
                 ></input>
                 <p className="title-description">Descrição:</p>
                 <input
+                  minLength="4"
                   className="input-description"
                   onChange={(e) => setDescricao(e.target.value)}
                 ></input>
