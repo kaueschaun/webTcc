@@ -86,8 +86,9 @@ const Colaborador = () => {
             <input
               className="person-input"
               type="text"
-              defaultValue={pessoa.nome_completo}
               name="nome_completo"
+              onChange={(event) => handlePerson(event)}
+              defaultValue={pessoa.nome_completo}
             />
           </div>
 
