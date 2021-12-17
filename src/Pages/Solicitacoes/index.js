@@ -131,24 +131,24 @@ const Solicitacoes = () => {
                 <fieldset className="data-spot">
                   
                   <legend>Dados do Ponto</legend>
-                  <p className="txt-fields">Entrada</p>
+                  <p className="txt-fields">Entrada:</p>
                   <span className="txt-res"> {solicitacao.pontosEntrada}</span>
-                  <p className="txt-fields">Saida</p>
+                  <p className="txt-fields">Saida:</p>
                   <span className="txt-res"> {solicitacao.pontosSaida}</span>
-                  <p className="txt-fields">Data</p>
+                  <p className="txt-fields">Data:</p>
                   <span className="txt-res"> {solicitacao.pontosData}</span>
                 </fieldset>
                 <div className="content-arrow">
                   <img className="down-arrow" src={DownArrow} alt="" /></div>
                 <fieldset className="data-spot">
                   <legend>Dados da Solicitação</legend>
-                  <p className="txt-fields">Nome</p>
+                  <p className="txt-fields">Nome:</p>
                   <span className="txt-res">{solicitacao.nome_completo}</span>
                   <p className="txt-fields">Entrada:</p>
                   <span className="txt-res"> {solicitacao.entrada}</span>
-                  <p className="txt-fields">Saida</p>
+                  <p className="txt-fields">Saida:</p>
                   <span className="txt-res"> {solicitacao.saida}</span>
-                  <p className="txt-fields">Data</p>
+                  <p className="txt-fields">Data:</p>
                   <span className="txt-res"> {solicitacao.data}</span>
                   <p className="txt-fields">Observação:</p>
                   <span className="txt-res">{solicitacao.observacao}</span>
